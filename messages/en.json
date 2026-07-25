@@ -84,6 +84,55 @@
     "saving": "Saving",
     "saveFailed": "Could not save your progress. Your ticks are still shown here."
   },
+  "reviews": {
+    "heading": "Community reports",
+    "count": "{count, plural, one {# report} other {# reports}}",
+    "unverifiedTitle": "Unverified citizen accounts",
+    "unverifiedBody": "These are people's own accounts of using this service. No one has checked them against an official source, and offices change their requirements without notice. Where a report disagrees with the official steps above, follow the official steps.",
+    "empty": "No one has shared their experience of this service yet.",
+    "writtenIn": "Written in {language}",
+    "languages": {
+      "en": "English",
+      "am": "Amharic"
+    },
+    "flag": "Report as misleading",
+    "flagged": "Reported. Thank you.",
+    "flagFailed": "Could not send your report. Please try again.",
+    "waitTimes": {
+      "under-hour": "Under an hour",
+      "half-day": "About half a day",
+      "full-day": "A full day",
+      "multiple-visits": "More than one visit"
+    },
+    "outcomes": {
+      "completed": "Got it done",
+      "rejected": "Turned away",
+      "still-trying": "Still trying"
+    },
+    "form": {
+      "open": "Share your experience",
+      "cancel": "Cancel",
+      "heading": "What happened when you used this service?",
+      "hint": "Describe what you went through. Leave out phone numbers and links — reports containing them are rejected.",
+      "bodyLabel": "Your experience",
+      "bodyPlaceholder": "For example: the office asked for a copy I did not know about, so I had to come back the next day.",
+      "bodyCounter": "{count} of {max} characters",
+      "officeLabel": "Which office did you visit? (optional)",
+      "officePlaceholder": "For example: Bole sub-city branch",
+      "waitTimeLabel": "How long did it take? (optional)",
+      "outcomeLabel": "How did it end? (optional)",
+      "unanswered": "Prefer not to say",
+      "submit": "Post report",
+      "submitting": "Posting",
+      "success": "Posted. Thank you for helping the next person.",
+      "errors": {
+        "invalid": "Please write between {min} and {max} characters, with no links or phone numbers.",
+        "unknown-service": "This service is not recognised.",
+        "rate-limited": "You have posted a few reports already. Please try again later.",
+        "unavailable": "Reports cannot be saved right now, so yours was not posted. Please try again later."
+      }
+    }
+  },
   "services": {
     "heading": "All services",
     "subheading": "Everything currently in the knowledge base.",

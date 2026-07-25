@@ -2,20 +2,28 @@ import { Clock, ExternalLink, MapPin, Receipt } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import type { ReactNode } from 'react';
 import { DocumentChecklist } from '@/components/service/document-checklist';
+import { ServiceReviews } from '@/components/service/service-reviews';
 import { VerificationBanner } from '@/components/service/verification-banner';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { formatVerificationDate } from '@/lib/knowledge/format';
 import type { ServiceView } from '@/lib/knowledge/view';
 import type { Locale } from '@/lib/locales';
+import type { PublishedReview } from '@/repositories/review.repository';
 
 interface ServiceDetailProps {
   readonly service: ServiceView;
   readonly locale: Locale;
   readonly initialCheckedIds: readonly string[];
+  readonly reviews: readonly PublishedReview[];
 }
 
-export function ServiceDetail({ service, locale, initialCheckedIds }: ServiceDetailProps) {
+export function ServiceDetail({
+  service,
+  locale,
+  initialCheckedIds,
+  reviews,
+}: ServiceDetailProps) {
   const t = useTranslations('service');
   const tCategories = useTranslations('categories');
   const tVerification = useTranslations('verification');
@@ -172,6 +180,10 @@ export function ServiceDetail({ service, locale, initialCheckedIds }: ServiceDet
           {t('lastVerified', { date: formatVerificationDate(service.lastVerified, locale) })}
         </p>
       </Section>
+
+      {/* Last, and boxed off: community accounts must never be mistaken for the
+          verified record above them. */}
+      <ServiceReviews serviceSlug={service.slug} locale={locale} reviews={reviews} />
     </article>
   );
 }

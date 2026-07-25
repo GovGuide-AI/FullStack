@@ -113,7 +113,7 @@ lib/ai/                provider, prompts, output schemas
 services/              orchestration (guidance.service.ts)
 repositories/          data access, all scoped by session_id
 db/                    Drizzle schema and migrations
-actions/               server actions for the checklist
+actions/               server actions for the checklist, feedback and reviews
 messages/              en.json, am.json
 scripts/               validate-knowledge (prebuild), ingest, draft, verify-citations
 test/                  unit and integration suites
@@ -131,8 +131,11 @@ npm run dev
 
 Open http://localhost:3000 — you will be redirected to `/en`.
 
-A database is **optional**. Without `DATABASE_URL` the app answers questions normally; it
-just cannot remember sessions, saved checklists, or cache model calls. To run one:
+A database is **optional** for guidance. Without `DATABASE_URL` the app answers questions
+normally; it just cannot remember sessions, saved checklists, or cache model calls. The one
+feature that needs it outright is [community reports](#the-community-lane), which are
+nothing but persistence — the form there reports a failure rather than pretending. To run
+one:
 
 ```bash
 docker run -d --name govguide-pg -e POSTGRES_PASSWORD=devpass \
@@ -213,6 +216,35 @@ enters the router's enum automatically.
 Set `verified: false` until a human has checked the record against the official
 source. Unverified records render a warning banner and have their fees and
 offices withheld from the browser and from the model alike.
+
+## The community lane
+
+Citizens can post what actually happened when they used a service. This is the only
+content in the project that is not written by an author reading an official source, and
+everything about how it is stored and shown follows from that.
+
+Reports live in Postgres, in `reviews` and `review_flags`. They are rendered at the very
+bottom of a service page, inside a dashed box, under a heading that says no one has checked
+them and that the official steps win where the two disagree. They are never translated: a
+report is shown in the language it was written in, labelled as such, because putting a
+model between a citizen's account and its reader would let it be distorted.
+
+**No report ever reaches the model.** `listCitations` builds the model's facts from the
+YAML record alone, and nothing under `services/` or `lib/ai/` imports the review
+repository. That absence is the guarantee — if a rumour someone typed could enter a prompt,
+the model would state it as procedure.
+
+Moderation is one mechanism: anyone can flag a report, and three flags from three different
+sessions hide it. A unique index on `(review_id, session_id)` means one objector cannot
+bury something alone, and the flag count is never shown, since that number is what an
+organised group would need to know how close they are. Submission also rejects any link or
+any run of seven or more digits, which is how a fixer would advertise a phone number or a
+Telegram channel. The digit rule deliberately tolerates `350 ETB` and `12-03-2026`, because
+reports carrying a real fee or date are the point of the feature.
+
+A structured `details` column holds three optional answers — which office, how long it
+took, how it ended. The last two are enumerated so their labels come from `messages/` and
+are bilingual without translating anyone's words.
 
 ## Deployment
 

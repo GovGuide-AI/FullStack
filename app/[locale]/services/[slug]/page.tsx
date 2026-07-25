@@ -10,6 +10,7 @@ import { toServiceView } from '@/lib/knowledge/view';
 import { isLocale, type Locale } from '@/lib/locales';
 import { readSessionId } from '@/lib/session.server';
 import { getCheckedItems } from '@/repositories/checklist.repository';
+import { listPublishedReviews } from '@/repositories/review.repository';
 
 export function generateStaticParams(): Array<{ locale: string; slug: string }> {
   return routing.locales.flatMap((locale) =>
@@ -57,7 +58,10 @@ export default async function ServicePage({
   // Reading the session makes this page dynamic, which is correct: a saved
   // checklist is per-visitor and must never be cached across sessions.
   const sessionId = await readSessionId();
-  const initialCheckedIds = sessionId ? await getCheckedItems(sessionId, slug) : [];
+  const [initialCheckedIds, reviews] = await Promise.all([
+    sessionId ? getCheckedItems(sessionId, slug) : Promise.resolve<string[]>([]),
+    listPublishedReviews(slug),
+  ]);
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-12">
@@ -73,6 +77,7 @@ export default async function ServicePage({
         service={toServiceView(service, locale as Locale)}
         locale={locale}
         initialCheckedIds={initialCheckedIds}
+        reviews={reviews}
       />
     </div>
   );

@@ -50,6 +50,7 @@ npm run db:migrate         # apply migrations
 | `lib/ai/` | OpenRouter provider, prompts, output schemas |
 | `knowledge/services/` | The YAML knowledge base — source of truth |
 | `knowledge/sources.json` | Registry of sources a record is allowed to cite |
+| `lib/reviews/` | Validation for citizen-submitted reports |
 | `messages/` | next-intl UI strings, `en.json` and `am.json` |
 
 ## The rule that matters most
@@ -75,6 +76,21 @@ only what the retrieved passages actually say. Where the sources are silent,
 say so in `verification.note` — an acknowledged gap is a usable answer, an
 invented one is not. Where they disagree, record the disagreement rather than
 picking a side.
+
+### Community reports are not facts
+
+The `reviews` table holds what citizens say happened to them. It is useful, and it
+is not knowledge this project stands behind.
+
+Never pass a review into a prompt, into `listCitations`, or into anything the
+model reads. Nothing under `services/` or `lib/ai/` may import
+`repositories/review.repository.ts`, and that import being absent is the only
+thing standing between a rumour someone typed and the model stating it as
+procedure. Reviews are read by one server component and rendered as clearly
+unverified prose, below the whole record, never merged into it.
+
+If a report turns out to be true, the fix is to register the official source and
+author a YAML record from it — not to promote the report.
 
 See `.cursor/rules/ai-grounding.mdc` for how this is enforced in code.
 
