@@ -1,0 +1,67 @@
+---
+description: Product definition and mandatory technology stack for GovGuide-AI
+alwaysApply: true
+---
+
+# GovGuide-AI — Architecture
+
+A bilingual (English / Amharic) web app that explains Ethiopian government services.
+A user asks a question in either language; the app identifies which service they
+need, asks a clarifying question when the request is ambiguous, and returns a
+checklist of required documents, fees, offices, and steps drawn from a curated
+knowledge base.
+
+The value of this product is that its answers are correct. An invented fee or a
+wrong office sends someone on a wasted trip across a city. Accuracy outranks
+coverage, fluency, and speed.
+
+## Stack (do not substitute without discussion)
+
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 16 App Router, React 19, TypeScript strict |
+| Styling | Tailwind CSS v4, shadcn/ui (radix base), Lucide icons |
+| AI | Vercel AI SDK v7 via OpenRouter, structured output, Zod schemas |
+| Database | PostgreSQL via Drizzle ORM + Drizzle Kit |
+| Localization | next-intl, locales `en` and `am` |
+| Knowledge | YAML files under `knowledge/`, validated by Zod at build time |
+| Runtime | Node.js 22+, npm |
+| Deployment | Render, a single Web Service, a single repository |
+
+## Everything lives in the one Next.js app
+
+There is no separate backend. Server code belongs in `app/api/*`, Server Actions
+under `actions/`, and plain modules under `lib/`, `services/`, `repositories/`,
+and `db/`. Do not add Express, Hono, FastAPI, a Go service, microservices, or
+serverless functions outside Next.js. Do not add Prisma (Drizzle exists), Yup
+(Zod exists), or a second CSS framework (Tailwind exists).
+
+## Layering
+
+Route handlers and Server Actions are thin. They validate input, call a service,
+and shape the response. Business logic lives in `services/`. Database access is
+confined to `repositories/`. Nothing outside `repositories/` imports `db/`.
+
+## Knowledge is not stored in the database, and not in the model
+
+`knowledge/services/*.yaml` is the single source of truth for every government
+fact. PostgreSQL stores only runtime data: sessions, messages, saved checklists,
+feedback, and the AI cache. If Postgres were wiped, no government knowledge would
+be lost. The LLM stores nothing; see the AI grounding rule.
+
+## Next.js 16 specifics that differ from earlier versions
+
+These are verified against the bundled docs in `node_modules/next/dist/docs/`.
+Read those docs before writing Next.js code; training data for this version is
+unreliable.
+
+- The middleware file is named `proxy.ts` and exports `proxy`, not `middleware`.
+  It runs on the Node.js runtime, which cannot be changed.
+- `params` and `searchParams` are Promises everywhere and must be awaited.
+  Synchronous access was removed, not merely deprecated.
+- `cookies()` from `next/headers` is async. Cookies **cannot be set during
+  Server Component rendering** — only in a Server Action, a Route Handler, or
+  via `NextResponse.cookies` in `proxy.ts`.
+- `error.tsx` and `global-error.tsx` must be Client Components and receive
+  `{ error, unstable_retry }`. The prop is not called `reset`.
+- Turbopack is the default bundler. `next lint` no longer exists; run `eslint`.

@@ -1,0 +1,249 @@
+# Renewing an expired Ethiopian passport
+#
+# Sourced from the ICS pages listed under verification.sourceUrls. Amharic is
+# taken from the ICS pages where they published it.
+#
+# verified: false — not yet checked by a person against the sources.
+#
+# Worth noting for a reviewer: the ICS renewal page lists only two documents
+# (the expired passport and one photo), while a later general notice tells all
+# passport applicants to bring a Kebele ID, birth certificate, and Fayda ID.
+# Both are recorded below rather than one being quietly dropped.
+
+slug: passport-renewal
+category: travel
+
+title:
+  en: "Renew an expired Ethiopian passport"
+  am: "ጊዜው ያለፈበት የኢትዮጵያ ፓስፖርት ማሳደስ"
+
+summary:
+  en: >-
+    Replacing a passport that has expired. You register online, pay, then
+    collect the new passport in person at the office where you applied.
+  am: >-
+    ጊዜው ያለፈበትን ፓስፖርት ማሳደስ። በኦንላይን ይመዘገባሉ፣ ክፍያ ይፈጽማሉ፣ ከዚያም አዲሱን
+    ፓስፖርት ባመለከቱበት ቢሮ በአካል ቀርበው ይቀበላሉ።
+
+aliases:
+  en:
+    - renew passport
+    - passport renewal
+    - expired passport
+    - my passport expired
+    - renew my passport
+  am:
+    - ፓስፖርት ማሳደስ
+    - ፓስፖርት እድሳት
+    - ጊዜው ያለፈበት ፓስፖርት
+
+eligibility:
+  - en: >-
+      ICS does not accept renewal applications through a representative. You
+      must appear in person for the photo step.
+    am: >-
+      ICS የእድሳት ማመልከቻን በውክልና አይቀበልም። ለፎቶ ደረጃው በአካል መቅረብ አለብዎት።
+
+documents:
+  - name:
+      en: "Your expired passport (original)"
+      am: "ጊዜው ያለፈበት ፓስፖርትዎ (ኦርጅናል)"
+    required: true
+
+  - name:
+      en: "One passport-sized photo"
+      am: "አንድ ጉርድ ፎቶ"
+    required: true
+    copies: 1
+
+  - name:
+      en: "Renewed Kebele ID, birth certificate and Fayda ID (originals)"
+      am: "የታደሰ የቀበሌ መታወቂያ፣ የልደት ወረቀት እና የፋይዳ መታወቂያ (ኦርጅናል)"
+    notes:
+      en: >-
+        The renewal page itself does not list these, but a September 2025 ICS
+        notice tells everyone applying for a regular or urgent passport service
+        to bring them before the appointment date. Bring them to be safe.
+      am: >-
+        የእድሳት ገጹ ራሱ እነዚህን አልዘረዘረም፤ ሆኖም የመስከረም 2025 የICS ማስታወቂያ
+        በመደበኛም ሆነ በአስቸኳይ የፓስፖርት አገልግሎት ለሚያመለክቱ ሁሉ ከቀጠሮ ቀን በፊት
+        ይዘው እንዲመጡ ይነግራል። ለጥንቃቄ ይዘዋቸው ይምጡ።
+    required: false
+
+fees:
+  - label:
+      en: "Normal service (expired passport)"
+      am: "መደበኛ አገልግሎት (ጊዜው ያለፈበት ፓስፖርት)"
+    amount:
+      kind: fixed
+      value: 5000
+      currency: ETB
+    notes:
+      en: "Published by ICS under Council of Ministers Regulation 550/2024."
+      am: "በሚኒስትሮች ምክር ቤት ደንብ ቁጥር 550/2024 መሠረት በICS የታተመ።"
+
+  - label:
+      en: "Urgent service (2 days)"
+      am: "አስቸኳይ አገልግሎት (2 ቀን)"
+    amount:
+      kind: fixed
+      value: 25000
+      currency: ETB
+
+  - label:
+      en: "Urgent service (5 days)"
+      am: "አስቸኳይ አገልግሎት (5 ቀን)"
+    amount:
+      kind: fixed
+      value: 20000
+      currency: ETB
+
+  - label:
+      en: "Renewal that also corrects your details"
+      am: "ከመረጃ እርማት ጋር የሚደረግ እድሳት"
+    amount:
+      kind: fixed
+      value: 12500
+      currency: ETB
+    notes:
+      en: >-
+        Applies when a name, photo, or other detail changes at the same time.
+        Urgent versions are 32,500 ETB for 2 days and 27,500 ETB for 5 days.
+      am: >-
+        ስም፣ ፎቶ ወይም ሌላ መረጃ በተመሳሳይ ጊዜ ሲቀየር ተፈጻሚ ይሆናል። የአስቸኳይ
+        አማራጮች ለ2 ቀን 32,500 ብር እና ለ5 ቀን 27,500 ብር ናቸው።
+
+offices:
+  - name:
+      en: "The immigration office where you applied"
+      am: "ያመለከቱበት ኢሚግሬሽን ቢሮ"
+    address:
+      en: >-
+        ICS returns the finished passport to the office you selected during
+        online registration, not to a central counter.
+      am: >-
+        ICS የተጠናቀቀውን ፓስፖርት በኦንላይን ምዝገባ ወቅት ወደመረጡት ቢሮ ይመልሳል እንጂ
+        ወደ አንድ ማዕከላዊ ቆጣሪ አይደለም።
+    phone: "8133"
+    website: "https://ics.gov.et/"
+
+  - name:
+      en: "Urgent renewals: office assigned by surname"
+      am: "አስቸኳይ እድሳት፦ በአያት ስም የሚመደብ ቢሮ"
+    address:
+      en: >-
+        For urgent renewals ICS splits applicants by surname: A to G go to the
+        Immigration Main Office, H to Z to the immigration office near the
+        Piazza Enat Building.
+      am: >-
+        ለአስቸኳይ እድሳት ICS አመልካቾችን በአያት ስም ይከፍላል፦ ከA እስከ G ወደ ዋናው
+        ኢሚግሬሽን ቢሮ፣ ከH እስከ Z ደግሞ ፒያሳ እናት ህንፃ አጠገብ ወደሚገኘው ኢሚግሬሽን
+        ቢሮ ይሄዳሉ።
+    hours:
+      en: >-
+        Collection for the 2-day service is 6:30 AM to 11:00 AM on the
+        appointment date. ICS also lists a 5-day service collection window
+        beginning at 2:30, which appears to be a typo on their page.
+      am: >-
+        የ2 ቀን አገልግሎት መረከቢያ በቀጠሮ ቀን ከጠዋቱ 6:30 እስከ 11:00 ነው። ICS
+        ለ5 ቀን አገልግሎት ከ2:30 የሚጀምር ሰዓት ይዘረዝራል፤ ይህ በገጻቸው ላይ የተፈጠረ
+        የጽሕፈት ስህተት ይመስላል።
+
+steps:
+  - title:
+      en: "Register online"
+      am: "በኦንላይን ይመዝገቡ"
+    detail:
+      en: >-
+        Apply at www.ethiopianpassportservices.gov.et and fill the form
+        accurately. ICS stresses that uploaded documents must be clear and
+        legible, since unreadable attachments cause delays.
+      am: >-
+        በwww.ethiopianpassportservices.gov.et ያመልክቱ እና ቅጹን በትክክል
+        ይሙሉ። ICS የሚያያይዟቸው ሰነዶች በግልጽ የሚታዩና የሚነበቡ መሆን እንዳለባቸው
+        ያሳስባል፤ የማይነበቡ አባሪዎች መዘግየት ያስከትላሉ።
+
+  - title:
+      en: "Pay within 3 hours"
+      am: "በ3 ሰዓት ውስጥ ክፍያ ይፈጽሙ"
+    detail:
+      en: "Pay by your preferred method within 3 hours of finishing registration."
+      am: "ምዝገባውን ከጨረሱ በኋላ በ3 ሰዓት ውስጥ በመረጡት አማራጭ ይክፈሉ።"
+
+  - title:
+      en: "Print your appointment confirmation"
+      am: "የቀጠሮ ወረቀትዎን ያትሙ"
+
+  - title:
+      en: "Give your photo if ICS asks"
+      am: "ICS ከጠየቀ ፎቶዎን ይስጡ"
+    detail:
+      en: >-
+        If an SMS from 7876 asks you to come for a photo, bring your original
+        passport and the appointment confirmation to the office where you
+        applied. Nobody can do this on your behalf.
+      am: >-
+        ከ7876 የመጣ መልዕክት ለፎቶ እንዲመጡ ከጠየቀዎት ኦርጅናል ፓስፖርትዎንና የቀጠሮ
+        ወረቀቱን ይዘው ያመለከቱበት ቢሮ ይቅረቡ። በእርስዎ ምትክ ማንም ሊሠራው አይችልም።
+
+  - title:
+      en: "Collect the passport on your delivery date"
+      am: "በመረከቢያ ቀንዎ ፓስፖርቱን ይቀበሉ"
+    detail:
+      en: >-
+        ICS sends the delivery date by SMS from 7876. Take the appointment
+        confirmation to the office where you applied.
+      am: >-
+        ICS የመረከቢያ ቀኑን ከ7876 በአጭር መልዕክት ይልካል። የቀጠሮ ወረቀቱን ይዘው
+        ያመለከቱበት ቢሮ ይሂዱ።
+
+processingTime:
+  en: >-
+    ICS offers a normal service plus urgent 2-day and 5-day options. No
+    calendar time is published for the normal service.
+  am: >-
+    ICS መደበኛ አገልግሎትን እንዲሁም የ2 ቀን እና የ5 ቀን አስቸኳይ አማራጮችን ይሰጣል።
+    ለመደበኛው አገልግሎት የተወሰነ ጊዜ አልታተመም።
+
+commonMistakes:
+  - en: >-
+      Uploading blurred or unreadable scans. ICS calls this out twice on the
+      renewal page.
+    am: >-
+      የደበዘዙ ወይም የማይነበቡ ቅጂዎችን መጫን። ICS በእድሳት ገጹ ላይ ይህን ሁለት ጊዜ
+      ይጠቅሳል።
+  - en: "Sending a relative or agent instead of coming yourself."
+    am: "በራስዎ ፋንታ ዘመድ ወይም ወኪል መላክ።"
+  - en: "Letting the 3-hour payment window pass after registering."
+    am: "ከተመዘገቡ በኋላ የ3 ሰዓቱን የክፍያ ገደብ ማሳለፍ።"
+
+followUp:
+  - en: "Watch for SMS messages from 7876; ICS uses that number for every step."
+    am: "ከ7876 የሚላኩ መልዕክቶችን ይከታተሉ፤ ICS ለእያንዳንዱ ደረጃ ያንን ቁጥር ይጠቀማል።"
+  - en: >-
+      Check ics.gov.et or call 8133 to confirm requirements before travelling
+      to an office, as ICS notices change.
+    am: >-
+      የICS ማስታወቂያዎች ስለሚቀያየሩ ወደ ቢሮ ከመሄድዎ በፊት በics.gov.et ወይም በ8133
+      ደውለው መስፈርቶቹን ያረጋግጡ።
+
+verification:
+  verified: false
+  lastVerified: "2026-07-25"
+  sourceUrls:
+    - "https://ics.gov.et/information/how-to-renew-an-expired-ethiopian-passport/"
+    - "https://ics.gov.et/information/streamlined-urgent-passport-renewals/"
+    - "https://ics.gov.et/information/important-notice-for-passport-service-applicants/"
+    - "https://ics.gov.et/information/immigration-and-citizenship-service-fees-revised-by-council-of-ministers-regulation-550-2024/"
+  note:
+    en: >-
+      Compiled from official ICS pages but not yet checked by a person. Two
+      points need a reviewer: whether the Kebele ID, birth certificate and
+      Fayda ID are genuinely required for a straightforward renewal, and the
+      5-day collection time, which ICS publishes as starting at 2:30 and looks
+      like an error.
+    am: >-
+      ከኦፊሴላዊ የICS ገጾች የተዘጋጀ ቢሆንም እስካሁን በሰው አልተረጋገጠም። ሁለት ነጥቦች
+      ገምጋሚ ይፈልጋሉ፦ ለቀላል እድሳት የቀበሌ መታወቂያ፣ የልደት ወረቀት እና የፋይዳ
+      መታወቂያ በእርግጥ ያስፈልጋሉ ወይ የሚለው፤ እንዲሁም ICS ከ2:30 ይጀምራል ብሎ
+      ያተመው የ5 ቀን መረከቢያ ሰዓት፤ ይህ ስህተት ይመስላል።
