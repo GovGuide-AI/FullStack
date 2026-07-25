@@ -1,0 +1,313 @@
+# Individual TIN (Taxpayer Identification Number) registration
+#
+# Sources: the tax registration chapter of the MoFED tax compliance guide,
+# Proclamation 980/2016 on how the TIN is assigned during commercial
+# registration, and the NIDP statement that Fayda is required to obtain a TIN.
+# All listed under verification.sourceUrls.
+#
+# mor.gov.et is registered as a source but is a client-rendered application that
+# yields no readable text, so the Ministry of Revenue's own published
+# requirements could not be read. That gap is stated in verification.note rather
+# than filled in from tax-consultancy blogs.
+
+slug: individual-tin-registration
+category: tax
+
+title:
+  en: "Get an individual Taxpayer Identification Number (TIN)"
+  am: "የግል የግብር ከፋይ መለያ ቁጥር (ቲን) ማውጣት"
+
+summary:
+  en: >-
+    Registering as a taxpayer to receive your TIN. You register in person at the
+    tax office nearest to where you live or trade, and you give biometric data
+    as part of it.
+  am: >-
+    ቲንዎን ለማግኘት እንደ ግብር ከፋይ መመዝገብ። በሚኖሩበት ወይም በሚነግዱበት አካባቢ
+    ቅርብ በሆነው የግብር ጽሕፈት ቤት በአካል ይመዘገባሉ፤ የባዮሜትሪክ መረጃም
+    እንደ ሂደቱ አካል ይሰጣሉ።
+
+aliases:
+  en:
+    - TIN
+    - need a TIN
+    - taxpayer identification number
+    - get a TIN
+    - tax ID
+    - register as a taxpayer
+    - tax number
+    - I need a tax identification number
+    - individual TIN
+  am:
+    - ቲን
+    - የግብር ከፋይ መለያ ቁጥር
+    - ቲን ማውጣት
+    - የግብር መለያ ቁጥር
+    - ግብር ከፋይ መመዝገብ
+
+eligibility:
+  - en: >-
+      You are registering in your own name, as a trader, a vocational service
+      provider or an employee. A company registers separately as a body, and its
+      manager needs a personal TIN of their own.
+    am: >-
+      በራስዎ ስም እንደ ነጋዴ፣ የሙያ አገልግሎት ሰጪ ወይም ተቀጣሪ እየተመዘገቡ ነው።
+      ኩባንያ እንደ ድርጅት ለብቻው ይመዘገባል፤ ሥራ አስኪያጁም የራሱ የግል ቲን
+      ያስፈልገዋል።
+  - en: >-
+      A taxpayer may hold only one TIN. If you already have one, you should not
+      register again.
+    am: >-
+      አንድ ግብር ከፋይ አንድ ቲን ብቻ ሊኖረው ይችላል። አስቀድሞ ካለዎት እንደገና
+      መመዝገብ የለብዎትም።
+  - en: >-
+      A minor applying for a TIN needs a guardian, according to the MoFED guide.
+    am: >-
+      በገንዘብ ሚኒስቴር መመሪያ መሠረት ቲን የሚያመለክት ለአካለ መጠን ያልደረሰ ሰው
+      ሞግዚት ያስፈልገዋል።
+
+documents:
+  - name:
+      en: "Completed registration form, with biometric data given on the spot"
+      am: "የተሞላ የምዝገባ ቅጽ፣ ባዮሜትሪክ መረጃም በቦታው ተሰጥቶ"
+    notes:
+      en: >-
+        The MoFED guide lists completion of the registration form and provision
+        of biometric data as the first requirement for a trader or vocational
+        service provider.
+      am: >-
+        የገንዘብ ሚኒስቴር መመሪያ የምዝገባ ቅጽ መሙላትንና የባዮሜትሪክ መረጃ
+        መስጠትን ለነጋዴ ወይም ለሙያ አገልግሎት ሰጪ እንደ መጀመሪያ መስፈርት
+        ይዘረዝራል።
+    required: true
+
+  - name:
+      en: "Valid local residence ID, passport or driving licence"
+      am: "የሚሠራ የነዋሪነት መታወቂያ፣ ፓስፖርት ወይም የመንጃ ፈቃድ"
+    notes:
+      en: >-
+        Any one of the three, according to the MoFED guide. Note separately that
+        NIDP states a Fayda ID is required to obtain a TIN, so bring your Fayda
+        number as well.
+      am: >-
+        በገንዘብ ሚኒስቴር መመሪያ መሠረት ከሦስቱ አንዱ። በተጨማሪም ብሔራዊ መታወቂያ
+        ፕሮግራሙ ቲን ለማውጣት የፋይዳ መታወቂያ እንደሚያስፈልግ ስለሚገልጽ የፋይዳ
+        ቁጥርዎንም ይዘው ይምጡ።
+    required: true
+
+  - name:
+      en: "A passport-sized photo taken within the last six months"
+      am: "ባለፉት ስድስት ወራት የተነሳ የፓስፖርት መጠን ፎቶ"
+    required: true
+
+  - name:
+      en: "Fayda national digital ID"
+      am: "የፋይዳ ብሔራዊ ዲጂታል መታወቂያ"
+    notes:
+      en: >-
+        NIDP states that having a Fayda ID is a requirement for obtaining a TIN,
+        used to verify identity before the next step. The MoFED guide predates
+        Fayda and does not list it.
+      am: >-
+        ብሔራዊ መታወቂያ ፕሮግራሙ ቲን ለማውጣት የፋይዳ መታወቂያ መያዝ መስፈርት
+        መሆኑንና ወደ ቀጣዩ ደረጃ ከመሸጋገር በፊት ማንነትን ለማረጋገጥ እንደሚያገለግል
+        ይገልጻል። የገንዘብ ሚኒስቴር መመሪያ ከፋይዳ በፊት የተጻፈ በመሆኑ አይዘረዝረውም።
+    required: true
+
+  - name:
+      en: "Guardian, where the applicant is a minor"
+      am: "አመልካቹ ለአካለ መጠን ያልደረሰ ከሆነ ሞግዚት"
+    required: false
+
+  - name:
+      en: "Title deed or sub-lease contract, if you rent out a building"
+      am: "ሕንፃ የሚያከራዩ ከሆነ የካርታ ማስረጃ ወይም የንዑስ ኪራይ ውል"
+    notes:
+      en: >-
+        The MoFED guide requires a person renting out a building to present the
+        title deed, or a rental contract in the case of sub-leasing, in addition
+        to the general requirements.
+      am: >-
+        የገንዘብ ሚኒስቴር መመሪያ ሕንፃ የሚያከራይ ሰው ከጠቅላላ መስፈርቶቹ በተጨማሪ
+        የካርታ ማስረጃ፣ በንዑስ ኪራይ ጊዜ ደግሞ የኪራይ ውል እንዲያቀርብ ይጠይቃል።
+    required: false
+
+  - name:
+      en: "Employment contract, if you are registering as an employee"
+      am: "እንደ ተቀጣሪ የሚመዘገቡ ከሆነ የሥራ ውል"
+    notes:
+      en: >-
+        Required in addition to the form, the identity document and the
+        photograph.
+      am: >-
+        ከቅጹ፣ ከማንነት ማረጋገጫውና ከፎቶግራፉ በተጨማሪ ይጠየቃል።
+    required: false
+
+offices:
+  - name:
+      en: "The tax office nearest to where you live or trade"
+      am: "በሚኖሩበት ወይም በሚነግዱበት አካባቢ ቅርብ የሆነው የግብር ጽሕፈት ቤት"
+    address:
+      en: >-
+        The MoFED guide states registration can be done at the nearest tax
+        office to where the taxpayer lives or conducts business. The Ministry of
+        Revenue has 11 branches administering federal and joint revenues, four
+        of them in Addis Ababa.
+      am: >-
+        የገንዘብ ሚኒስቴር መመሪያ ምዝገባው ግብር ከፋዩ በሚኖርበት ወይም ንግድ
+        በሚያካሂድበት አካባቢ ቅርብ በሆነ የግብር ጽሕፈት ቤት ሊከናወን እንደሚችል
+        ይገልጻል። የገቢዎች ሚኒስቴር ፌዴራላዊና የጋራ ገቢዎችን የሚያስተዳድሩ 11
+        ቅርንጫፎች ሲኖሩት አራቱ በአዲስ አበባ ናቸው።
+    website: "https://mor.gov.et/"
+  - name:
+      en: "Ethiopian Investment Commission one-stop shop, for investors"
+      am: "የኢትዮጵያ ኢንቨስትመንት ኮሚሽን የአንድ ማዕከል አገልግሎት፣ ለባለሀብቶች"
+    address:
+      en: >-
+        The MoFED guide states the Commission issues a TIN to new investors
+        together with the investment permit.
+      am: >-
+        የገንዘብ ሚኒስቴር መመሪያ ኮሚሽኑ ለአዲስ ባለሀብቶች ቲንን ከኢንቨስትመንት ፈቃድ
+        ጋር አብሮ እንደሚሰጥ ይገልጻል።
+
+steps:
+  - title:
+      en: "Make sure you have your Fayda number first"
+      am: "በመጀመሪያ የፋይዳ ቁጥርዎ መኖሩን ያረጋግጡ"
+    detail:
+      en: >-
+        NIDP names obtaining a TIN as one of the services that requires a Fayda
+        ID. Fayda registration is free and NIDP says it takes 5 to 10 minutes
+        when the requirements are properly presented.
+      am: >-
+        ብሔራዊ መታወቂያ ፕሮግራሙ ቲን ማውጣትን የፋይዳ መታወቂያ ከሚጠይቁ
+        አገልግሎቶች አንዱ አድርጎ ይጠቅሳል። የፋይዳ ምዝገባ ነጻ ሲሆን መስፈርቶቹ
+        በአግባቡ ሲቀርቡ ከ5 እስከ 10 ደቂቃ እንደሚፈጅ ይገልጻል።
+
+  - title:
+      en: "Go to the tax office nearest you"
+      am: "ወደ እርስዎ ቅርብ ወደሆነው የግብር ጽሕፈት ቤት ይሂዱ"
+    detail:
+      en: >-
+        Nearest to where you live, or where you conduct your business, as the
+        case may be.
+      am: >-
+        እንደ ሁኔታው በሚኖሩበት ወይም ንግድዎን በሚያካሂዱበት አካባቢ ቅርብ ወደሆነው።
+
+  - title:
+      en: "Complete the registration form and give biometric data"
+      am: "የምዝገባ ቅጹን ሞልተው የባዮሜትሪክ መረጃ ይስጡ"
+    detail:
+      en: >-
+        Biometric capture is why this cannot be finished remotely, even where
+        forms can be started online.
+      am: >-
+        ቅጾች በኦንላይን መጀመር በሚቻልበት ጊዜም ቢሆን ሂደቱ በርቀት ሊጠናቀቅ
+        የማይችለው በዚህ የባዮሜትሪክ መረጃ አሰባሰብ ምክንያት ነው።
+
+  - title:
+      en: "Receive your TIN"
+      am: "ቲንዎን ይረከቡ"
+    detail:
+      en: >-
+        The tax authority issues a unique TIN on completion of registration. A
+        taxpayer shall not have more than one.
+      am: >-
+        የግብር ባለሥልጣኑ ምዝገባው ሲጠናቀቅ ልዩ ቲን ይሰጣል። አንድ ግብር ከፋይ
+        ከአንድ በላይ ሊኖረው አይችልም።
+
+processingTime:
+  en: >-
+    Neither the Ministry of Revenue nor the MoFED guide publishes a turnaround
+    time for TIN issuance on the sources read here. The guide describes the TIN
+    as issued upon completion of registration.
+  am: >-
+    እዚህ ከተነበቡት ምንጮች ውስጥ የገቢዎች ሚኒስቴርም ሆነ የገንዘብ ሚኒስቴር መመሪያ
+    ቲን ለመስጠት የሚፈጀውን ጊዜ አላተመም። መመሪያው ቲኑ ምዝገባው ሲጠናቀቅ
+    እንደሚሰጥ ይገልጻል።
+
+commonMistakes:
+  - en: >-
+      Thinking a TIN lets you trade. The MoFED guide states plainly that holding
+      a TIN does not entitle you to do business without a licence.
+    am: >-
+      ቲን መያዝ የመነገድ መብት እንደሚሰጥ ማሰብ። የገንዘብ ሚኒስቴር መመሪያ ቲን
+      መያዝ ያለፈቃድ የመነገድ መብት እንደማይሰጥ በግልጽ ይናገራል።
+  - en: >-
+      Thinking no TIN means no tax. The guide is explicit that anyone earning
+      taxable income owes tax on it even without a TIN or a business licence.
+    am: >-
+      ቲን አለመኖር ግብር አለመክፈል ማለት እንደሆነ ማሰብ። መመሪያው ግብር የሚከፈልበት
+      ገቢ የሚያገኝ ማንኛውም ሰው ቲንም ሆነ የንግድ ፈቃድ ባይኖረውም ግብር
+      እንደሚገባው በግልጽ ይናገራል።
+  - en: >-
+      Registering a second time and ending up with two TINs. Where the authority
+      confirms a taxpayer holds more than one, it cancels the one obtained on
+      fraudulent evidence after transferring the data to the genuine TIN.
+    am: >-
+      ለሁለተኛ ጊዜ ተመዝግቦ ሁለት ቲን መያዝ። ባለሥልጣኑ አንድ ግብር ከፋይ ከአንድ
+      በላይ እንዳለው ካረጋገጠ መረጃውን ወደ ትክክለኛው ቲን ካዛወረ በኋላ በሐሰተኛ
+      ማስረጃ የተገኘውን ይሰርዛል።
+  - en: >-
+      Expecting to finish online. Biometric data is collected in person.
+    am: >-
+      በኦንላይን እንደሚጠናቀቅ መጠበቅ። የባዮሜትሪክ መረጃ በአካል ይሰበሰባል።
+
+followUp:
+  - en: >-
+      Put your TIN on every tax-related document. The authority may decline to
+      recognise documents presented without it.
+    am: >-
+      ቲንዎን በእያንዳንዱ ከግብር ጋር በተያያዘ ሰነድ ላይ ያስፍሩ። ባለሥልጣኑ ያለሱ
+      የቀረቡ ሰነዶችን ላይቀበል ይችላል።
+  - en: >-
+      If you trade or lease buildings in more than one region or city
+      administration, a sub-TIN is issued for each location.
+    am: >-
+      ከአንድ ክልል ወይም የከተማ አስተዳደር በላይ የሚነግዱ ወይም ሕንፃ የሚያከራዩ
+      ከሆነ ለእያንዳንዱ ቦታ ንዑስ ቲን ይሰጣል።
+  - en: >-
+      Notify the authority in writing within 30 days if your name, address,
+      principal activity or banking details change.
+    am: >-
+      ስምዎ፣ አድራሻዎ፣ ዋና የሥራ መስክዎ ወይም የባንክ መረጃዎ ከተለወጠ በ30 ቀናት
+      ውስጥ ለባለሥልጣኑ በጽሑፍ ያሳውቁ።
+  - en: >-
+      If you stop being required to register, apply for cancellation within 30
+      days. The authority may audit within 90 days of that request.
+    am: >-
+      መመዝገብ የማይጠበቅብዎት ከሆነ በ30 ቀናት ውስጥ የመሰረዝ ጥያቄ ያቅርቡ።
+      ባለሥልጣኑ ከጥያቄው በኋላ በ90 ቀናት ውስጥ ኦዲት ሊያደርግ ይችላል።
+
+verification:
+  verified: false
+  lastVerified: "2026-07-25"
+  sourceUrls:
+    - "https://www.mofed.gov.et/media/filer_public/86/fb/86fb37d6-8405-45ad-b439-560b3e818d45/tax_compliance_guide_for_foreign_investors_in_ethiopia.pdf"
+    - "https://www.motri.gov.et/sites/default/files/resource/proclamation-no-980_2016.pdf"
+    - "https://id.gov.et/faq"
+    - "https://mor.gov.et/"
+  note:
+    en: >-
+      The most important caveat on this record is what is missing. The Ministry
+      of Revenue is the authority that issues the TIN, but mor.gov.et is a
+      client-rendered application whose requirements could not be read by the
+      ingest pipeline, so the document list here comes from the MoFED tax
+      compliance guide instead. That guide is addressed to foreign investors and
+      predates Fayda, so a reviewer must confirm each item against what MoR
+      currently asks an Ethiopian individual for. No fee is stated: widely
+      repeated claims that a TIN is free appear only on tax-consultancy sites,
+      never on a government page, so this record omits the figure rather than
+      borrowing it. Whether registration can now be started through eServices or
+      eTax also needs checking against MoR directly.
+    am: >-
+      በዚህ መዝገብ ላይ በጣም አስፈላጊው ማሳሰቢያ የጎደለው ነገር ነው። ቲንን የሚሰጠው
+      ባለሥልጣን የገቢዎች ሚኒስቴር ቢሆንም mor.gov.et በደንበኛ በኩል የሚቀርብ
+      መተግበሪያ በመሆኑ መስፈርቶቹ በማሰባሰቢያው ሂደት ሊነበቡ አልቻሉም፤ ስለዚህ
+      እዚህ ያለው የሰነድ ዝርዝር ከገንዘብ ሚኒስቴር የግብር መመሪያ የተወሰደ ነው።
+      ያ መመሪያ ለውጭ ባለሀብቶች የተጻፈና ከፋይዳ በፊት የወጣ በመሆኑ ገምጋሚው
+      እያንዳንዱን ነጥብ ገቢዎች ሚኒስቴር በአሁኑ ጊዜ ከኢትዮጵያዊ ግለሰብ ከሚጠይቀው
+      ጋር ማረጋገጥ አለበት። ክፍያ አልተገለጸም፦ ቲን ነጻ ነው የሚለው በስፋት
+      የሚነገር ነገር የሚገኘው በግብር አማካሪ ድረ-ገጾች ላይ እንጂ በመንግሥት ገጽ ላይ
+      ስላልሆነ ይህ መዝገብ ቁጥሩን ከመዋስ ይልቅ ትቶታል። ምዝገባው አሁን በኢሰርቪስ
+      ወይም በኢታክስ መጀመር ይቻል እንደሆነም ከሚኒስቴሩ ጋር መጣራት አለበት።

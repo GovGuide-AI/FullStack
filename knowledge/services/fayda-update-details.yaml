@@ -1,0 +1,312 @@
+# Correct or update the details registered against a Fayda ID
+#
+# Sources: the National ID Program update page and service pages at id.gov.et,
+# listed under verification.sourceUrls. The document matrix below is quoted from
+# NIDP's own update requirements table rather than summarised.
+#
+# This is the record a citizen needs when their national ID details are wrong or
+# out of date. It is deliberately separate from fayda-lost-number, because NIDP
+# treats a lost number and a wrong name as unrelated problems.
+
+slug: fayda-update-details
+category: identity
+
+title:
+  en: "Correct or update your Fayda details"
+  am: "የፋይዳ መረጃዎን ማረም ወይም ማዘመን"
+
+summary:
+  en: >-
+    Changing the name, date of birth, address, nationality or contact details
+    held against your Fayda ID. An enrolment officer's typing error can be fixed
+    online; a real change to your details requires an in-person visit with
+    original legal documents.
+  am: >-
+    በፋይዳ መታወቂያዎ ላይ የተመዘገበውን ስም፣ የትውልድ ቀን፣ አድራሻ፣ ዜግነት ወይም
+    የመገናኛ መረጃ መቀየር። በምዝገባ ኃላፊው የተፈጸመ የጽሕፈት ስህተት በኦንላይን
+    ሊስተካከል ይችላል፤ በእውነተኛ መረጃዎ ላይ የሚደረግ ለውጥ ግን ኦርጅናል ሕጋዊ
+    ሰነዶችን ይዞ በአካል መቅረብ ይጠይቃል።
+
+aliases:
+  en:
+    - update my Fayda
+    - correct my national ID
+    - my ID has the wrong name
+    - change my address on my ID
+    - wrong date of birth on ID
+    - change name on national ID
+    - my ID details are wrong
+    - expired national ID
+    - update Fayda phone number
+  am:
+    - ፋይዳዬን ማዘመን
+    - መታወቂያዬን ማረም
+    - በመታወቂያዬ ላይ ስሙ ተሳስቷል
+    - አድራሻዬን መቀየር
+    - የትውልድ ቀኔ ተሳስቷል
+    - በብሔራዊ መታወቂያ ላይ ስም መቀየር
+
+eligibility:
+  - en: >-
+      You are already registered for Fayda and hold a Fayda number.
+    am: >-
+      አስቀድመው ለፋይዳ ተመዝግበው የፋይዳ ቁጥር አለዎት።
+  - en: >-
+      Online correction applies only where you filled the registration consent
+      form correctly but the enrolment officer entered it wrongly. NIDP directs
+      everything else to a registration centre.
+    am: >-
+      የኦንላይን እርማት የሚሠራው የምዝገባ ፈቃድ ቅጹን በትክክል ሞልተው የምዝገባው
+      ኃላፊ በተሳሳተ መንገድ ባስገባው ጊዜ ብቻ ነው። ብሔራዊ መታወቂያ ፕሮግራሙ
+      ሌላውን ሁሉ ወደ ምዝገባ ማዕከል ይመራል።
+
+documents:
+  - name:
+      en: "First name change — court decision showing the change"
+      am: "የመጀመሪያ ስም ለውጥ — ለውጡን የሚያሳይ የፍርድ ቤት ውሳኔ"
+    notes:
+      en: >-
+        NIDP requires the court decision to carry a circle stamp and to specify
+        the court name. The officer checks both the former and the changed name
+        against what is recorded.
+      am: >-
+        ብሔራዊ መታወቂያ ፕሮግራሙ የፍርድ ቤቱ ውሳኔ ክብ ማኅተም እንዲኖረውና የፍርድ
+        ቤቱ ስም እንዲገለጽ ይጠይቃል። ኃላፊው የቀድሞውንም የተቀየረውንም ስም
+        ከተመዘገበው ጋር ያመሳክራል።
+    required: false
+
+  - name:
+      en: "Minor name correction — resident ID, passport, driving licence or yellow card"
+      am: "ጥቃቅን የስም እርማት — የነዋሪነት መታወቂያ፣ ፓስፖርት፣ የመንጃ ፈቃድ ወይም ቢጫ ካርድ"
+    notes:
+      en: >-
+        NIDP notes that whether a correction counts as minor is its own
+        judgement call, so do not assume yours qualifies.
+      am: >-
+        ብሔራዊ መታወቂያ ፕሮግራሙ አንድ እርማት ጥቃቅን መሆኑ በራሱ ውሳኔ
+        እንደሚወሰን ይገልጻል፤ ስለዚህ የእርስዎ እንደሚያልፍ አድርገው አይቁጠሩ።
+    required: false
+
+  - name:
+      en: "Middle or last name change — paternity or adoption decision from court"
+      am: "የአባት ወይም የአያት ስም ለውጥ — የአባትነት ወይም የጉዲፈቻ የፍርድ ቤት ውሳኔ"
+    notes:
+      en: "The same circle stamp and named-court conditions apply."
+      am: "ተመሳሳዩ የክብ ማኅተምና የፍርድ ቤት ስም መገለጽ ሁኔታዎች ተፈጻሚ ይሆናሉ።"
+    required: false
+
+  - name:
+      en: "Date of birth — birth certificate, resident ID, passport, pension ID, court decision or driving licence"
+      am: "የትውልድ ቀን — የልደት የምስክር ወረቀት፣ የነዋሪነት መታወቂያ፣ ፓስፖርት፣ የጡረታ መታወቂያ፣ የፍርድ ቤት ውሳኔ ወይም የመንጃ ፈቃድ"
+    notes:
+      en: >-
+        Where the document shows only a year and no day or month, NIDP records
+        the day and month you declare.
+      am: >-
+        ሰነዱ ዓመቱን ብቻ አሳይቶ ቀኑንና ወሩን ካላሳየ ብሔራዊ መታወቂያ ፕሮግራሙ
+        እርስዎ የሚያሳውቁትን ቀንና ወር ይመዘግባል።
+    required: false
+
+  - name:
+      en: "Address — resident ID, court decision, school ID, employment ID, driving licence, or a letter from the local authority"
+      am: "አድራሻ — የነዋሪነት መታወቂያ፣ የፍርድ ቤት ውሳኔ፣ የትምህርት ቤት መታወቂያ፣ የሥራ መታወቂያ፣ የመንጃ ፈቃድ ወይም ከአካባቢው አስተዳደር ደብዳቤ"
+    notes:
+      en: "NIDP accepts a letter from the local authority or any government entity."
+      am: "ብሔራዊ መታወቂያ ፕሮግራሙ ከአካባቢው አስተዳደር ወይም ከማንኛውም የመንግሥት አካል ደብዳቤ ይቀበላል።"
+    required: false
+
+  - name:
+      en: "Nationality, foreign to Ethiopian — decision letter from Immigration and Citizenship Service"
+      am: "ዜግነት ከውጭ ወደ ኢትዮጵያዊ — ከኢሚግሬሽንና ዜግነት አገልግሎት የውሳኔ ደብዳቤ"
+    notes:
+      en: >-
+        NIDP is explicit that a Kebele ID or a passport alone, or any other
+        document, will not be accepted for this change.
+      am: >-
+        ብሔራዊ መታወቂያ ፕሮግራሙ ለዚህ ለውጥ የቀበሌ መታወቂያ ወይም ፓስፖርት
+        ብቻውን፣ ወይም ማንኛውም ሌላ ሰነድ ተቀባይነት እንደሌለው በግልጽ ይናገራል።
+    required: false
+
+  - name:
+      en: "Nationality, Ethiopian to foreign — foreign passport plus a work permit or residence permit"
+      am: "ዜግነት ከኢትዮጵያዊ ወደ ውጭ — የውጭ ፓስፖርት እና የሥራ ፈቃድ ወይም የነዋሪነት ፈቃድ"
+    required: false
+
+  - name:
+      en: "Phone number or email — no document required"
+      am: "ስልክ ቁጥር ወይም ኢሜይል — ሰነድ አያስፈልግም"
+    notes:
+      en: >-
+        NIDP sends a one-time password to the new phone to complete the update
+        application.
+      am: >-
+        ብሔራዊ መታወቂያ ፕሮግራሙ ማመልከቻውን ለማጠናቀቅ ወደ አዲሱ ስልክ የአንድ
+        ጊዜ የይለፍ ቃል ይልካል።
+    required: false
+
+fees: []
+
+offices:
+  - name:
+      en: "Any NIDP update centre"
+      am: "ማንኛውም የብሔራዊ መታወቂያ ፕሮግራም የዝማኔ ማዕከል"
+    address:
+      en: >-
+        NIDP publishes the list of update centres on its update page and asks
+        you to select the nearest one. Registration and update sites include
+        Ethio telecom centres, Ministry of Revenue tax collection offices,
+        selected bank branches, the Post Office, Palace Parking, the Civil
+        Registration and Residency Service Agency, and the Documents
+        Authentication and Registration Office.
+      am: >-
+        ብሔራዊ መታወቂያ ፕሮግራሙ የዝማኔ ማዕከላቱን ዝርዝር በዝማኔ ገጹ ላይ
+        ያትማል፤ ቅርብ የሆነውን እንዲመርጡም ይጠይቃል። የምዝገባና የዝማኔ ቦታዎች
+        የኢትዮ ቴሌኮም ማዕከላትን፣ የገቢዎች ሚኒስቴር የግብር መሰብሰቢያ ጽሕፈት
+        ቤቶችን፣ የተመረጡ የባንክ ቅርንጫፎችን፣ ፖስታ ቤትን፣ ፓላስ ፓርኪንግን፣
+        የሲቪል ምዝገባና የነዋሪነት አገልግሎት ኤጀንሲንና የሰነዶች ማረጋገጫና ምዝገባ
+        ጽሕፈት ቤትን ያካትታሉ።
+    website: "https://id.gov.et/update"
+  - name:
+      en: "National ID Program (NIDP) customer support"
+      am: "የብሔራዊ መታወቂያ ፕሮግራም (NIDP) የደንበኞች አገልግሎት"
+    address:
+      en: "Grand Palace Parking, Menelik II Avenue, 2nd floor, office 23, Addis Ababa"
+      am: "ግራንድ ፓላስ ፓርኪንግ፣ ዳግማዊ ምኒልክ ጎዳና፣ 2ኛ ፎቅ፣ ቢሮ ቁጥር 23፣ አዲስ አበባ"
+    phone: "+251 113 720 006"
+    website: "https://id.gov.et/"
+
+steps:
+  - title:
+      en: "Work out which of the two routes applies"
+      am: "ከሁለቱ መንገዶች የትኛው እንደሚመለከትዎ ይለዩ"
+    detail:
+      en: >-
+        If you filled the consent form correctly and the officer mistyped it,
+        you can correct it online at id.gov.et/update without visiting a centre.
+        If your actual details differ from what you originally declared, you
+        must go in person.
+      am: >-
+        የፈቃድ ቅጹን በትክክል ሞልተው ኃላፊው በተሳሳተ መንገድ ካስገባው ወደ ማዕከል
+        ሳይሄዱ በid.gov.et/update በኦንላይን ማረም ይችላሉ። ትክክለኛ መረጃዎ
+        መጀመሪያ ካሳወቁት የሚለይ ከሆነ ግን በአካል መቅረብ አለብዎት።
+
+  - title:
+      en: "Gather the original document for your specific change"
+      am: "ለሚያደርጉት ለውጥ የሚያስፈልገውን ኦርጅናል ሰነድ ያሰባስቡ"
+    detail:
+      en: >-
+        The document depends entirely on which field changes — see the list
+        above. NIDP accepts no copies for any part of this process.
+      am: >-
+        የሚያስፈልገው ሰነድ የሚወሰነው በሚቀየረው መስክ ላይ ብቻ ነው — ከላይ ያለውን
+        ዝርዝር ይመልከቱ። ብሔራዊ መታወቂያ ፕሮግራሙ በዚህ ሂደት በየትኛውም ክፍል
+        ቅጂ አይቀበልም።
+
+  - title:
+      en: "Have non-Amharic court decisions translated"
+      am: "በአማርኛ ያልሆኑ የፍርድ ቤት ውሳኔዎችን ያስተርጉሙ"
+    detail:
+      en: >-
+        NIDP requires court decisions in any language other than Amharic to be
+        translated by a licensed translation office, and the translation must
+        carry that agency's stamp.
+      am: >-
+        ብሔራዊ መታወቂያ ፕሮግራሙ ከአማርኛ ውጭ በሆነ ቋንቋ የተጻፉ የፍርድ ቤት
+        ውሳኔዎች በፈቃድ ባለው የትርጉም ጽሕፈት ቤት እንዲተረጎሙና ትርጉሙም
+        የዚያን ኤጀንሲ ማኅተም እንዲይዝ ይጠይቃል።
+
+  - title:
+      en: "Visit the update centre and submit in person"
+      am: "ወደ ዝማኔ ማዕከሉ ሄደው በአካል ያስገቡ"
+    detail:
+      en: >-
+        Select an update centre from the list NIDP publishes and bring the
+        original documents.
+      am: >-
+        ብሔራዊ መታወቂያ ፕሮግራሙ ካተመው ዝርዝር ውስጥ የዝማኔ ማዕከል መርጠው
+        ኦርጅናል ሰነዶቹን ይዘው ይቅረቡ።
+
+processingTime:
+  en: >-
+    NIDP publishes no turnaround time for an update. For comparison it states
+    that initial registration takes 5 to 10 minutes when the requirements are
+    presented properly.
+  am: >-
+    ብሔራዊ መታወቂያ ፕሮግራሙ ለዝማኔ የሚፈጀውን ጊዜ አላተመም። ለማነጻጸር ያህል
+    መስፈርቶቹ በአግባቡ ሲቀርቡ የመጀመሪያ ምዝገባ ከ5 እስከ 10 ደቂቃ እንደሚፈጅ
+    ይገልጻል።
+
+commonMistakes:
+  - en: >-
+      Bringing photocopies. NIDP states that all documents shall be original and
+      that no copy is accepted for any process.
+    am: >-
+      ቅጂ ይዞ መምጣት። ብሔራዊ መታወቂያ ፕሮግራሙ ሁሉም ሰነዶች ኦርጅናል መሆን
+      እንዳለባቸውና በየትኛውም ሂደት ቅጂ ተቀባይነት እንደሌለው ይገልጻል።
+  - en: >-
+      Bringing an expired document. NIDP requires every document to be valid and
+      not expired.
+    am: >-
+      ጊዜው ያለፈበት ሰነድ ይዞ መምጣት። ብሔራዊ መታወቂያ ፕሮግራሙ እያንዳንዱ ሰነድ
+      የሚሠራና ጊዜው ያላለፈበት እንዲሆን ይጠይቃል።
+  - en: >-
+      Bringing a document that is worn or torn where it matters. NIDP requires
+      the document to show a clear picture of the holder, the name and seal of
+      the issuing institution, and no damage that obscures the information.
+    am: >-
+      በሚያስፈልገው ቦታ ላይ የተበላሸ ወይም የተቀደደ ሰነድ ይዞ መምጣት። ብሔራዊ
+      መታወቂያ ፕሮግራሙ ሰነዱ የያዡን ግልጽ ፎቶ፣ የሰጪውን ተቋም ስምና ማኅተም
+      እንዲያሳይ እንዲሁም መረጃውን የሚሸፍን ጉዳት እንዳይኖረው ይጠይቃል።
+  - en: >-
+      Going to a centre for a change that could have been done online, or trying
+      online for a change that needs legal documents.
+    am: >-
+      በኦንላይን ሊደረግ የሚችልን ለውጥ ለማድረግ ወደ ማዕከል መሄድ፣ ወይም ሕጋዊ
+      ሰነድ የሚያስፈልገውን ለውጥ በኦንላይን ለመሞከር።
+  - en: >-
+      Assuming a court decision without a circle stamp will be accepted. NIDP
+      names that requirement twice, for first name and for middle or last name.
+    am: >-
+      ክብ ማኅተም የሌለው የፍርድ ቤት ውሳኔ ተቀባይነት እንደሚያገኝ ማሰብ። ብሔራዊ
+      መታወቂያ ፕሮግራሙ ይህን መስፈርት ለመጀመሪያ ስምና ለአባት ወይም አያት ስም
+      ሁለት ጊዜ ይጠቅሰዋል።
+
+followUp:
+  - en: >-
+      NIDP states it may change the accepted document list from time to time, so
+      check the update page again if your visit is not immediate.
+    am: >-
+      ብሔራዊ መታወቂያ ፕሮግራሙ ተቀባይነት ያለውን የሰነድ ዝርዝር ከጊዜ ወደ ጊዜ
+      ሊቀይር እንደሚችል ይገልጻል፤ ስለዚህ ጉብኝትዎ ወዲያውኑ ካልሆነ የዝማኔ ገጹን
+      እንደገና ይመልከቱ።
+  - en: >-
+      If you hold a printed card, the details on it do not change when the record
+      does. You would need a fresh card print to carry the corrected details.
+    am: >-
+      የታተመ ካርድ ካለዎት መዝገቡ ሲቀየር በካርዱ ላይ ያለው መረጃ አይቀየርም።
+      የተስተካከለውን መረጃ ለመያዝ አዲስ የካርድ ኅትመት ያስፈልግዎታል።
+
+verification:
+  verified: false
+  lastVerified: "2026-07-25"
+  sourceUrls:
+    - "https://id.gov.et/update"
+    - "https://id.gov.et/services"
+    - "https://id.gov.et/faq"
+  note:
+    en: >-
+      The document matrix is quoted from NIDP's own update requirements table,
+      but no person has checked it against the live page. One structural caveat:
+      the requirements are per-field, so a citizen changing two fields needs the
+      documents for both, and this record lists each requirement as optional
+      because none of them applies to every applicant. NIDP itself warns that it
+      may revise the accepted document list at any time, which makes this record
+      more perishable than most.
+    am: >-
+      የሰነድ ሠንጠረዡ ከብሔራዊ መታወቂያ ፕሮግራሙ የዝማኔ መስፈርቶች ሠንጠረዥ
+      የተወሰደ ቢሆንም ማንም ሰው ከቀጥታው ገጽ ጋር አላመሳከረውም። አንድ መዋቅራዊ
+      ማሳሰቢያ፦ መስፈርቶቹ በየመስኩ የተለያዩ በመሆናቸው ሁለት መስኮችን የሚቀይር
+      ዜጋ የሁለቱንም ሰነዶች ይፈልጋል፤ ይህ መዝገብም እያንዳንዱን መስፈርት እንደ
+      አማራጭ የዘረዘረው አንዳቸውም ለሁሉም አመልካች ስለማይሠሩ ነው። ፕሮግራሙ
+      ራሱ ተቀባይነት ያለውን የሰነድ ዝርዝር በማንኛውም ጊዜ ሊያሻሽል እንደሚችል
+      ስለሚያስጠነቅቅ ይህ መዝገብ ከሌሎቹ በበለጠ በፍጥነት ሊያረጅ ይችላል።

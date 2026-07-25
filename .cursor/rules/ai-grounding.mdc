@@ -1,0 +1,88 @@
+---
+description: Anti-hallucination contract for every AI answer about a government service
+globs: lib/ai/**/*.ts,services/**/*.ts,app/api/**/*.ts
+alwaysApply: false
+---
+
+# AI Grounding Contract
+
+Every fact the user reads must be traceable to a `knowledge/services/*.yaml`
+record. The server enforces this. Never rely on prompt wording alone — a system
+prompt asking the model not to invent things is a request, not a guarantee.
+
+## Never invent
+
+Not government procedures, offices, fees, forms, documents, URLs, regulations,
+processing times, or legal requirements. When the knowledge base does not cover
+something, say it is not covered and point to the official source. "I don't know"
+is a correct answer. A plausible guess is a defect.
+
+## Model roles come from config, never hardcoded
+
+```ts
+// BAD
+const model = openrouter.chat('some-vendor/some-model');
+
+// GOOD — env-driven, swappable per environment
+const model = openrouter.chat(env.OPENROUTER_ROUTER_MODEL);
+```
+
+Three roles: `OPENROUTER_ROUTER_MODEL` (classify and route), `OPENROUTER_ANSWER_MODEL`
+(write the explanation), `OPENROUTER_SUMMARY_MODEL` (background rollups). Never
+write a model ID from memory — model IDs are released and retired constantly.
+
+## Route into a closed set
+
+The router must pick from an enum built at runtime from the actual catalog slugs,
+using `Output.choice({ options })` or an equivalent constrained output. The model
+must be structurally incapable of naming a service that does not exist. Never ask
+it to free-write a slug and then look that slug up.
+
+If the router returns no match, respond "not covered" **without calling the answer
+model at all**. Do not spend a second model call inventing an apology.
+
+## Facts are rendered, never generated
+
+Documents, fees, offices, and processing times are read out of the YAML record by
+React components. The answer model receives only the one matched record and only
+writes the connective prose around those fields. It never emits a fee.
+
+## Validate citations server-side
+
+Ask for `{ explanation, citations: string[] }` and verify every id against the
+record before the response leaves the server:
+
+```ts
+const { known, unknown } = partitionCitations(service, output.citations);
+if (unknown.length > 0 || known.length === 0) {
+  return degradeToVerifiedFieldsOnly(); // never show unverifiable prose
+}
+```
+
+Prose with zero citations is ungrounded too — it was written from the model's
+own memory. Note that the schema deliberately does not ask the model whether it
+is grounded: a model that fabricates a fee will happily also claim the answer is
+grounded, so the flag would be worthless. Groundedness is computed here, from
+the record.
+
+## Never return raw LLM output
+
+Route handlers return a validated, typed DTO. The model's raw text never reaches
+the client unexamined.
+
+## Do not stream the explanation
+
+Streaming would show the user prose before citation validation could reject it,
+which defeats the entire contract. Generate, validate, then respond.
+
+## Decoding
+
+`temperature` 0–0.2 with a fixed `seed`. Set an explicit `timeout` and
+`maxRetries`, and degrade to the verified fields on failure rather than showing
+an error where guidance should be.
+
+## Keep the two modes separate
+
+Questions about a government service and general questions are different code
+paths with different prompts, and are labeled differently in the UI. Never blend
+verified government facts and general world knowledge into one unlabeled answer.

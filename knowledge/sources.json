@@ -1,0 +1,171 @@
+{
+  "sources": [
+    {
+      "id": "ics-information",
+      "title": "ICS service notices and procedure pages",
+      "publisher": "Immigration and Citizenship Service (ICS)",
+      "url": "https://ics.gov.et/information/",
+      "lane": "official",
+      "format": "html",
+      "topics": ["passport", "immigration", "travel document", "residence permit"],
+      "note": "Covers every ics.gov.et/information/* notice cited by the passport records. ICS publishes each change as a dated notice rather than editing one canonical page, so notices contradict each other and the newest is not always the one that ranks."
+    },
+    {
+      "id": "ics-home",
+      "title": "Immigration and Citizenship Service home",
+      "publisher": "Immigration and Citizenship Service (ICS)",
+      "url": "https://ics.gov.et/",
+      "lane": "official",
+      "format": "html",
+      "topics": ["passport", "immigration", "visa", "appointment"]
+    },
+    {
+      "id": "motri-commercial-registration",
+      "title": "Commercial Registration service category",
+      "publisher": "Ministry of Trade and Regional Integration (MoTRI)",
+      "url": "https://www.motri.gov.et/en/service_category/commercial-registration/view",
+      "lane": "official",
+      "format": "html",
+      "topics": [
+        "business registration",
+        "commercial registration",
+        "sole proprietor",
+        "private limited company",
+        "trade"
+      ],
+      "note": "Publishes one combined requirement list covering both individual traders and business organisations; it does not split requirements by legal form."
+    },
+    {
+      "id": "motri-trade-license",
+      "title": "Trade License service category",
+      "publisher": "Ministry of Trade and Regional Integration (MoTRI)",
+      "url": "https://www.motri.gov.et/en/service_category/trade-license/view",
+      "lane": "official",
+      "format": "html",
+      "topics": ["trade license", "business license", "renewal", "competency certificate"]
+    },
+    {
+      "id": "motri-trade-name",
+      "title": "Trade Name service category",
+      "publisher": "Ministry of Trade and Regional Integration (MoTRI)",
+      "url": "https://www.motri.gov.et/en/service_category/trade-name/view",
+      "lane": "official",
+      "format": "html",
+      "topics": ["trade name", "business name", "registration"]
+    },
+    {
+      "id": "proclamation-980-2016",
+      "title": "Commercial Registration and Business Licensing Proclamation No. 980/2016",
+      "publisher": "Federal Democratic Republic of Ethiopia, via MoTRI",
+      "url": "https://www.motri.gov.et/sites/default/files/resource/proclamation-no-980_2016.pdf",
+      "lane": "official",
+      "format": "pdf",
+      "topics": ["commercial registration", "business licensing", "trade name", "legal basis"],
+      "note": "Legal basis, not current procedure. Parts of it are amended by 1150/2019, so an article quoted from here may already be repealed."
+    },
+    {
+      "id": "proclamation-1150-2019",
+      "title": "Commercial Registration and Business Licensing (Amendment) Proclamation No. 1150/2019",
+      "publisher": "Federal Democratic Republic of Ethiopia, via MoTRI",
+      "url": "https://www.motri.gov.et/sites/default/files/resource/proclamation_1150_2019.pdf%201.pdf",
+      "lane": "official",
+      "format": "pdf",
+      "topics": ["commercial registration", "business licensing", "amendment", "legal basis"],
+      "note": "Amends 980/2016. Text extraction is poor on this scan, so treat any quoted wording as unreliable until read against the printed Negarit Gazeta."
+    },
+    {
+      "id": "fayda-services",
+      "title": "Fayda digital ID services",
+      "publisher": "National ID Program (NIDP)",
+      "url": "https://id.gov.et/services",
+      "lane": "official",
+      "format": "html",
+      "topics": ["fayda", "national id", "registration", "digital id", "card print"]
+    },
+    {
+      "id": "fayda-faq",
+      "title": "Fayda frequently asked questions",
+      "publisher": "National ID Program (NIDP)",
+      "url": "https://id.gov.et/faq",
+      "lane": "official",
+      "format": "html",
+      "topics": ["fayda", "national id", "cost", "registration centre", "eligibility"]
+    },
+    {
+      "id": "fayda-update",
+      "title": "Fayda demographic data update and update centres",
+      "publisher": "National ID Program (NIDP)",
+      "url": "https://id.gov.et/update",
+      "lane": "official",
+      "format": "html",
+      "topics": ["fayda", "update", "correction", "name change", "address change", "expired"]
+    },
+    {
+      "id": "fayda-card-print",
+      "title": "Fayda card print service",
+      "publisher": "National ID Program (NIDP)",
+      "url": "https://id.gov.et/cardprint",
+      "lane": "official",
+      "format": "html",
+      "topics": ["fayda", "card print", "ethiopost", "ethio telecom", "physical card"]
+    },
+    {
+      "id": "fayda-help",
+      "title": "Fayda online help desk",
+      "publisher": "National ID Program (NIDP)",
+      "url": "https://id.et/help",
+      "lane": "official",
+      "format": "html",
+      "topics": ["fayda", "lost fayda number", "fin", "registration id", "resend", "support"]
+    },
+    {
+      "id": "mor-home",
+      "title": "Ministry of Revenue",
+      "publisher": "Ministry of Revenue (MoR)",
+      "url": "https://mor.gov.et/",
+      "lane": "official",
+      "format": "html",
+      "topics": ["tax", "tin", "income tax", "vat", "revenue"],
+      "incompleteTlsChain": true,
+      "note": "Serves a valid Let's Encrypt leaf without the intermediate, so a strict client rejects the chain. The site is also a client-rendered application, so a plain fetch yields almost no text; it is registered for citation and reachability checking rather than for retrieval."
+    },
+    {
+      "id": "mor-etax",
+      "title": "eTax filing and payment portal",
+      "publisher": "Ministry of Revenue (MoR)",
+      "url": "https://etax.mor.gov.et/",
+      "lane": "official",
+      "format": "html",
+      "topics": ["etax", "efiling", "epayment", "tax declaration", "income tax"],
+      "note": "Login-gated single-page application. Registered so that citations to the filing portal resolve to a vetted source; it yields no ingestable text."
+    },
+    {
+      "id": "mofed-tax-compliance-guide",
+      "title": "Tax Compliance Guide for Foreign Investors in Ethiopia",
+      "publisher": "Ministry of Finance (MoFED)",
+      "url": "https://www.mofed.gov.et/media/filer_public/86/fb/86fb37d6-8405-45ad-b439-560b3e818d45/tax_compliance_guide_for_foreign_investors_in_ethiopia.pdf",
+      "lane": "official",
+      "format": "pdf",
+      "topics": [
+        "income tax",
+        "tin",
+        "category a",
+        "category b",
+        "category c",
+        "tax declaration",
+        "payment period",
+        "schedule c"
+      ],
+      "note": "Written for foreign investors but the taxpayer categories, schedules and payment periods it states are the general federal rules. Thresholds move with later proclamations, so figures need re-checking against the current law."
+    },
+    {
+      "id": "eservices-portal",
+      "title": "Ethiopian Government Electronic Services portal",
+      "publisher": "Ministry of Innovation and Technology (MInT)",
+      "url": "https://www.eservices.gov.et/",
+      "lane": "official",
+      "format": "html",
+      "topics": ["eservices", "online application", "government services", "portal"]
+    }
+  ]
+}

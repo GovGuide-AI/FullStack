@@ -1,0 +1,246 @@
+# New Ethiopian passport
+#
+# Every fact below is taken from an ICS (Immigration and Citizenship Service)
+# page listed under verification.sourceUrls. Nothing here is written from
+# memory. Amharic is quoted from the ICS pages themselves wherever the source
+# published it, rather than translated.
+#
+# verified: false — a human has not yet checked these fields against the
+# sources. Note also that the ICS pages contradict each other on the payment
+# window, the application portal, and whether a Fayda ID is required; the
+# disagreements are recorded inline rather than silently resolved.
+
+slug: new-passport
+category: travel
+
+title:
+  en: "New Ethiopian passport"
+  am: "አዲስ የኢትዮጵያ ፓስፖርት"
+
+summary:
+  en: >-
+    Applying for an Ethiopian passport for the first time. You register online,
+    pay, then attend one appointment in person to give your fingerprints and
+    photo.
+  am: >-
+    ለመጀመሪያ ጊዜ የኢትዮጵያ ፓስፖርት ማመልከቻ። በኦንላይን ይመዘገባሉ፣ ክፍያ ይፈጽማሉ፣ ከዚያም
+    አሻራና ፎቶ ለመስጠት በቀጠሮ ቀን በአካል ይቀርባሉ።
+
+aliases:
+  en:
+    - passport
+    - new passport
+    - first passport
+    - apply for a passport
+    - get a passport
+    - I need a new passport
+    - travel document
+  am:
+    - ፓስፖርት
+    - አዲስ ፓስፖርት
+    - ፓስፖርት ማውጣት
+    - ፓስፖርት ማመልከቻ
+
+documents:
+  - name:
+      en: "Renewed Kebele ID (original)"
+      am: "የታደሰ የቀበሌ መታወቂያ (ኦርጅናል)"
+    notes:
+      en: >-
+        If your Kebele ID is a temporary one, ICS requires a supporting letter
+        from the Kebele that issued it. Bring the original on your appointment
+        day, not a copy.
+      am: >-
+        የቀበሌ መታወቂያዎ ጊዜያዊ ከሆነ መታወቂያውን ካወጡበት ቀበሌ የድጋፍ ደብዳቤ ያስፈልጋል።
+        በቀጠሮ ቀን ኦርጅናሉን ይዘው ይምጡ፤ ቅጂ አይበቃም።
+    required: true
+
+  - name:
+      en: "Authenticated birth certificate (original)"
+      am: "የተረጋገጠ የልደት የምስክር ወረቀት (ኦርጅናል)"
+    notes:
+      en: >-
+        The February 2025 ICS page requires this for applicants under 40. Two
+        later ICS notices list a birth certificate without stating an age
+        condition, so confirm with the office whether it applies to you.
+      am: >-
+        የየካቲት 2025 የICS ገጽ ከ40 ዓመት በታች ላሉ አመልካቾች ይህን ይጠይቃል። ሁለት ቅርብ
+        ጊዜ የወጡ የICS ማስታወቂያዎች ግን የዕድሜ ገደብ ሳይጠቅሱ የልደት ወረቀት ይዘረዝራሉ፤
+        ስለዚህ በእርስዎ ላይ ተፈጻሚ መሆኑን ከቢሮው ያረጋግጡ።
+    required: true
+
+  - name:
+      en: "Fayda national digital ID"
+      am: "የፋይዳ ብሔራዊ ዲጂታል መታወቂያ"
+    notes:
+      en: >-
+        Listed by the September and November 2025 ICS notices. The older
+        February 2025 page does not mention it, so treat it as required and
+        bring it.
+      am: >-
+        በመስከረም እና በኅዳር 2025 በወጡ የICS ማስታወቂያዎች ተዘርዝሯል። ከዚህ ቀደም የካቲት
+        2025 የወጣው ገጽ አልጠቀሰውም፤ ስለዚህ እንደሚያስፈልግ ቆጥረው ይዘውት ይምጡ።
+    required: true
+
+  - name:
+      en: "Printed appointment confirmation"
+      am: "የታተመ የቀጠሮ ወረቀት"
+    notes:
+      en: "Printed after you pay. ICS asks you to bring it to the appointment."
+      am: "ክፍያ ከፈጸሙ በኋላ የሚታተም። ICS ወደ ቀጠሮው ይዘውት እንዲመጡ ይጠይቃል።"
+    required: true
+
+fees:
+  - label:
+      en: "Normal service"
+      am: "መደበኛ አገልግሎት"
+    amount:
+      kind: fixed
+      value: 5000
+      currency: ETB
+    notes:
+      en: "Published by ICS under Council of Ministers Regulation 550/2024."
+      am: "በሚኒስትሮች ምክር ቤት ደንብ ቁጥር 550/2024 መሠረት በICS የታተመ።"
+
+  - label:
+      en: "Urgent service (2 days)"
+      am: "አስቸኳይ አገልግሎት (2 ቀን)"
+    amount:
+      kind: fixed
+      value: 25000
+      currency: ETB
+
+  - label:
+      en: "Urgent service (5 days)"
+      am: "አስቸኳይ አገልግሎት (5 ቀን)"
+    amount:
+      kind: fixed
+      value: 20000
+      currency: ETB
+
+offices:
+  - name:
+      en: "Immigration and Citizenship Service, main office (Gotera)"
+      am: "የኢሚግሬሽንና ዜግነት አገልግሎት ዋና ቢሮ (ጎተራ)"
+    address:
+      en: "Gotera, Addis Ababa"
+      am: "ጎተራ፣ አዲስ አበባ"
+    phone: "8133"
+    website: "https://ics.gov.et/"
+  - name:
+      en: "The branch office you selected when applying"
+      am: "በማመልከቻ ጊዜ የመረጡት ቅርንጫፍ ቢሮ"
+    address:
+      en: >-
+        ICS directs regular applicants to the immigration office chosen during
+        online registration. Urgent e-Passport applicants are directed to the
+        Gotera main office.
+      am: >-
+        ICS መደበኛ አመልካቾችን በኦንላይን ምዝገባ ወቅት ወደመረጡት ኢሚግሬሽን ቢሮ ይመራል።
+        የአስቸኳይ ኢ-ፓስፖርት አመልካቾች ወደ ጎተራ ዋና ቢሮ ይመራሉ።
+
+steps:
+  - title:
+      en: "Register online"
+      am: "በኦንላይን ይመዝገቡ"
+    detail:
+      en: >-
+        The February 2025 ICS page gives the portal as
+        www.ethiopianpassportservices.gov.et, while the November 2025 page gives
+        www.immigration.gov.et. Check ics.gov.et for the current one before you
+        start. Anything you upload must be clear and legible.
+      am: >-
+        የየካቲት 2025 የICS ገጽ ፖርታሉን www.ethiopianpassportservices.gov.et
+        ሲል፣ የኅዳር 2025 ገጽ ደግሞ www.immigration.gov.et ይላል። ከመጀመርዎ በፊት
+        የትኛው እንደሆነ በics.gov.et ያረጋግጡ። የሚያያይዟቸው ሰነዶች በግልጽ የሚነበቡ
+        መሆን አለባቸው።
+
+  - title:
+      en: "Pay within the stated window"
+      am: "በተጠቀሰው የጊዜ ገደብ ውስጥ ክፍያ ይፈጽሙ"
+    detail:
+      en: >-
+        The February 2025 page allows 3 hours from registration; the November
+        2025 page says 1 hour. Treat 1 hour as the safe assumption. ICS lists
+        CBE Birr, mobile banking, and telebirr as payment options.
+      am: >-
+        የየካቲት 2025 ገጽ ከምዝገባ በኋላ 3 ሰዓት ይፈቅዳል፤ የኅዳር 2025 ገጽ ግን 1 ሰዓት
+        ይላል። 1 ሰዓትን እንደ አስተማማኝ ግምት ይውሰዱ። ICS ሲቢኢ ብር፣ ሞባይል ባንኪንግ
+        እና ቴሌብርን እንደ የክፍያ አማራጮች ይዘረዝራል።
+
+  - title:
+      en: "Print your appointment confirmation"
+      am: "የቀጠሮ ወረቀትዎን ያትሙ"
+
+  - title:
+      en: "Attend the appointment in person"
+      am: "በቀጠሮ ቀን በአካል ይቅረቡ"
+    detail:
+      en: >-
+        Go to the immigration office you selected, on your appointment date
+        only, carrying the original documents. This is the one visit at which
+        your fingerprints and photo are taken.
+      am: >-
+        በቀጠሮ ቀንዎ ብቻ ኦርጅናል ሰነዶቹን ይዘው ወደመረጡት ኢሚግሬሽን ቢሮ ይሂዱ። አሻራና
+        ፎቶ የሚሰጡት በዚህ አንድ ጉብኝት ብቻ ነው።
+
+processingTime:
+  en: >-
+    ICS publishes a normal service plus urgent 2-day and 5-day options in its
+    fee schedule. No calendar time is stated for normal service.
+  am: >-
+    ICS በክፍያ ዝርዝሩ ውስጥ መደበኛ አገልግሎትን እንዲሁም የ2 ቀን እና የ5 ቀን አስቸኳይ
+    አማራጮችን ያትማል። ለመደበኛ አገልግሎት የሚፈጀው ጊዜ አልተገለጸም።
+
+commonMistakes:
+  - en: >-
+      Missing the payment window after registering. ICS states the payment must
+      be made within the time limit for the appointment to hold.
+    am: >-
+      ከተመዘገቡ በኋላ የክፍያውን የጊዜ ገደብ ማለፍ። ICS ቀጠሮው እንዲጸና ክፍያው በተወሰነው
+      ጊዜ ውስጥ መፈጸም እንዳለበት ይገልጻል።
+  - en: >-
+      Arriving after your appointment date. ICS states plainly that it cannot
+      serve you if the date has passed.
+    am: >-
+      ከቀጠሮ ቀንዎ በኋላ መምጣት። ICS ቀኑ ካለፈ ማስተናገድ እንደማይችል በግልጽ ይናገራል።
+  - en: "Bringing photocopies when ICS asks for originals."
+    am: "ICS ኦርጅናል ሲጠይቅ ቅጂ ይዞ መምጣት።"
+
+followUp:
+  - en: >-
+      ICS sends its instructions by SMS from the number 7876, including when to
+      come for your photo and fingerprints.
+    am: >-
+      ICS መመሪያዎቹን ከ7876 በአጭር የጽሑፍ መልዕክት ይልካል፤ ለፎቶና አሻራ መቼ መምጣት
+      እንዳለብዎትም ያሳውቃል።
+  - en: >-
+      Because the ICS pages disagree on some details, confirm the portal, the
+      payment window, and the document list on ics.gov.et or by calling 8133
+      before you travel to an office.
+    am: >-
+      የICS ገጾች በአንዳንድ ዝርዝሮች ላይ ስለሚለያዩ ወደ ቢሮ ከመሄድዎ በፊት ፖርታሉን፣ የክፍያ
+      ጊዜውን እና የሰነድ ዝርዝሩን በics.gov.et ወይም በ8133 ደውለው ያረጋግጡ።
+
+verification:
+  verified: false
+  lastVerified: "2026-07-25"
+  sourceUrls:
+    - "https://ics.gov.et/information/how-to-obtain-a-new-ethiopian-passport/"
+    - "https://ics.gov.et/information/documents-that-must-be-fulfilled-to-issue-a-new-passport/"
+    - "https://ics.gov.et/information/important-notice-for-passport-service-applicants/"
+    - "https://ics.gov.et/information/for-urgent-passport-applicants/"
+    - "https://ics.gov.et/information/immigration-and-citizenship-service-fees-revised-by-council-of-ministers-regulation-550-2024/"
+  note:
+    en: >-
+      Compiled from official ICS pages but not yet checked by a person. The
+      sources conflict: the payment window is given as 3 hours (Feb 2025) and
+      1 hour (Nov 2025), and the portal as ethiopianpassportservices.gov.et
+      (Feb 2025) and immigration.gov.et (Nov 2025). A reviewer should resolve
+      both against ICS directly before this record is marked verified.
+    am: >-
+      ከኦፊሴላዊ የICS ገጾች የተዘጋጀ ቢሆንም እስካሁን በሰው አልተረጋገጠም። ምንጮቹ
+      ይለያያሉ፦ የክፍያ ጊዜው 3 ሰዓት (የካቲት 2025) እና 1 ሰዓት (ኅዳር 2025) ተብሎ
+      ተቀምጧል፤ ፖርታሉም ethiopianpassportservices.gov.et (የካቲት 2025) እና
+      immigration.gov.et (ኅዳር 2025) ተብሏል። ይህ መዝገብ እንደተረጋገጠ ከመመዝገቡ
+      በፊት ገምጋሚ ሁለቱንም ከICS ጋር ማጣራት አለበት።
