@@ -35,7 +35,10 @@ Four structural constraints, none of which depend on the model cooperating:
    yet" without ever invoking the answer model.
 
 An unverified record additionally suppresses fees and offices *on the server*, in
-`toServiceView`, so unverified figures are never serialized to the browser at all.
+`toServiceView`, so unverified figures are never serialized to the browser at all. The
+same rule gates `listCitations`, so those fields are also withheld from the explainer —
+otherwise the UI could hide the fee table while the model quoted the figure in prose.
+Both call `canDiscloseFeesAndOffices`, so the two halves cannot drift apart.
 
 ## Request flow
 
@@ -144,9 +147,16 @@ automatically. Migrations are applied with `npm run db:migrate`.
 
 Stated plainly, because pretending otherwise would undercut the point of the project:
 
-- **The knowledge base ships with one unverified template record.** The architecture is
-  complete; the content is not. This is a deliberate ordering — the schema, validation,
-  and verification workflow had to exist before content could be trusted.
+- **Every record ships unverified.** The knowledge base covers three passport services,
+  compiled from official ICS pages, plus a template. None has been checked by a person
+  against its cited sources, so all four render the warning banner and withhold fees and
+  offices. The architecture is complete; the content is provisional.
+- **The official sources contradict each other.** ICS states the payment window as both
+  3 hours and 1 hour, and gives two different application portals, on pages published
+  months apart. The records document the disagreement rather than silently picking one,
+  but a reviewer has to resolve it with ICS directly.
+- **No document list exists for a damaged passport.** ICS publishes the fee but not the
+  requirements, so that half of the replacement record is an acknowledged gap.
 - **The Amharic UI strings need a native-speaker review.** Government terminology in
   particular is easy to get subtly wrong, and I would not launch on my translations.
 - **The default model ids are a starting point, not a recommendation.** They were

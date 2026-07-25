@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { listCitationIds, partitionCitations } from '@/lib/knowledge/citations';
+import { listCitations, listCitationIds, partitionCitations } from '@/lib/knowledge/citations';
 import { loadKnowledgeBase } from '@/lib/knowledge/loader';
 import { serviceSchema, type Service } from '@/lib/knowledge/schema';
 import { toServiceView } from '@/lib/knowledge/view';
@@ -184,5 +184,60 @@ describe('partitionCitations', () => {
   it('deduplicates repeated ids', () => {
     const { known } = partitionCitations(record, ['summary', 'summary']);
     expect(known).toEqual(['summary']);
+  });
+});
+
+describe('citations and the suppression rule', () => {
+  function withFeesAndOffices(verified: boolean) {
+    return serviceSchema.parse(
+      baseRecord({
+        fees: [
+          {
+            label: { en: 'Application fee', am: 'የማመልከቻ ክፍያ' },
+            amount: { kind: 'fixed', value: 5000, currency: 'ETB' },
+          },
+        ],
+        offices: [
+          {
+            name: { en: 'Head office', am: 'ዋና ቢሮ' },
+            address: { en: 'Somewhere', am: 'የሆነ ቦታ' },
+          },
+        ],
+        verification: {
+          verified,
+          lastVerified: '2026-07-25',
+          sourceUrls: verified ? ['https://example.gov.et/source'] : [],
+        },
+      }),
+    ) as Service;
+  }
+
+  it('offers fees and offices as citable facts on a verified record', () => {
+    const ids = listCitationIds(withFeesAndOffices(true));
+
+    expect(ids).toContain('fees.0');
+    expect(ids).toContain('offices.0');
+  });
+
+  it('withholds fees and offices from the model on an unverified record', () => {
+    const unverified = withFeesAndOffices(false);
+
+    // Suppressing the fee table in the UI would be pointless if the explainer
+    // could still quote the figure in its prose, so the fact is never offered.
+    expect(listCitationIds(unverified)).not.toContain('fees.0');
+    expect(listCitationIds(unverified)).not.toContain('offices.0');
+    expect(JSON.stringify(listCitations(unverified, 'en'))).not.toContain('5,000');
+  });
+
+  it('rejects an explanation that cites a suppressed fee', () => {
+    const { known, unknown } = partitionCitations(withFeesAndOffices(false), [
+      'summary',
+      'fees.0',
+    ]);
+
+    // `fees.0` resolving as unknown is what makes guidance.service discard the
+    // whole explanation rather than print an unverified figure.
+    expect(known).toEqual(['summary']);
+    expect(unknown).toEqual(['fees.0']);
   });
 });

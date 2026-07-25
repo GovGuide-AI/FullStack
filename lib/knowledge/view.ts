@@ -48,6 +48,18 @@ export interface ServiceView {
 }
 
 /**
+ * The suppression rule, in one place.
+ *
+ * A wrong fee or office address sends someone on a wasted trip across a city,
+ * so neither is disclosed until a human has checked the record against its
+ * cited sources. Both the rendered view and the set of facts the model is
+ * allowed to cite are gated on this, so the two can never drift apart.
+ */
+export function canDiscloseFeesAndOffices(service: Service): boolean {
+  return service.verification.verified;
+}
+
+/**
  * Flattens a bilingual record down to one locale and applies the suppression
  * rule for unverified records.
  *
@@ -57,6 +69,7 @@ export interface ServiceView {
  */
 export function toServiceView(service: Service, locale: Locale): ServiceView {
   const verified = service.verification.verified;
+  const disclose = canDiscloseFeesAndOffices(service);
 
   return {
     slug: service.slug,
@@ -70,14 +83,14 @@ export function toServiceView(service: Service, locale: Locale): ServiceView {
       required: doc.required,
       copies: doc.copies ?? null,
     })),
-    fees: verified
+    fees: disclose
       ? service.fees.map((fee) => ({
           label: fee.label[locale],
           amount: formatFeeAmount(fee.amount, locale),
           notes: fee.notes?.[locale] ?? null,
         }))
       : null,
-    offices: verified
+    offices: disclose
       ? service.offices.map((office) => ({
           name: office.name[locale],
           address: office.address[locale],

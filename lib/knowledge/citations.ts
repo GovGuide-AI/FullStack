@@ -1,5 +1,6 @@
 import { formatFeeAmount } from './format';
 import type { Locale, Service } from './schema';
+import { canDiscloseFeesAndOffices } from './view';
 
 /**
  * A single quotable fact from a service record.
@@ -25,19 +26,26 @@ export function listCitations(service: Service, locale: Locale): Citation[] {
     citations.push({ id: `documents.${index}`, label: doc.name[locale] });
   });
 
-  service.fees.forEach((fee, index) => {
-    citations.push({
-      id: `fees.${index}`,
-      label: `${fee.label[locale]}: ${formatFeeAmount(fee.amount, locale)}`,
+  // Fees and offices from an unverified record are withheld here for the same
+  // reason `toServiceView` withholds them: hiding the fee table while letting
+  // the model quote the figure in prose would defeat the suppression entirely.
+  // Because validation runs against this same list, an explanation that tries
+  // to cite a suppressed fee is rejected rather than shown.
+  if (canDiscloseFeesAndOffices(service)) {
+    service.fees.forEach((fee, index) => {
+      citations.push({
+        id: `fees.${index}`,
+        label: `${fee.label[locale]}: ${formatFeeAmount(fee.amount, locale)}`,
+      });
     });
-  });
 
-  service.offices.forEach((office, index) => {
-    citations.push({
-      id: `offices.${index}`,
-      label: `${office.name[locale]} — ${office.address[locale]}`,
+    service.offices.forEach((office, index) => {
+      citations.push({
+        id: `offices.${index}`,
+        label: `${office.name[locale]} — ${office.address[locale]}`,
+      });
     });
-  });
+  }
 
   service.steps.forEach((step, index) => {
     citations.push({ id: `steps.${index}`, label: step.title[locale] });
