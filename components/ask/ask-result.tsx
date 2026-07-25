@@ -1,16 +1,27 @@
 'use client';
 
-import { ArrowRight, HelpCircle, Info, SearchX } from 'lucide-react';
+import { ArrowRight, HelpCircle, Info, Loader2, SearchX } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useId, useState } from 'react';
 import { AnswerFeedback } from '@/components/ask/answer-feedback';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
 import { VerificationBanner } from '@/components/service/verification-banner';
 import { Link } from '@/i18n/navigation';
-import type { AskResponse } from '@/lib/ask/contract';
+import { MAX_QUESTION_LENGTH, type AskResponse } from '@/lib/ask/contract';
 
-export function AskResult({ result }: { result: AskResponse }) {
+export function AskResult({
+  result,
+  onClarify,
+  isLoading = false,
+}: {
+  result: AskResponse;
+  /** Sends the user's reply to a clarifying question back for another routing pass. */
+  onClarify?: (answer: string) => void;
+  isLoading?: boolean;
+}) {
   const t = useTranslations('result');
 
   if (result.kind === 'not-covered') {
@@ -33,9 +44,13 @@ export function AskResult({ result }: { result: AskResponse }) {
       <Alert>
         <HelpCircle aria-hidden="true" className="size-4" />
         <AlertTitle>{t('clarify.title')}</AlertTitle>
-        <AlertDescription className="space-y-2">
+        <AlertDescription className="space-y-3">
           <p className="text-foreground">{result.question}</p>
-          <p>{t('clarify.hint')}</p>
+          {onClarify ? (
+            <ClarifyReply onSubmit={onClarify} isLoading={isLoading} />
+          ) : (
+            <p>{t('clarify.hint')}</p>
+          )}
         </AlertDescription>
       </Alert>
     );
@@ -91,5 +106,47 @@ export function AskResult({ result }: { result: AskResponse }) {
         <AnswerFeedback serviceSlug={service.slug} />
       </CardContent>
     </Card>
+  );
+}
+
+function ClarifyReply({
+  onSubmit,
+  isLoading,
+}: {
+  onSubmit: (answer: string) => void;
+  isLoading: boolean;
+}) {
+  const t = useTranslations('result');
+  const fieldId = useId();
+  const [answer, setAnswer] = useState('');
+
+  const trimmed = answer.trim();
+
+  return (
+    <form
+      className="flex flex-col gap-2 sm:flex-row"
+      onSubmit={(event) => {
+        event.preventDefault();
+        if (trimmed.length === 0 || isLoading) return;
+        onSubmit(trimmed);
+      }}
+    >
+      <label htmlFor={fieldId} className="sr-only">
+        {t('clarify.replyLabel')}
+      </label>
+      <Input
+        id={fieldId}
+        value={answer}
+        onChange={(event) => setAnswer(event.target.value)}
+        placeholder={t('clarify.replyPlaceholder')}
+        maxLength={MAX_QUESTION_LENGTH}
+        autoComplete="off"
+        className="bg-background"
+      />
+      <Button type="submit" disabled={trimmed.length === 0 || isLoading}>
+        {isLoading ? <Loader2 aria-hidden="true" className="size-4 animate-spin" /> : null}
+        {t('clarify.replySubmit')}
+      </Button>
+    </form>
   );
 }

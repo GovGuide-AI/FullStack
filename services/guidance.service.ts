@@ -9,7 +9,7 @@ import {
   NEEDS_CLARIFICATION,
   NO_MATCH,
 } from '@/lib/ai/schemas';
-import type { AskResponse } from '@/lib/ask/contract';
+import type { AskResponse, Clarification } from '@/lib/ask/contract';
 import { getEnv } from '@/lib/env';
 import { getCatalogSlugs, renderCatalogForPrompt } from '@/lib/knowledge/catalog';
 import { listCitations, partitionCitations } from '@/lib/knowledge/citations';
@@ -23,12 +23,24 @@ import { readCachedPayload, writeCachedPayload } from '@/repositories/ai-cache.r
 const ROUTE_CACHE_TTL_SECONDS = 60 * 60 * 24;
 const EXPLAIN_CACHE_TTL_SECONDS = 60 * 60 * 24 * 7;
 
-const ROUTER_TIMEOUT_MS = 15_000;
-const ANSWER_TIMEOUT_MS = 25_000;
+/**
+ * A bare `timeout` number is a *total* budget spanning every retry, which made
+ * the previous 15s-with-2-retries pairing self-defeating: one slow attempt ate
+ * the whole allowance and the retries had no time left to run. Splitting it
+ * gives each attempt its own window and leaves room for a genuine retry.
+ *
+ * The step budgets are sized against measured latency rather than guessed.
+ * Routing on a free-tier reasoning model takes 10-12s, so 20s per attempt is
+ * roughly 70% headroom; anything slower is a stall worth abandoning.
+ */
+const ROUTER_TIMEOUT = { stepMs: 20_000, totalMs: 45_000 } as const;
+const ANSWER_TIMEOUT = { stepMs: 30_000, totalMs: 50_000 } as const;
 
 export interface GuidanceRequest {
   readonly question: string;
   readonly locale: Locale;
+  /** A prior round of clarification, replayed by the client. */
+  readonly clarification?: Clarification | null;
 }
 
 export async function askGuidance(request: GuidanceRequest): Promise<AskResponse> {
@@ -41,8 +53,13 @@ export async function askGuidance(request: GuidanceRequest): Promise<AskResponse
 
   const decision = await routeQuestion(request, slugs);
 
+  // Only one round of clarification is offered. If the model still cannot place
+  // the question after the user has already answered once, saying so is kinder
+  // than asking again and leaving them in a loop with no way out.
   if (decision.serviceSlug === NEEDS_CLARIFICATION && decision.clarifyingQuestion.trim()) {
-    return { kind: 'clarify', question: decision.clarifyingQuestion.trim() };
+    return request.clarification
+      ? { kind: 'not-covered' }
+      : { kind: 'clarify', question: decision.clarifyingQuestion.trim() };
   }
 
   // Anything that is not a real slug — including a clarification with no
@@ -110,6 +127,9 @@ async function routeQuestion(
     request.locale,
     hashCatalog(),
     request.question.toLowerCase(),
+    // Without this, the answered follow-up would collide with the original
+    // question and be served the cached "needs clarification" forever.
+    request.clarification?.answer.toLowerCase() ?? '',
   ]);
 
   const cached = await readCachedPayload(cacheKey);
@@ -121,6 +141,7 @@ async function routeQuestion(
     question: request.question,
     locale: request.locale,
     catalog: renderCatalogForPrompt(),
+    clarification: request.clarification,
   });
 
   let decision: { serviceSlug: string; clarifyingQuestion: string };
@@ -131,7 +152,7 @@ async function routeQuestion(
       prompt,
       output: Output.object({ schema: buildRouterSchema(slugs) }),
       maxRetries: 2,
-      timeout: ROUTER_TIMEOUT_MS,
+      timeout: ROUTER_TIMEOUT,
       ...DETERMINISTIC_DECODING,
     });
     decision = output;
@@ -181,7 +202,7 @@ async function explainService(input: {
       prompt,
       output: Output.object({ schema: explanationSchema }),
       maxRetries: 1,
-      timeout: ANSWER_TIMEOUT_MS,
+      timeout: ANSWER_TIMEOUT,
       ...DETERMINISTIC_DECODING,
     });
 

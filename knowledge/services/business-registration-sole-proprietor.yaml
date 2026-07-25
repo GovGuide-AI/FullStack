@@ -1,0 +1,326 @@
+# Commercial registration for a sole proprietor
+#
+# Sources: the MoTRI Commercial Registration and Trade License service pages,
+# Proclamation 980/2016, and the tax registration chapter of the MoFED tax
+# compliance guide. All are listed under verification.sourceUrls and were read
+# through the ingest pipeline; nothing here is written from memory.
+#
+# Editorial note, disclosed rather than hidden: MoTRI publishes ONE combined
+# requirement list covering individual traders and business organisations
+# together. This record carries only the items that can apply to a person
+# trading in their own name; the organisation-only items live in
+# business-registration-private-company.yaml. That split is our reading of a
+# combined list, not something MoTRI states, which is one reason the record
+# ships unverified.
+
+slug: business-registration-sole-proprietor
+category: business
+
+title:
+  en: "Register a business as a sole proprietor"
+  am: "በግል ስም የንግድ ምዝገባ ማድረግ"
+
+summary:
+  en: >-
+    Registering yourself as a trader in your own name. Commercial registration
+    and the trade licence are two separate steps, and you need a TIN before
+    either of them.
+  am: >-
+    በራስዎ ስም ነጋዴ ሆነው መመዝገብ። የንግድ ምዝገባና የንግድ ፈቃድ ሁለት የተለያዩ ደረጃዎች
+    ናቸው፤ ከሁለቱም በፊት ግብር ከፋይ መለያ ቁጥር (ቲን) ያስፈልግዎታል።
+
+aliases:
+  en:
+    - register a business
+    - register a shop
+    - sole proprietor
+    - sole proprietorship
+    - open a shop
+    - start a business
+    - commercial registration
+    - business registration
+    - I want to open a small business
+    - trade licence
+  am:
+    - የንግድ ምዝገባ
+    - ንግድ መመዝገብ
+    - ሱቅ መክፈት
+    - ንግድ መጀመር
+    - በግል ስም ንግድ
+    - የንግድ ፈቃድ
+
+eligibility:
+  - en: >-
+      You are trading in your own name rather than forming a company. If you are
+      setting up a PLC or share company, see the private company record instead.
+    am: >-
+      ኩባንያ ከማቋቋም ይልቅ በራስዎ ስም የሚነግዱ ከሆነ። አክሲዮን ማኅበር ወይም ኃላፊነቱ የተወሰነ
+      የግል ማኅበር የሚያቋቁሙ ከሆነ የግል ኩባንያውን መዝገብ ይመልከቱ።
+  - en: >-
+      You already hold a Taxpayer Identification Number, or you are ready to get
+      one first. MoTRI lists the TIN certificate as a requirement for
+      registration.
+    am: >-
+      ግብር ከፋይ መለያ ቁጥር (ቲን) አለዎት ወይም አስቀድመው ለማውጣት ተዘጋጅተዋል። ንግድና
+      ቀጣናዊ ትስስር ሚኒስቴር የቲን የምስክር ወረቀትን እንደ መስፈርት ይዘረዝራል።
+
+documents:
+  - name:
+      en: "Certificate of Taxpayer Identification Number (TIN)"
+      am: "የግብር ከፋይ መለያ ቁጥር (ቲን) የምስክር ወረቀት"
+    notes:
+      en: >-
+        MoTRI lists this first. Under Proclamation 980/2016 the registering
+        office also asks the tax authority in writing to assign a TIN and then
+        records it in the commercial register as your special identification
+        number of registration.
+      am: >-
+        ንግድና ቀጣናዊ ትስስር ሚኒስቴር ይህንን በመጀመሪያ ይዘረዝራል። በአዋጅ ቁጥር 980/2016
+        መሠረት መዝጋቢው ጽሕፈት ቤት ለግብር ሰብሳቢው መሥሪያ ቤት በጽሑፍ ጠይቆ ቲን
+        እንዲሰጥ ያደርጋል፤ ከዚያም በንግድ መዝገብ ውስጥ እንደ ልዩ የምዝገባ መለያ ቁጥር
+        ያስመዘግበዋል።
+    required: true
+
+  - name:
+      en: "Valid identity card or passport — original and copies"
+      am: "የሚሠራ መታወቂያ ወይም ፓስፖርት — ኦርጅናልና ቅጂዎች"
+    notes:
+      en: >-
+        MoTRI asks for the original plus the necessary copies. The MoFED tax
+        guide accepts a valid local residence ID, passport or driving licence
+        for tax registration.
+      am: >-
+        ንግድና ቀጣናዊ ትስስር ሚኒስቴር ኦርጅናሉንና አስፈላጊውን ቅጂ ይጠይቃል። የገንዘብ
+        ሚኒስቴር የግብር መመሪያ ለግብር ምዝገባ የሚሠራ የነዋሪነት መታወቂያ፣ ፓስፖርት
+        ወይም የመንጃ ፈቃድ ይቀበላል።
+    required: true
+
+  - name:
+      en: "Support letter stating the registration requirement"
+      am: "የምዝገባውን አስፈላጊነት የሚገልጽ የድጋፍ ደብዳቤ"
+    notes:
+      en: >-
+        Listed by MoTRI as "support letter of registration requirement". The
+        page does not say which body issues it, so ask the registering office
+        before you travel.
+      am: >-
+        በንግድና ቀጣናዊ ትስስር ሚኒስቴር "support letter of registration requirement"
+        ተብሎ ተዘርዝሯል። ገጹ የሚሰጠውን አካል ስለማይገልጽ ወደ ቢሮ ከመሄድዎ በፊት
+        መዝጋቢውን ጽሕፈት ቤት ይጠይቁ።
+    required: true
+
+  - name:
+      en: "Power of attorney, if someone else applies for you"
+      am: "በሌላ ሰው የሚያመለክቱ ከሆነ የውክልና ሰነድ"
+    notes:
+      en: >-
+        MoTRI asks for the original and a copy of the power of attorney, plus
+        copies of the valid ID or passport of the attorney and the manager.
+      am: >-
+        ንግድና ቀጣናዊ ትስስር ሚኒስቴር የውክልናውን ኦርጅናልና ቅጂ እንዲሁም የወኪሉንና
+        የሥራ አስኪያጁን የሚሠራ መታወቂያ ወይም ፓስፖርት ቅጂ ይጠይቃል።
+    required: false
+
+  - name:
+      en: "Competency certificate — for the trade licence step"
+      am: "የብቃት ማረጋገጫ የምስክር ወረቀት — ለንግድ ፈቃድ ደረጃ"
+    notes:
+      en: >-
+        MoTRI lists a competency certificate as the requirement for a new trade
+        licence. Whether your activity needs one depends on the activity, so
+        confirm for your line of business.
+      am: >-
+        ንግድና ቀጣናዊ ትስስር ሚኒስቴር ለአዲስ የንግድ ፈቃድ የብቃት ማረጋገጫን እንደ መስፈርት
+        ይዘረዝራል። ለእርስዎ ሥራ አስፈላጊ መሆኑ በንግድ ዓይነቱ ስለሚወሰን ያረጋግጡ።
+    required: false
+
+  - name:
+      en: "Two passport-sized photographs taken within the last six months"
+      am: "ባለፉት ስድስት ወራት የተነሱ ሁለት የፓስፖርት መጠን ፎቶግራፎች"
+    notes:
+      en: >-
+        Required by the MoFED guide for the business licence application and for
+        tax registration. The MoTRI page does not mention photographs.
+      am: >-
+        በገንዘብ ሚኒስቴር መመሪያ ለንግድ ፈቃድ ማመልከቻና ለግብር ምዝገባ ይጠየቃል።
+        የንግድና ቀጣናዊ ትስስር ሚኒስቴር ገጽ ፎቶግራፍ አይጠቅስም።
+    required: true
+
+  - name:
+      en: "Title deed or a notarised rent contract for the business premises"
+      am: "የንግድ ቦታው የካርታ ማስረጃ ወይም በሕግ የተረጋገጠ የኪራይ ውል"
+    notes:
+      en: >-
+        The MoFED guide requires proof of the business address: the title deed
+        if you own the premises, a rent contract if you lease it.
+      am: >-
+        የገንዘብ ሚኒስቴር መመሪያ የንግድ አድራሻ ማስረጃ ይጠይቃል፤ ቦታው የራስዎ ከሆነ
+        የካርታ ማስረጃ፣ የተከራዩት ከሆነ የኪራይ ውል።
+    required: true
+
+offices:
+  - name:
+      en: "Ministry of Trade and Regional Integration"
+      am: "ንግድና ቀጣናዊ ትስስር ሚኒስቴር"
+    address:
+      en: "Addis Ababa"
+      am: "አዲስ አበባ"
+    phone: "+251 115 15 36"
+    website: "https://www.motri.gov.et/"
+  - name:
+      en: "Your regional or city trade bureau"
+      am: "የክልልዎ ወይም የከተማዎ ንግድ ቢሮ"
+    address:
+      en: >-
+        MoTRI lists regional offices, and registration is commonly handled by
+        the trade bureau for the place you trade in rather than by the federal
+        ministry. Which office serves you depends on your location.
+      am: >-
+        ንግድና ቀጣናዊ ትስስር ሚኒስቴር የክልል ቢሮዎችን ይዘረዝራል፤ ምዝገባውም በተለምዶ
+        በፌዴራሉ ሚኒስቴር ሳይሆን በሚነግዱበት አካባቢ ባለው ንግድ ቢሮ ይከናወናል።
+        የሚያገለግልዎት ቢሮ በአካባቢዎ ይወሰናል።
+
+steps:
+  - title:
+      en: "Get your TIN first"
+      am: "በመጀመሪያ ቲንዎን ያውጡ"
+    detail:
+      en: >-
+        Register at the tax office nearest to where you live or trade. MoTRI
+        requires the TIN certificate at commercial registration, so this comes
+        before anything else.
+      am: >-
+        በሚኖሩበት ወይም በሚነግዱበት አካባቢ ወዳለው የግብር ጽሕፈት ቤት ሄደው ይመዝገቡ።
+        ንግድና ቀጣናዊ ትስስር ሚኒስቴር በንግድ ምዝገባ ወቅት የቲን የምስክር ወረቀት
+        ስለሚጠይቅ ይህ ከሁሉ በፊት ይሠራል።
+
+  - title:
+      en: "Register your trade name"
+      am: "የንግድ ስምዎን ያስመዝግቡ"
+    detail:
+      en: >-
+        MoTRI runs trade name registration as its own service category,
+        separate from commercial registration.
+      am: >-
+        ንግድና ቀጣናዊ ትስስር ሚኒስቴር የንግድ ስም ምዝገባን ከንግድ ምዝገባ ተለይቶ
+        በራሱ የአገልግሎት ምድብ ያከናውናል።
+
+  - title:
+      en: "Apply for commercial registration"
+      am: "የንግድ ምዝገባ ያመልክቱ"
+    detail:
+      en: >-
+        MoTRI gives the processing time for this service only as "Online" and
+        points to the eTrade system. It publishes no number of days.
+      am: >-
+        ንግድና ቀጣናዊ ትስስር ሚኒስቴር ለዚህ አገልግሎት የሚፈጀውን ጊዜ "Online" ብቻ
+        ብሎ ያስቀምጣል፤ ወደ ኢትሬድ ሥርዓትም ይመራል። የቀናት ብዛት አላተመም።
+
+  - title:
+      en: "Apply for the trade licence"
+      am: "የንግድ ፈቃድ ያመልክቱ"
+    detail:
+      en: >-
+        A separate application. MoTRI states plainly that no person may engage
+        in a business activity without a valid business licence, and that you
+        need one for each activity you intend to carry on.
+      am: >-
+        የተለየ ማመልከቻ ነው። ንግድና ቀጣናዊ ትስስር ሚኒስቴር ማንኛውም ሰው ያለሚሠራ
+        የንግድ ፈቃድ በንግድ ሥራ መሰማራት እንደማይችልና ለሚሰማሩበት ለእያንዳንዱ
+        የንግድ ሥራ ፈቃድ እንደሚያስፈልግ በግልጽ ይናገራል።
+
+  - title:
+      en: "Activate your tax types"
+      am: "የግብር ዓይነቶችዎን ያስጀምሩ"
+    detail:
+      en: >-
+        Once the licence is issued, return to the tax office. Registration for a
+        TIN alone does not settle which taxes you file.
+      am: >-
+        ፈቃዱ ከተሰጠ በኋላ ወደ ግብር ጽሕፈት ቤቱ ይመለሱ። ቲን ማውጣት ብቻውን
+        የሚያስገቡትን የግብር ዓይነት አይወስንም።
+
+processingTime:
+  en: >-
+    MoTRI states the processing time for commercial registration, trade name and
+    trade licence only as "Online". It publishes no number of days for any of
+    them.
+  am: >-
+    ንግድና ቀጣናዊ ትስስር ሚኒስቴር ለንግድ ምዝገባ፣ ለንግድ ስምና ለንግድ ፈቃድ
+    የሚፈጀውን ጊዜ "Online" ብቻ ብሎ ያስቀምጣል። ለየትኛውም የቀናት ብዛት አላተመም።
+
+commonMistakes:
+  - en: >-
+      Treating commercial registration and the trade licence as one step. MoTRI
+      runs them as separate services with separate requirements.
+    am: >-
+      የንግድ ምዝገባንና የንግድ ፈቃድን እንደ አንድ ደረጃ መቁጠር። ንግድና ቀጣናዊ ትስስር
+      ሚኒስቴር እነዚህን የተለያዩ መስፈርቶች ያሏቸው የተለያዩ አገልግሎቶች አድርጎ
+      ያከናውናል።
+  - en: >-
+      Assuming a TIN lets you trade. The MoFED guide is explicit that holding a
+      TIN does not entitle you to do business without a licence.
+    am: >-
+      ቲን መያዝ የመነገድ መብት እንደሚሰጥ ማሰብ። የገንዘብ ሚኒስቴር መመሪያ ቲን መያዝ
+      ያለፈቃድ የመነገድ መብት እንደማይሰጥ በግልጽ ይናገራል።
+  - en: >-
+      Assuming the federal ministry serves you. Registration is usually done at
+      the regional or city trade bureau where you trade.
+    am: >-
+      የፌዴራሉ ሚኒስቴር እንደሚያገለግልዎት ማሰብ። ምዝገባው በተለምዶ በሚነግዱበት
+      ክልል ወይም ከተማ ንግድ ቢሮ ይከናወናል።
+  - en: >-
+      Bringing photocopies where an original is asked for. MoTRI asks for
+      originals alongside the copies.
+    am: >-
+      ኦርጅናል በሚጠየቅበት ቦታ ቅጂ ይዞ መምጣት። ንግድና ቀጣናዊ ትስስር ሚኒስቴር
+      ከቅጂዎቹ ጋር ኦርጅናሎችንም ይጠይቃል።
+
+followUp:
+  - en: >-
+      A trade licence is renewed every year. MoTRI requires an audit report and
+      a tax clearance for renewal.
+    am: >-
+      የንግድ ፈቃድ በየዓመቱ ይታደሳል። ንግድና ቀጣናዊ ትስስር ሚኒስቴር ለዕድሳት የኦዲት
+      ሪፖርትና የግብር ማጣሪያ ይጠይቃል።
+  - en: >-
+      Notify the tax authority in writing within 30 days if your trade name,
+      address, principal activity or banking details change.
+    am: >-
+      የንግድ ስምዎ፣ አድራሻዎ፣ ዋና የሥራ መስክዎ ወይም የባንክ መረጃዎ ከተለወጠ በ30 ቀናት
+      ውስጥ ለግብር ባለሥልጣኑ በጽሑፍ ያሳውቁ።
+  - en: >-
+      MoTRI publishes no fee for any of these services on its service pages, so
+      ask the office what you will be charged before you go.
+    am: >-
+      ንግድና ቀጣናዊ ትስስር ሚኒስቴር በአገልግሎት ገጾቹ ላይ ለእነዚህ አገልግሎቶች ክፍያ
+      አላተመም፤ ስለዚህ ከመሄድዎ በፊት ምን ያህል እንደሚከፍሉ ቢሮውን ይጠይቁ።
+
+verification:
+  verified: false
+  lastVerified: "2026-07-25"
+  sourceUrls:
+    - "https://www.motri.gov.et/en/service_category/commercial-registration/view"
+    - "https://www.motri.gov.et/en/service_category/trade-license/view"
+    - "https://www.motri.gov.et/en/service_category/trade-name/view"
+    - "https://www.motri.gov.et/sites/default/files/resource/proclamation-no-980_2016.pdf"
+    - "https://www.mofed.gov.et/media/filer_public/86/fb/86fb37d6-8405-45ad-b439-560b3e818d45/tax_compliance_guide_for_foreign_investors_in_ethiopia.pdf"
+  note:
+    en: >-
+      Compiled from official sources but not checked by a person. Three caveats
+      a reviewer must resolve. First, MoTRI publishes one requirement list for
+      individuals and organisations together; splitting it by legal form is our
+      editorial judgement, not MoTRI's. Second, the MoFED guide is written for
+      foreign investors, so items taken from it may not bind an Ethiopian sole
+      trader. Third, MoTRI publishes no fees and no processing times, and this
+      record deliberately states none rather than borrowing figures from
+      unofficial sites.
+    am: >-
+      ከኦፊሴላዊ ምንጮች የተዘጋጀ ቢሆንም በሰው አልተረጋገጠም። ገምጋሚ ሊፈታቸው
+      የሚገቡ ሦስት ጉዳዮች አሉ። አንደኛ፣ ንግድና ቀጣናዊ ትስስር ሚኒስቴር ለግለሰቦችና
+      ለድርጅቶች አንድ ዓይነት የመስፈርት ዝርዝር ያትማል፤ በሕጋዊ ቅርጽ መከፋፈሉ
+      የእኛ የአርትዖት ውሳኔ እንጂ የሚኒስቴሩ አይደለም። ሁለተኛ፣ የገንዘብ ሚኒስቴር
+      መመሪያ ለውጭ ባለሀብቶች የተጻፈ በመሆኑ ከዚያ የተወሰዱ ነጥቦች በኢትዮጵያዊ
+      የግል ነጋዴ ላይ ላይሠሩ ይችላሉ። ሦስተኛ፣ ሚኒስቴሩ ክፍያንም ሆነ የሚፈጀውን ጊዜ
+      ስላላተመ ይህ መዝገብ ከኦፊሴላዊ ካልሆኑ ድረ-ገጾች ቁጥር ከመዋስ ይልቅ ምንም
+      አለመግለጽን መርጧል።

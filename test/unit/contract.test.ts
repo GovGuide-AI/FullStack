@@ -49,4 +49,30 @@ describe('askRequestSchema', () => {
   ])('rejects %s', (_label, body) => {
     expect(askRequestSchema.safeParse(body).success).toBe(false);
   });
+
+  it('accepts a clarification round', () => {
+    const result = askRequestSchema.safeParse({
+      question: 'passport',
+      locale: 'en',
+      clarification: { question: 'New or renewal?', answer: ' a new one ' },
+    });
+
+    expect(result.success).toBe(true);
+    expect(result.success && result.data.clarification?.answer).toBe('a new one');
+  });
+
+  it('treats the clarification as optional', () => {
+    expect(askRequestSchema.safeParse({ question: 'passport', locale: 'en' }).success).toBe(true);
+  });
+
+  it.each([
+    ['an empty answer', { question: 'q', answer: '   ' }],
+    ['a missing answer', { question: 'q' }],
+    ['a missing question', { answer: 'a' }],
+    ['an over-long answer', { question: 'q', answer: 'a'.repeat(MAX_QUESTION_LENGTH + 1) }],
+  ])('rejects a clarification with %s', (_label, clarification) => {
+    expect(
+      askRequestSchema.safeParse({ question: 'passport', locale: 'en', clarification }).success,
+    ).toBe(false);
+  });
 });

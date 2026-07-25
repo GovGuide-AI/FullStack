@@ -11,6 +11,7 @@ import {
   type AskErrorCode,
   type AskErrorResponse,
   type AskResponse,
+  type Clarification,
 } from '@/lib/ask/contract';
 import type { Locale } from '@/lib/locales';
 
@@ -32,25 +33,16 @@ export function AskForm() {
   const [status, setStatus] = useState<Status>('idle');
   const [errorKey, setErrorKey] = useState<string | null>(null);
   const [result, setResult] = useState<AskResponse | null>(null);
+  /**
+   * The question behind the current result. A clarifying reply has to be sent
+   * with it, since the server keeps no memory of what was asked.
+   */
+  const [askedQuestion, setAskedQuestion] = useState('');
 
   // Lets a second submission cancel a slow first one instead of racing it.
   const inFlight = useRef<AbortController | null>(null);
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    const trimmed = question.trim();
-    if (trimmed.length === 0) {
-      setStatus('error');
-      setErrorKey('errors.empty');
-      return;
-    }
-    if (trimmed.length > MAX_QUESTION_LENGTH) {
-      setStatus('error');
-      setErrorKey('errors.tooLong');
-      return;
-    }
-
+  async function runAsk(payload: { question: string; clarification?: Clarification }) {
     inFlight.current?.abort();
     const controller = new AbortController();
     inFlight.current = controller;
@@ -63,7 +55,7 @@ export function AskForm() {
       const response = await fetch('/api/ask', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ question: trimmed, locale }),
+        body: JSON.stringify({ ...payload, locale }),
         signal: controller.signal,
       });
 
@@ -82,6 +74,34 @@ export function AskForm() {
       setStatus('error');
       setErrorKey('errors.failed');
     }
+  }
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const trimmed = question.trim();
+    if (trimmed.length === 0) {
+      setStatus('error');
+      setErrorKey('errors.empty');
+      return;
+    }
+    if (trimmed.length > MAX_QUESTION_LENGTH) {
+      setStatus('error');
+      setErrorKey('errors.tooLong');
+      return;
+    }
+
+    setAskedQuestion(trimmed);
+    await runAsk({ question: trimmed });
+  }
+
+  function handleClarify(answer: string) {
+    if (result?.kind !== 'clarify' || askedQuestion.length === 0) return;
+
+    void runAsk({
+      question: askedQuestion,
+      clarification: { question: result.question, answer },
+    });
   }
 
   const isLoading = status === 'loading';
@@ -121,6 +141,7 @@ export function AskForm() {
               variant="ghost"
               onClick={() => {
                 setQuestion('');
+                setAskedQuestion('');
                 setResult(null);
                 setStatus('idle');
                 setErrorKey(null);
@@ -141,7 +162,9 @@ export function AskForm() {
       {/* Announced politely so a screen reader hears the answer arrive. */}
       <div aria-live="polite" aria-busy={isLoading}>
         {isLoading ? <AskPending /> : null}
-        {status === 'done' && result ? <AskResult result={result} /> : null}
+        {status === 'done' && result ? (
+          <AskResult result={result} onClarify={handleClarify} isLoading={isLoading} />
+        ) : null}
       </div>
     </div>
   );

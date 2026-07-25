@@ -11,24 +11,43 @@ export function buildRouterPrompt(input: {
   question: string;
   locale: Locale;
   catalog: string;
+  clarification?: { question: string; answer: string } | null;
 }): { system: string; prompt: string } {
+  const answered = Boolean(input.clarification);
+
   const system = [
     'You match a question about Ethiopian government services to one entry in a fixed catalog.',
     '',
     'Rules:',
     `- Choose exactly one slug from the catalog, or "${NO_MATCH}", or "${NEEDS_CLARIFICATION}".`,
     `- If no catalog entry plainly covers the question, answer "${NO_MATCH}". Do not stretch a loose match; a wrong match is worse than admitting the service is missing.`,
-    `- If the question could reasonably mean two or more catalog entries, answer "${NEEDS_CLARIFICATION}" and write one short question that would separate them.`,
+    answered
+      ? // Asking twice would trap someone in a loop they cannot escape, so the
+        // second pass has to commit one way or the other.
+        `- The user has already answered one clarifying question. Do not ask another. Decide from their answer, or reply "${NO_MATCH}" if it still does not match any entry.`
+      : `- If the question could reasonably mean two or more catalog entries, answer "${NEEDS_CLARIFICATION}" and write one short question that would separate them.`,
     '- The user may write in English or Amharic, and may use a service name from either language. Match on meaning.',
     '- You are only routing. Do not answer the question, and do not describe any procedure, fee, or document.',
   ].join('\n');
+
+  const language = LANGUAGE_NAME[input.locale];
 
   const prompt = [
     'Catalog:',
     input.catalog,
     '',
-    `User question (written in ${LANGUAGE_NAME[input.locale]}):`,
+    `User question (written in ${language}):`,
     input.question,
+    ...(input.clarification
+      ? [
+          '',
+          'You then asked:',
+          input.clarification.question,
+          '',
+          'The user answered:',
+          input.clarification.answer,
+        ]
+      : []),
   ].join('\n');
 
   return { system, prompt };

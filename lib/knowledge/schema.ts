@@ -12,7 +12,7 @@ export const localizedTextSchema = z.object({
 });
 export type LocalizedText = z.infer<typeof localizedTextSchema>;
 
-const slugSchema = z
+export const slugSchema = z
   .string()
   .min(2)
   .max(64)
@@ -36,7 +36,7 @@ const isoDateSchema = z
     );
   }, 'must be a real calendar date');
 
-const httpsUrlSchema = z
+export const httpsUrlSchema = z
   .string()
   .url()
   .refine((value) => value.startsWith('https://'), 'must be an https URL');

@@ -37,7 +37,10 @@
     },
     "clarify": {
       "title": "One more thing",
-      "hint": "Answer this and we can find the right service."
+      "hint": "Answer this and we can find the right service.",
+      "replyLabel": "Your answer",
+      "replyPlaceholder": "Type your answer",
+      "replySubmit": "Continue"
     },
     "explanationLabel": "In short",
     "basedOn": "Drawn from {count, plural, one {# fact} other {# facts}} in the record",

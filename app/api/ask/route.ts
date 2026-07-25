@@ -47,7 +47,11 @@ export async function POST(request: Request): Promise<NextResponse> {
 
   let result: AskResponse;
   try {
-    result = await askGuidance({ question: parsed.data.question, locale: parsed.data.locale });
+    result = await askGuidance({
+      question: parsed.data.question,
+      locale: parsed.data.locale,
+      clarification: parsed.data.clarification,
+    });
   } catch (error) {
     if (error instanceof AiUnavailableError) {
       console.error('[api/ask] routing unavailable:', error.cause);

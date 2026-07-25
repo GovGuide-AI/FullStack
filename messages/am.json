@@ -37,7 +37,10 @@
     },
     "clarify": {
       "title": "አንድ ተጨማሪ ነገር",
-      "hint": "ትክክለኛውን አገልግሎት እንድናገኝ ይህን ይመልሱ።"
+      "hint": "ትክክለኛውን አገልግሎት እንድናገኝ ይህን ይመልሱ።",
+      "replyLabel": "መልስዎ",
+      "replyPlaceholder": "መልስዎን ይጻፉ",
+      "replySubmit": "ይቀጥሉ"
     },
     "explanationLabel": "በአጭሩ",
     "basedOn": "በመዝገቡ ውስጥ ካሉ {count, plural, one {# እውነታ} other {# እውነታዎች}} የተወሰደ",

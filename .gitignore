@@ -41,3 +41,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# knowledge pipeline — fetched source text and the retrieval index are
+# reproducible from knowledge/sources.json via `npm run ingest`. Evidence
+# bundles under knowledge/drafts/ are regenerated per drafting session.
+/knowledge/.index/
+/knowledge/drafts/

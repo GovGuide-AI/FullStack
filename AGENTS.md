@@ -28,6 +28,9 @@ npm run typecheck          # tsc --noEmit
 npm run lint               # eslint (note: `next lint` was removed in Next 16)
 npm test                   # vitest
 npm run knowledge:validate # validate knowledge/ against the Zod schema
+npm run ingest             # fetch + chunk knowledge/sources.json into knowledge/.index/
+npm run draft -- "topic"   # BM25 evidence bundles for a human to write a record from
+npm run verify:citations   # every cited URL must be registered and official
 npm run db:generate        # generate a Drizzle migration from db/schema.ts
 npm run db:migrate         # apply migrations
 ```
@@ -42,9 +45,11 @@ npm run db:migrate         # apply migrations
 | `services/` | Business logic and orchestration |
 | `repositories/` | The only place that touches the database |
 | `db/` | Drizzle schema and migrations |
-| `lib/knowledge/` | YAML schema, loader, catalog index |
+| `lib/knowledge/` | YAML schema, loader, catalog index, source registry |
+| `lib/retrieval/` | Build-time only: text extraction, chunking, BM25 |
 | `lib/ai/` | OpenRouter provider, prompts, output schemas |
 | `knowledge/services/` | The YAML knowledge base — source of truth |
+| `knowledge/sources.json` | Registry of sources a record is allowed to cite |
 | `messages/` | next-intl UI strings, `en.json` and `am.json` |
 
 ## The rule that matters most
@@ -61,6 +66,15 @@ rendered behind a warning with its fees and offices suppressed.
 Never write a government fee, office address, processing time, form name, or
 legal requirement into this codebase unless it came from a cited official source
 recorded in that YAML file. If you do not have a source, leave the field out.
+
+This applies to you as much as to the model. When authoring a record, do not
+write from recollection and do not treat a tax-consultancy blog, a wiki, or a
+Telegram post as a source. Register the official document in
+`knowledge/sources.json`, run `npm run ingest` and `npm run draft`, and write
+only what the retrieved passages actually say. Where the sources are silent,
+say so in `verification.note` — an acknowledged gap is a usable answer, an
+invented one is not. Where they disagree, record the disagreement rather than
+picking a side.
 
 See `.cursor/rules/ai-grounding.mdc` for how this is enforced in code.
 

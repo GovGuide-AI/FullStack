@@ -72,6 +72,40 @@ describe('askGuidance', () => {
     expect(generateText).toHaveBeenCalledTimes(1);
   });
 
+  it('routes using the answer to a clarifying question', async () => {
+    routerReturns(SLUG);
+    explainerReturns('Template.', ['summary']);
+
+    const result = await askGuidance({
+      question: 'passport',
+      locale: 'en',
+      clarification: { question: 'New or renewal?', answer: 'a brand new one' },
+    });
+
+    expect(result.kind).toBe('answer');
+
+    // The reply has to reach the model, otherwise the second pass is identical
+    // to the first and the user is asked the same thing again.
+    const routerArgs = generateText.mock.calls[0]?.[0];
+    expect(routerArgs.prompt).toContain('a brand new one');
+    expect(routerArgs.system).toContain('Do not ask another');
+  });
+
+  it('never asks a second clarifying question', async () => {
+    routerReturns(NEEDS_CLARIFICATION, 'Which one did you mean?');
+
+    const result = await askGuidance({
+      question: 'passport',
+      locale: 'en',
+      clarification: { question: 'New or renewal?', answer: 'not sure' },
+    });
+
+    // Asking again would be a loop with no exit, so an unresolved second pass
+    // is reported honestly instead.
+    expect(result).toEqual({ kind: 'not-covered' });
+    expect(generateText).toHaveBeenCalledTimes(1);
+  });
+
   it('treats a clarification with no question as not-covered', async () => {
     routerReturns(NEEDS_CLARIFICATION, '   ');
 
