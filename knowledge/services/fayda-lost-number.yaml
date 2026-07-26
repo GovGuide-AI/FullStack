@@ -1,0 +1,283 @@
+# Lost Fayda number (FIN), or a lost or damaged Fayda card
+#
+# Sources: the National ID Program pages at id.gov.et and the help desk at
+# id.et/help, listed under verification.sourceUrls.
+#
+# This record exists to separate three things that citizens routinely confuse
+# and that NIDP handles completely differently: losing the 12-digit number,
+# losing the physical card, and needing registered details corrected. The third
+# is a different service — see fayda-update-details.
+
+slug: fayda-lost-number
+category: identity
+
+title:
+  en: "Recover a lost Fayda number or replace a Fayda card"
+  am: "የጠፋ የፋይዳ ቁጥር ማስመለስ ወይም የፋይዳ ካርድ መተካት"
+
+summary:
+  en: >-
+    Your Fayda number does not expire and is not lost when the card is. If you
+    have forgotten the number you request it again from the NIDP help desk; if
+    you need the physical card you order a print.
+  am: >-
+    የፋይዳ ቁጥርዎ ጊዜው አያልፍም፤ ካርዱ ቢጠፋም ቁጥሩ አይጠፋም። ቁጥሩን ከረሱት
+    ከብሔራዊ መታወቂያ ፕሮግራሙ የእገዛ ማዕከል እንደገና ይጠይቁ፤ አካላዊ ካርዱን
+    ከፈለጉ ደግሞ ኅትመት ያዝዙ።
+
+aliases:
+  en:
+    - lost my ID
+    - lost my Fayda
+    - lost Fayda number
+    - forgot my FIN
+    - lost national ID
+    - I lost my ID card
+    - did not receive my Fayda number
+    - replace national ID card
+    - Fayda card lost
+    - reprint Fayda card
+  am:
+    - መታወቂያዬ ጠፋ
+    - ፋይዳ ጠፋብኝ
+    - የፋይዳ ቁጥሬን ረሳሁ
+    - ብሔራዊ መታወቂያ ጠፋ
+    - የፋይዳ ቁጥር አልደረሰኝም
+    - የፋይዳ ካርድ መተካት
+
+eligibility:
+  - en: >-
+      You are already registered for Fayda. If you have never registered, this
+      is not your route — registration is a separate, in-person process at a
+      registration centre.
+    am: >-
+      አስቀድመው ለፋይዳ ተመዝግበዋል። ተመዝግበው የማያውቁ ከሆነ ይህ የእርስዎ መንገድ
+      አይደለም፤ ምዝገባ በምዝገባ ማዕከል በአካል የሚከናወን የተለየ ሂደት ነው።
+  - en: >-
+      For a card print, the phone number you give must be the same one you
+      registered with. NIDP states this explicitly.
+    am: >-
+      ለካርድ ኅትመት የሚሰጡት ስልክ ቁጥር በምዝገባ ወቅት የተጠቀሙበት መሆን አለበት።
+      ብሔራዊ መታወቂያ ፕሮግራሙ ይህንን በግልጽ ይናገራል።
+
+documents:
+  - name:
+      en: "Your registration ID (RID), if you still have it"
+      am: "የምዝገባ መለያዎ (RID)፣ አሁንም ካለዎት"
+    notes:
+      en: >-
+        The help desk form asks for the registration ID. It also offers an
+        explicit "I don't have my reg id" route, so not having it does not stop
+        you.
+      am: >-
+        የእገዛ ማዕከሉ ቅጽ የምዝገባ መለያ ይጠይቃል። "የምዝገባ መለያዬ የለኝም" የሚል
+        አማራጭም ስላለው አለመኖሩ አያግድዎትም።
+    required: false
+
+  - name:
+      en: "The phone number you registered with"
+      am: "በምዝገባ ወቅት የተጠቀሙበት ስልክ ቁጥር"
+    notes:
+      en: >-
+        The Fayda number is sent by SMS to the registered phone, and NIDP
+        requires the card print request to use the same number.
+      am: >-
+        የፋይዳ ቁጥሩ በአጭር የጽሑፍ መልዕክት ወደተመዘገበው ስልክ ይላካል፤ ብሔራዊ
+        መታወቂያ ፕሮግራሙም የካርድ ኅትመት ጥያቄው ተመሳሳይ ቁጥር እንዲጠቀም
+        ይጠይቃል።
+    required: true
+
+fees:
+  - label:
+      en: "Recovering the Fayda number itself"
+      am: "የፋይዳ ቁጥሩን ራሱ ማስመለስ"
+    amount:
+      kind: fixed
+      value: 0
+      currency: ETB
+    notes:
+      en: >-
+        NIDP states that Fayda registration is free and that the number is sent
+        by SMS. The help desk request carries no published charge.
+      am: >-
+        ብሔራዊ መታወቂያ ፕሮግራሙ የፋይዳ ምዝገባ ነጻ መሆኑንና ቁጥሩ በአጭር የጽሑፍ
+        መልዕክት እንደሚላክ ይገልጻል። የእገዛ ማዕከሉ ጥያቄም የታተመ ክፍያ የለውም።
+
+  - label:
+      en: "Printed physical card"
+      am: "የታተመ አካላዊ ካርድ"
+    amount:
+      kind: variable
+      description:
+        en: >-
+          Chargeable, but NIDP publishes no figure. Its FAQ says that if you
+          want a printed card credential, payment has to be made, and the card
+          print page says you complete payment at the provider. NIDP has run a
+          consultation on setting the printing fee from market prices, which
+          suggests the figure is not settled.
+        am: >-
+          ክፍያ ያለው ቢሆንም ብሔራዊ መታወቂያ ፕሮግራሙ መጠኑን አላተመም። በተደጋጋሚ
+          የሚጠየቁ ጥያቄዎች ገጹ የታተመ ካርድ ከፈለጉ ክፍያ መፈጸም እንዳለበት ይናገራል፤
+          የካርድ ኅትመት ገጹም ክፍያውን አገልግሎት ሰጪው ጋር እንደሚፈጽሙ ይገልጻል።
+          ፕሮግራሙ የኅትመት ክፍያውን ከገበያ ዋጋ ለመወሰን ምክክር አድርጓል፤ ይህም
+          መጠኑ ገና አለመጽናቱን ያሳያል።
+
+offices:
+  - name:
+      en: "National ID Program (NIDP) customer support"
+      am: "የብሔራዊ መታወቂያ ፕሮግራም (NIDP) የደንበኞች አገልግሎት"
+    address:
+      en: "Grand Palace Parking, Menelik II Avenue, 2nd floor, office 23, Addis Ababa"
+      am: "ግራንድ ፓላስ ፓርኪንግ፣ ዳግማዊ ምኒልክ ጎዳና፣ 2ኛ ፎቅ፣ ቢሮ ቁጥር 23፣ አዲስ አበባ"
+    phone: "+251 113 720 006"
+    website: "https://id.gov.et/"
+  - name:
+      en: "Ethiopost branches"
+      am: "የኢትዮጵያ ፖስታ አገልግሎት ቅርንጫፎች"
+    address:
+      en: >-
+        One of the two official card printing providers. NIDP directs card
+        collection to Ethiopost branches across the country.
+      am: >-
+        ከሁለቱ ኦፊሴላዊ የካርድ ኅትመት አገልግሎት ሰጪዎች አንዱ። ብሔራዊ መታወቂያ
+        ፕሮግራሙ ካርድ መረከብን በአገሪቱ ወደሚገኙ የፖስታ ቅርንጫፎች ይመራል።
+  - name:
+      en: "Ethio telecom service centres"
+      am: "የኢትዮ ቴሌኮም አገልግሎት ማዕከላት"
+    address:
+      en: "The other official card printing provider, available at its service centres."
+      am: "ሌላኛው ኦፊሴላዊ የካርድ ኅትመት አገልግሎት ሰጪ፤ በአገልግሎት ማዕከላቱ ይገኛል።"
+
+steps:
+  - title:
+      en: "Check the Fayda mini app before anything else"
+      am: "ከሁሉ በፊት የፋይዳ ሚኒ አፕን ይመልከቱ"
+    detail:
+      en: >-
+        NIDP publishes a digital copy of the ID through the National ID mini app
+        inside the telebirr super app, retrievable with your FIN. The e-Fayda
+        form is downloadable and printable.
+      am: >-
+        ብሔራዊ መታወቂያ ፕሮግራሙ በቴሌብር ሱፐር አፕ ውስጥ ባለው የብሔራዊ መታወቂያ
+        ሚኒ አፕ በኩል የመታወቂያውን ዲጂታል ቅጂ ያቀርባል፤ በፋይዳ ቁጥርዎ ማግኘት
+        ይችላሉ። የኢ-ፋይዳ ቅጹ ወርዶ ሊታተም ይችላል።
+
+  - title:
+      en: "Submit a request at the online help desk"
+      am: "በኦንላይን የእገዛ ማዕከል ጥያቄ ያስገቡ"
+    detail:
+      en: >-
+        Go to id.gov.et/help and choose the issue that matches yours. NIDP lists
+        "I lost my Fayda number" and "I completed my registration but I did not
+        receive my Fayda ID via SMS" as distinct options, and offers a path for
+        people without their registration ID.
+      am: >-
+        ወደ id.gov.et/help ሄደው ከችግርዎ ጋር የሚመሳሰለውን አማራጭ ይምረጡ።
+        ብሔራዊ መታወቂያ ፕሮግራሙ "የፋይዳ ቁጥሬ ጠፋ" እና "ምዝገባዬን ጨርሻለሁ ግን
+        የፋይዳ መታወቂያዬ በአጭር መልዕክት አልደረሰኝም" የሚሉትን እንደ የተለያዩ
+        አማራጮች ይዘረዝራል፤ የምዝገባ መለያ ለሌላቸውም መንገድ ያቀርባል።
+
+  - title:
+      en: "Order a card print, if you need the physical card"
+      am: "አካላዊ ካርድ ከፈለጉ የካርድ ኅትመት ያዝዙ"
+    detail:
+      en: >-
+        Choose one provider only — Ethiopost or Ethio telecom. NIDP warns that
+        placing the same order with both providers stops the system processing
+        it. Complete payment at the provider and collect the card there.
+      am: >-
+        አንድ አገልግሎት ሰጪ ብቻ ይምረጡ — ኢትዮጵያ ፖስታ ወይም ኢትዮ ቴሌኮም።
+        ብሔራዊ መታወቂያ ፕሮግራሙ ተመሳሳይ ትዕዛዝ ለሁለቱም መስጠት ሥርዓቱ
+        እንዳያስኬደው እንደሚያደርግ ያስጠነቅቃል። ክፍያውን አገልግሎት ሰጪው ጋር
+        ፈጽመው ካርዱን እዚያው ይረከቡ።
+
+  - title:
+      en: "Check the card before the officer prints it"
+      am: "ኃላፊው ከማተሙ በፊት ካርዱን ያረጋግጡ"
+    detail:
+      en: >-
+        NIDP asks you to double-check that the information on the card is
+        correct before printing proceeds.
+      am: >-
+        ብሔራዊ መታወቂያ ፕሮግራሙ ኅትመቱ ከመቀጠሉ በፊት በካርዱ ላይ ያለው መረጃ
+        ትክክል መሆኑን እንዲያረጋግጡ ይጠይቃል።
+
+processingTime:
+  en: >-
+    NIDP publishes no turnaround for a help desk request or a card print. It
+    says only that you will be contacted on your registered phone when the card
+    is ready for collection.
+  am: >-
+    ብሔራዊ መታወቂያ ፕሮግራሙ ለእገዛ ጥያቄም ሆነ ለካርድ ኅትመት የሚፈጀውን ጊዜ
+    አላተመም። ካርዱ ለመረከብ ሲዘጋጅ በተመዘገበው ስልክዎ እንደሚደወልልዎ ብቻ
+    ይናገራል።
+
+commonMistakes:
+  - en: >-
+      Re-registering because the number was lost. NIDP works on a "one person,
+      one identity" basis and a resident is not meant to hold two Fayda numbers.
+      Ask for the existing number back instead.
+    am: >-
+      ቁጥሩ ስለጠፋ እንደገና መመዝገብ። ብሔራዊ መታወቂያ ፕሮግራሙ "አንድ ሰው አንድ
+      ማንነት" በሚል መርህ ይሠራል፤ አንድ ነዋሪ ሁለት የፋይዳ ቁጥር ሊኖረው አይገባም።
+      በምትኩ ያለውን ቁጥር ማስመለስ ይጠይቁ።
+  - en: >-
+      Ordering the card from both Ethiopost and Ethio telecom. NIDP states the
+      duplicate order will not be processed.
+    am: >-
+      ካርዱን ከኢትዮጵያ ፖስታም ከኢትዮ ቴሌኮምም ማዘዝ። ብሔራዊ መታወቂያ ፕሮግራሙ
+      የተደገመው ትዕዛዝ እንደማይስተናገድ ይገልጻል።
+  - en: >-
+      Using a different phone number from the registered one, which breaks both
+      the SMS delivery and the card print request.
+    am: >-
+      ከተመዘገበው የተለየ ስልክ ቁጥር መጠቀም፤ ይህ የአጭር መልዕክቱንም የካርድ ኅትመት
+      ጥያቄውንም ያበላሻል።
+  - en: >-
+      Confusing a lost card with wrong details on the card. Changing what is
+      recorded about you is a different service with its own document rules.
+    am: >-
+      የጠፋ ካርድን ከካርዱ ላይ ካለ የተሳሳተ መረጃ ጋር መደባለቅ። ስለእርስዎ የተመዘገበውን
+      መረጃ መቀየር የራሱ የሰነድ ሕጎች ያሉት የተለየ አገልግሎት ነው።
+
+followUp:
+  - en: >-
+      If your phone number itself has changed, updating it needs no document —
+      NIDP sends an OTP to the new phone to complete the update.
+    am: >-
+      ስልክ ቁጥርዎ ራሱ ከተለወጠ ለማዘመን ምንም ሰነድ አያስፈልግም፤ ብሔራዊ መታወቂያ
+      ፕሮግራሙ ዝማኔውን ለማጠናቀቅ ወደ አዲሱ ስልክ የአንድ ጊዜ የይለፍ ቃል ይልካል።
+  - en: >-
+      Once you have the number back, Fayda is what other offices increasingly
+      ask for: NIDP lists obtaining a TIN, a SIM card, a driving licence and
+      business licences among the services that rely on it.
+    am: >-
+      ቁጥሩን ካስመለሱ በኋላ ፋይዳ ሌሎች መሥሪያ ቤቶች እየጠየቁት ያለ ነው፤ ብሔራዊ
+      መታወቂያ ፕሮግራሙ ቲን ማውጣት፣ ሲም ካርድ መግዛት፣ የመንጃ ፈቃድና የንግድ
+      ፈቃድ ማግኘትን በእሱ ላይ ከሚመሠረቱ አገልግሎቶች መካከል ይዘረዝራል።
+
+verification:
+  verified: false
+  lastVerified: "2026-07-25"
+  sourceUrls:
+    - "https://id.et/help"
+    - "https://id.gov.et/services"
+    - "https://id.gov.et/faq"
+    - "https://id.gov.et/cardprint"
+  note:
+    en: >-
+      Compiled from NIDP pages but not checked by a person. Two things a
+      reviewer should settle. The card printing fee is chargeable but NIDP
+      publishes no amount, so this record records it as variable rather than
+      quoting a figure from elsewhere. And NIDP describes no concept of an
+      expired Fayda number — the number is permanent — so a citizen asking about
+      an "expired national ID" most likely needs either a card reprint, covered
+      here, or a details update, covered by fayda-update-details.
+    am: >-
+      ከብሔራዊ መታወቂያ ፕሮግራም ገጾች የተዘጋጀ ቢሆንም በሰው አልተረጋገጠም። ገምጋሚ
+      ሊፈታቸው የሚገቡ ሁለት ነጥቦች አሉ። የካርድ ኅትመት ክፍያ ያለው ቢሆንም
+      ፕሮግራሙ መጠኑን ስላላተመ ይህ መዝገብ ከሌላ ቦታ ቁጥር ከመጥቀስ ይልቅ
+      እንደሚለዋወጥ መዝግቦታል። እንዲሁም ፕሮግራሙ ጊዜው ስለሚያልፍ የፋይዳ ቁጥር
+      አይናገርም — ቁጥሩ ቋሚ ነው — ስለዚህ ስለ "ጊዜው ስላለፈ ብሔራዊ መታወቂያ"
+      የሚጠይቅ ዜጋ በዚህ የተሸፈነውን የካርድ ድጋሚ ኅትመት ወይም በfayda-update-details
+      የተሸፈነውን የመረጃ ዝማኔ ሳይፈልግ አይቀርም።

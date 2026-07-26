@@ -1,0 +1,49 @@
+# Render blueprint: one web service, one managed Postgres.
+#
+# The whole application — pages, API routes, AI calls, and server logic — is a
+# single Next.js process. There is no separate backend to deploy.
+
+services:
+  - type: web
+    name: govguide-ai
+    runtime: node
+    plan: starter
+    region: frankfurt
+    branch: main
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    # `/` answers 307 to the default locale, which a health check will not
+    # follow, so point it at a real page.
+    healthCheckPath: /en
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+
+      - key: DATABASE_URL
+        fromDatabase:
+          name: govguide-db
+          property: connectionString
+
+      # Secret. Set in the Render dashboard; never committed.
+      - key: OPENROUTER_API_KEY
+        sync: false
+
+      # Model roles are configuration, not code, so they can be changed and the
+      # service restarted without a redeploy. Confirm any ID against the live
+      # list at https://openrouter.ai/api/v1/models before setting it.
+      - key: OPENROUTER_ROUTER_MODEL
+        sync: false
+      - key: OPENROUTER_ANSWER_MODEL
+        sync: false
+      - key: OPENROUTER_SUMMARY_MODEL
+        sync: false
+
+      - key: APP_URL
+        sync: false
+
+databases:
+  - name: govguide-db
+    plan: basic-256mb
+    region: frankfurt
+    postgresMajorVersion: "17"

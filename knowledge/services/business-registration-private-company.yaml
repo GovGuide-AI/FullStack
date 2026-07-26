@@ -1,0 +1,324 @@
+# Commercial registration for a private limited company
+#
+# Sources: the MoTRI Commercial Registration and Trade License service pages,
+# Proclamation 980/2016, and the tax registration chapter of the MoFED tax
+# compliance guide, all listed under verification.sourceUrls.
+#
+# Same editorial caveat as the sole proprietor record: MoTRI publishes one
+# combined requirement list. This record carries the items that only apply to a
+# business organisation. That split is our reading, not MoTRI's, and is one
+# reason the record ships unverified.
+
+slug: business-registration-private-company
+category: business
+
+title:
+  en: "Register a private limited company"
+  am: "ኃላፊነቱ የተወሰነ የግል ማኅበር መመዝገብ"
+
+summary:
+  en: >-
+    Registering a company rather than trading in your own name. You need
+    notarised founding documents, a TIN for the company and a personal TIN for
+    the manager, and the trade licence is still a separate step afterwards.
+  am: >-
+    በራስ ስም ከመነገድ ይልቅ ኩባንያ መመዝገብ። በሕግ የተረጋገጡ የመመሥረቻ ሰነዶች፣
+    ለኩባንያው ቲን እንዲሁም ለሥራ አስኪያጁ የግል ቲን ያስፈልጋሉ፤ የንግድ ፈቃድም
+    ከዚያ በኋላ የተለየ ደረጃ ሆኖ ይቀራል።
+
+aliases:
+  en:
+    - register a company
+    - private limited company
+    - PLC
+    - form a company
+    - incorporate
+    - share company
+    - business organization registration
+    - open a company
+    - register a business with partners
+  am:
+    - ኩባንያ መመዝገብ
+    - የግል ኩባንያ
+    - ኃላፊነቱ የተወሰነ የግል ማኅበር
+    - አክሲዮን ማኅበር
+    - ድርጅት መመሥረት
+    - የንግድ ድርጅት ምዝገባ
+
+eligibility:
+  - en: >-
+      You are forming a business organisation. The MoFED guide defines a body as
+      a company, partnership, public enterprise or public financial agency,
+      whether formed in Ethiopia or elsewhere.
+    am: >-
+      የንግድ ድርጅት እያቋቋሙ ነው። የገንዘብ ሚኒስቴር መመሪያ ድርጅትን በኢትዮጵያ
+      ውስጥም ሆነ ውጭ የተመሠረተ ኩባንያ፣ ሽርክና፣ የመንግሥት የልማት ድርጅት
+      ወይም የመንግሥት የገንዘብ ተቋም ብሎ ይተረጉማል።
+  - en: >-
+      The manager must already hold a personal TIN. The MoFED guide lists the
+      manager's own TIN among the documents for registering a body.
+    am: >-
+      ሥራ አስኪያጁ አስቀድሞ የግል ቲን ሊኖረው ይገባል። የገንዘብ ሚኒስቴር መመሪያ
+      ድርጅት ለመመዝገብ ከሚያስፈልጉ ሰነዶች መካከል የሥራ አስኪያጁን የግል ቲን
+      ይዘረዝራል።
+
+documents:
+  - name:
+      en: "Notarised memorandum and articles of association"
+      am: "በሕግ የተረጋገጠ የመመሥረቻ ጽሑፍና መተዳደሪያ ደንብ"
+    notes:
+      en: >-
+        Required by the MoFED guide for registering a body, and again for the
+        business licence application. In a joint venture the MoFED guide states
+        this requirement does not apply.
+      am: >-
+        በገንዘብ ሚኒስቴር መመሪያ ድርጅትን ለመመዝገብ እንዲሁም ለንግድ ፈቃድ
+        ማመልከቻ ይጠየቃል። በጋራ ሽርክና ግን መመሪያው ይህ መስፈርት ተፈጻሚ
+        እንደማይሆን ይገልጻል።
+    required: true
+
+  - name:
+      en: "Certificate of proof of legal existence of the business organisation"
+      am: "የንግድ ድርጅቱን ሕጋዊ ሕልውና የሚያረጋግጥ የምስክር ወረቀት"
+    notes:
+      en: "Listed by MoTRI among the commercial registration requirements."
+      am: "በንግድና ቀጣናዊ ትስስር ሚኒስቴር ከንግድ ምዝገባ መስፈርቶች መካከል ተዘርዝሯል።"
+    required: true
+
+  - name:
+      en: "Certificate of Taxpayer Identification Number (TIN)"
+      am: "የግብር ከፋይ መለያ ቁጥር (ቲን) የምስክር ወረቀት"
+    notes:
+      en: >-
+        MoTRI lists the TIN certificate first. Under Proclamation 980/2016 the
+        registering office requests the TIN from the tax authority in writing
+        for a business organisation under establishment.
+      am: >-
+        ንግድና ቀጣናዊ ትስስር ሚኒስቴር የቲን የምስክር ወረቀትን በመጀመሪያ ይዘረዝራል።
+        በአዋጅ ቁጥር 980/2016 መሠረት መዝጋቢው ጽሕፈት ቤት እየተቋቋመ ላለ የንግድ
+        ድርጅት ቲኑን ከግብር ባለሥልጣኑ በጽሑፍ ይጠይቃል።
+    required: true
+
+  - name:
+      en: "Manager's valid identity card or passport, and the manager's personal TIN"
+      am: "የሥራ አስኪያጁ የሚሠራ መታወቂያ ወይም ፓስፖርት እና የግል ቲኑ"
+    notes:
+      en: >-
+        The MoFED guide asks for a valid local residence ID, passport or driving
+        licence, a recent passport-sized photo, and the manager's own TIN.
+      am: >-
+        የገንዘብ ሚኒስቴር መመሪያ የሚሠራ የነዋሪነት መታወቂያ፣ ፓስፖርት ወይም የመንጃ
+        ፈቃድ፣ በቅርቡ የተነሳ የፓስፖርት መጠን ፎቶ እንዲሁም የሥራ አስኪያጁን የግል
+        ቲን ይጠይቃል።
+    required: true
+
+  - name:
+      en: "Notarised power of attorney"
+      am: "በሕግ የተረጋገጠ የውክልና ሰነድ"
+    notes:
+      en: >-
+        The MoFED guide requires a power of attorney notarised with the
+        appropriate body, or, for a company under formation, one signed by all
+        the founders. MoTRI asks for the original and a copy.
+      am: >-
+        የገንዘብ ሚኒስቴር መመሪያ በሚመለከተው አካል የተረጋገጠ የውክልና ሰነድ፣
+        እየተቋቋመ ላለ ኩባንያ ደግሞ በሁሉም መሥራቾች የተፈረመ ውክልና ይጠይቃል።
+        ንግድና ቀጣናዊ ትስስር ሚኒስቴር ኦርጅናሉንና ቅጂውን ይጠይቃል።
+    required: true
+
+  - name:
+      en: "Title deed or notarised rent contract for the business premises"
+      am: "የንግድ ቦታው የካርታ ማስረጃ ወይም በሕግ የተረጋገጠ የኪራይ ውል"
+    notes:
+      en: >-
+        Title deed where the company owns the premises, a notarised rent
+        contract where it rents them.
+      am: >-
+        ኩባንያው ቦታውን የያዘ ከሆነ የካርታ ማስረጃ፣ የተከራየ ከሆነ በሕግ የተረጋገጠ
+        የኪራይ ውል።
+    required: true
+
+  - name:
+      en: "Two passport-sized photographs taken within the last six months"
+      am: "ባለፉት ስድስት ወራት የተነሱ ሁለት የፓስፖርት መጠን ፎቶግራፎች"
+    required: true
+
+  - name:
+      en: "For a foreign shareholder: original passport and Ethiopian Investment Commission evidence"
+      am: "የውጭ ዜጋ ባለአክሲዮን ካለ፦ ኦርጅናል ፓስፖርትና ከኢትዮጵያ ኢንቨስትመንት ኮሚሽን ማስረጃ"
+    notes:
+      en: >-
+        Required by the MoFED guide where there is a foreign national among the
+        shareholders. The guide also notes the Investment Commission runs a
+        one-stop shop that issues a TIN together with the investment permit.
+      am: >-
+        በገንዘብ ሚኒስቴር መመሪያ መሠረት ከባለአክሲዮኖቹ መካከል የውጭ ዜጋ ካለ
+        ይጠየቃል። መመሪያው ኮሚሽኑ ቲንን ከኢንቨስትመንት ፈቃድ ጋር አብሮ የሚሰጥ
+        የአንድ ማዕከል አገልግሎት እንዳለው ይጠቅሳል።
+    required: false
+
+  - name:
+      en: "Competency certificate — for the trade licence step"
+      am: "የብቃት ማረጋገጫ የምስክር ወረቀት — ለንግድ ፈቃድ ደረጃ"
+    notes:
+      en: "MoTRI lists this as the requirement for a new trade licence."
+      am: "ንግድና ቀጣናዊ ትስስር ሚኒስቴር ይህንን ለአዲስ የንግድ ፈቃድ እንደ መስፈርት ይዘረዝራል።"
+    required: false
+
+offices:
+  - name:
+      en: "Ministry of Trade and Regional Integration"
+      am: "ንግድና ቀጣናዊ ትስስር ሚኒስቴር"
+    address:
+      en: "Addis Ababa"
+      am: "አዲስ አበባ"
+    phone: "+251 115 15 36"
+    website: "https://www.motri.gov.et/"
+  - name:
+      en: "The tax office nearest the company's place of business"
+      am: "ለኩባንያው የሥራ ቦታ ቅርብ የሆነው የግብር ጽሕፈት ቤት"
+    address:
+      en: >-
+        The MoFED guide states that bodies are registered at the nearest tax
+        office to their place of business unless special circumstances permit
+        otherwise.
+      am: >-
+        የገንዘብ ሚኒስቴር መመሪያ ልዩ ሁኔታ ካልፈቀደ በስተቀር ድርጅቶች ለሥራ ቦታቸው
+        ቅርብ በሆነው የግብር ጽሕፈት ቤት እንደሚመዘገቡ ይገልጻል።
+
+steps:
+  - title:
+      en: "Have the founding documents notarised"
+      am: "የመመሥረቻ ሰነዶቹን በሕግ ያረጋግጡ"
+    detail:
+      en: >-
+        The memorandum and articles of association, the rent contract and the
+        power of attorney all have to be notarised before they are accepted.
+      am: >-
+        የመመሥረቻ ጽሑፉ፣ የመተዳደሪያ ደንቡ፣ የኪራይ ውሉና የውክልና ሰነዱ ተቀባይነት
+        ከማግኘታቸው በፊት በሕግ መረጋገጥ አለባቸው።
+
+  - title:
+      en: "Register the company for tax and obtain its TIN"
+      am: "ኩባንያውን ለግብር አስመዝግበው ቲኑን ያውጡ"
+    detail:
+      en: >-
+        At the nearest tax office to the place of business. The manager needs a
+        personal TIN of their own for this.
+      am: >-
+        ለሥራ ቦታው ቅርብ በሆነው የግብር ጽሕፈት ቤት። ለዚህ ሥራ አስኪያጁ የራሱ
+        የግል ቲን ሊኖረው ይገባል።
+
+  - title:
+      en: "Register the trade name"
+      am: "የንግድ ስሙን ያስመዝግቡ"
+    detail:
+      en: "MoTRI runs trade name registration as a separate service category."
+      am: "ንግድና ቀጣናዊ ትስስር ሚኒስቴር የንግድ ስም ምዝገባን በተለየ የአገልግሎት ምድብ ያከናውናል።"
+
+  - title:
+      en: "Apply for commercial registration"
+      am: "የንግድ ምዝገባ ያመልክቱ"
+    detail:
+      en: >-
+        MoTRI gives the processing time only as "Online" and directs applicants
+        to the eTrade system.
+      am: >-
+        ንግድና ቀጣናዊ ትስስር ሚኒስቴር የሚፈጀውን ጊዜ "Online" ብቻ ብሎ ያስቀምጣል፤
+        አመልካቾችንም ወደ ኢትሬድ ሥርዓት ይመራል።
+
+  - title:
+      en: "Apply for the trade licence"
+      am: "የንግድ ፈቃድ ያመልክቱ"
+    detail:
+      en: >-
+        A separate application, and one licence is needed for each business
+        activity the company intends to carry on.
+      am: >-
+        የተለየ ማመልከቻ ሲሆን ኩባንያው ለሚሰማራበት ለእያንዳንዱ የንግድ ሥራ አንድ
+        ፈቃድ ያስፈልጋል።
+
+processingTime:
+  en: >-
+    MoTRI states the processing time for commercial registration and the trade
+    licence only as "Online", with no number of days published.
+  am: >-
+    ንግድና ቀጣናዊ ትስስር ሚኒስቴር ለንግድ ምዝገባና ለንግድ ፈቃድ የሚፈጀውን ጊዜ
+    "Online" ብቻ ብሎ ያስቀምጣል፤ የቀናት ብዛት አላተመም።
+
+commonMistakes:
+  - en: >-
+      Coming without the manager's personal TIN. The company's own TIN does not
+      replace it.
+    am: >-
+      የሥራ አስኪያጁን የግል ቲን ሳይዙ መምጣት። የኩባንያው ቲን ይህንን አይተካም።
+  - en: >-
+      Bringing founding documents that have not been notarised. The MoFED guide
+      asks for notarised copies, not plain ones.
+    am: >-
+      በሕግ ያልተረጋገጡ የመመሥረቻ ሰነዶችን ይዞ መምጣት። የገንዘብ ሚኒስቴር መመሪያ
+      በሕግ የተረጋገጡ ቅጂዎችን እንጂ ተራ ቅጂዎችን አይጠይቅም።
+  - en: >-
+      Treating commercial registration as the end. The trade licence is a
+      separate application with its own requirements.
+    am: >-
+      የንግድ ምዝገባን እንደ መጨረሻ መቁጠር። የንግድ ፈቃድ የራሱ መስፈርቶች ያሉት
+      የተለየ ማመልከቻ ነው።
+  - en: >-
+      Forgetting that a company trading in more than one region is issued a
+      sub-TIN for each location.
+    am: >-
+      ከአንድ ክልል በላይ የሚነግድ ኩባንያ ለእያንዳንዱ ቦታ ንዑስ ቲን እንደሚሰጠው
+      መዘንጋት።
+
+followUp:
+  - en: >-
+      The trade licence is renewed every year, and MoTRI requires an audit
+      report and a tax clearance for renewal.
+    am: >-
+      የንግድ ፈቃዱ በየዓመቱ ይታደሳል፤ ንግድና ቀጣናዊ ትስስር ሚኒስቴርም ለዕድሳት
+      የኦዲት ሪፖርትና የግብር ማጣሪያ ይጠይቃል።
+  - en: >-
+      Amending the memorandum and articles later requires the shareholders'
+      minutes of resolution, and an audit report. If capital changes in cash,
+      MoTRI also asks for bank proof.
+    am: >-
+      በኋላ የመመሥረቻ ጽሑፉንና መተዳደሪያ ደንቡን ማሻሻል የባለአክሲዮኖችን የውሳኔ
+      ቃለ ጉባኤና የኦዲት ሪፖርት ይጠይቃል። ካፒታሉ በጥሬ ገንዘብ ከተለወጠ ሚኒስቴሩ
+      የባንክ ማስረጃም ይጠይቃል።
+  - en: >-
+      Notify the tax authority in writing within 30 days of a change to the
+      trade name, address, constitution, principal activity or banking details.
+    am: >-
+      የንግድ ስሙ፣ አድራሻው፣ አቋሙ፣ ዋና የሥራ መስኩ ወይም የባንክ መረጃው ሲለወጥ
+      በ30 ቀናት ውስጥ ለግብር ባለሥልጣኑ በጽሑፍ ያሳውቁ።
+
+verification:
+  verified: false
+  lastVerified: "2026-07-25"
+  sourceUrls:
+    - "https://www.motri.gov.et/en/service_category/commercial-registration/view"
+    - "https://www.motri.gov.et/en/service_category/trade-license/view"
+    - "https://www.motri.gov.et/en/service_category/trade-name/view"
+    - "https://www.motri.gov.et/sites/default/files/resource/proclamation-no-980_2016.pdf"
+    - "https://www.mofed.gov.et/media/filer_public/86/fb/86fb37d6-8405-45ad-b439-560b3e818d45/tax_compliance_guide_for_foreign_investors_in_ethiopia.pdf"
+  note:
+    en: >-
+      Compiled from official sources but not checked by a person. Most of the
+      document detail comes from the MoFED tax compliance guide, which is
+      written for foreign investors; a reviewer should confirm each item applies
+      to a wholly domestic PLC. MoTRI's requirement list does not separate
+      organisations from individuals, so the split between this record and the
+      sole proprietor one is editorial. Proclamation 980/2016 is cited for the
+      TIN mechanism only: it is amended by Proclamation 1150/2019, whose scan
+      does not carry an extractable text layer, so the amendment has not been
+      read against it. No fees are stated because none are published.
+    am: >-
+      ከኦፊሴላዊ ምንጮች የተዘጋጀ ቢሆንም በሰው አልተረጋገጠም። አብዛኛው የሰነድ ዝርዝር
+      ለውጭ ባለሀብቶች ከተጻፈው የገንዘብ ሚኒስቴር መመሪያ የተወሰደ ነው፤ ገምጋሚው
+      እያንዳንዱ ነጥብ ሙሉ በሙሉ የአገር ውስጥ በሆነ የግል ማኅበር ላይ ተፈጻሚ መሆኑን
+      ማረጋገጥ አለበት። የሚኒስቴሩ የመስፈርት ዝርዝር ድርጅቶችንና ግለሰቦችን ስለማይለይ
+      በዚህና በግል ነጋዴው መዝገብ መካከል ያለው ክፍፍል የአርትዖት ውሳኔ ነው። አዋጅ
+      980/2016 የተጠቀሰው ለቲን አሠራሩ ብቻ ነው፤ በአዋጅ 1150/2019 የተሻሻለ ሲሆን
+      የዚያኛው ቅጂ ሊነበብ የሚችል የጽሑፍ ሽፋን ስለሌለው ማሻሻያው አልተነጻጸረም።
+      ክፍያ አልተገለጸም ምክንያቱም የታተመ የለም።

@@ -1,0 +1,166 @@
+{
+  "app": {
+    "name": "GovGuide",
+    "tagline": "Ethiopian government services, explained",
+    "skipToContent": "Skip to main content"
+  },
+  "nav": {
+    "mainLabel": "Main navigation",
+    "home": "Home",
+    "services": "All services",
+    "languageLabel": "Language",
+    "changeLanguage": "Change language"
+  },
+  "ask": {
+    "heading": "What do you need to get done?",
+    "subheading": "Describe it in your own words. Every answer comes from a verified knowledge base, not from a chatbot's memory.",
+    "label": "Your question",
+    "placeholder": "For example: I need to renew my passport",
+    "submit": "Get guidance",
+    "submitting": "Checking the knowledge base",
+    "clear": "Clear",
+    "examplesLabel": "Or browse what is covered",
+    "errors": {
+      "empty": "Type your question first.",
+      "tooLong": "That is too long. Please shorten it to {max} characters or fewer.",
+      "failed": "Something went wrong. Please try again.",
+      "unavailable": "The guidance service is unavailable right now. Please try again in a moment.",
+      "rateLimited": "Too many requests. Please wait a moment and try again."
+    }
+  },
+  "result": {
+    "matchedLabel": "Matched service",
+    "notCovered": {
+      "title": "Not covered yet",
+      "body": "This service is not in the knowledge base, so there is nothing verified to show you. Rather than guess, we would rather tell you nothing.",
+      "browse": "Browse the services that are covered"
+    },
+    "clarify": {
+      "title": "One more thing",
+      "hint": "Answer this and we can find the right service.",
+      "replyLabel": "Your answer",
+      "replyPlaceholder": "Type your answer",
+      "replySubmit": "Continue"
+    },
+    "explanationLabel": "In short",
+    "basedOn": "Drawn from {count, plural, one {# fact} other {# facts}} in the record",
+    "ungrounded": "The explanation could not be verified against the record, so only the checked facts below are shown.",
+    "viewFullGuide": "View the full checklist"
+  },
+  "feedback": {
+    "prompt": "Was this helpful?",
+    "yes": "Yes",
+    "no": "No",
+    "thanks": "Thank you — this helps us decide what to document next."
+  },
+  "service": {
+    "eligibility": "Who can apply",
+    "documents": "Documents to bring",
+    "fees": "Fees",
+    "offices": "Where to go",
+    "steps": "Steps",
+    "processingTime": "How long it takes",
+    "commonMistakes": "Common mistakes",
+    "followUp": "After you finish",
+    "sources": "Official sources",
+    "lastVerified": "Last verified {date}",
+    "required": "Required",
+    "optional": "Optional",
+    "copies": "{count, plural, one {# copy} other {# copies}}",
+    "noneRecorded": "Nothing recorded for this section.",
+    "backToAsk": "Ask another question"
+  },
+  "verification": {
+    "unverifiedTitle": "This record has not been verified",
+    "unverifiedBody": "No one has checked these details against an official source. Fees and office locations are hidden, because a wrong one would send you on a wasted trip. Confirm everything with the responsible office before you travel.",
+    "suppressed": "Hidden until this record is verified",
+    "verified": "Verified against official sources"
+  },
+  "checklist": {
+    "title": "Your checklist",
+    "progress": "{done} of {total} done",
+    "reset": "Reset",
+    "saved": "Saved",
+    "saving": "Saving",
+    "saveFailed": "Could not save your progress. Your ticks are still shown here."
+  },
+  "reviews": {
+    "heading": "Community reports",
+    "count": "{count, plural, one {# report} other {# reports}}",
+    "unverifiedTitle": "Unverified citizen accounts",
+    "unverifiedBody": "These are people's own accounts of using this service. No one has checked them against an official source, and offices change their requirements without notice. Where a report disagrees with the official steps above, follow the official steps.",
+    "empty": "No one has shared their experience of this service yet.",
+    "writtenIn": "Written in {language}",
+    "languages": {
+      "en": "English",
+      "am": "Amharic"
+    },
+    "flag": "Report as misleading",
+    "flagged": "Reported. Thank you.",
+    "flagFailed": "Could not send your report. Please try again.",
+    "waitTimes": {
+      "under-hour": "Under an hour",
+      "half-day": "About half a day",
+      "full-day": "A full day",
+      "multiple-visits": "More than one visit"
+    },
+    "outcomes": {
+      "completed": "Got it done",
+      "rejected": "Turned away",
+      "still-trying": "Still trying"
+    },
+    "form": {
+      "open": "Share your experience",
+      "cancel": "Cancel",
+      "heading": "What happened when you used this service?",
+      "hint": "Describe what you went through. Leave out phone numbers and links — reports containing them are rejected.",
+      "bodyLabel": "Your experience",
+      "bodyPlaceholder": "For example: the office asked for a copy I did not know about, so I had to come back the next day.",
+      "bodyCounter": "{count} of {max} characters",
+      "officeLabel": "Which office did you visit? (optional)",
+      "officePlaceholder": "For example: Bole sub-city branch",
+      "waitTimeLabel": "How long did it take? (optional)",
+      "outcomeLabel": "How did it end? (optional)",
+      "unanswered": "Prefer not to say",
+      "submit": "Post report",
+      "submitting": "Posting",
+      "success": "Posted. Thank you for helping the next person.",
+      "errors": {
+        "invalid": "Please write between {min} and {max} characters, with no links or phone numbers.",
+        "unknown-service": "This service is not recognised.",
+        "rate-limited": "You have posted a few reports already. Please try again later.",
+        "unavailable": "Reports cannot be saved right now, so yours was not posted. Please try again later."
+      }
+    }
+  },
+  "services": {
+    "heading": "All services",
+    "subheading": "Everything currently in the knowledge base.",
+    "empty": "No services have been added yet.",
+    "count": "{count, plural, one {# service} other {# services}}"
+  },
+  "categories": {
+    "identity": "Identity",
+    "travel": "Travel",
+    "business": "Business",
+    "tax": "Tax",
+    "property": "Property",
+    "vehicle": "Vehicle",
+    "education": "Education",
+    "health": "Health",
+    "civil-registration": "Civil registration",
+    "other": "Other"
+  },
+  "states": {
+    "loading": "Loading",
+    "errorTitle": "Something went wrong",
+    "errorBody": "We could not load this page. Trying again usually works.",
+    "retry": "Try again",
+    "notFoundTitle": "Page not found",
+    "notFoundBody": "The page you are looking for does not exist.",
+    "backHome": "Go to the start"
+  },
+  "footer": {
+    "disclaimer": "GovGuide is an independent project, not an official government service. Always confirm details with the responsible office before you travel."
+  }
+}

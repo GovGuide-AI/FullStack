@@ -1,0 +1,269 @@
+# Replacing a lost or damaged Ethiopian passport
+#
+# Sourced from the ICS pages listed under verification.sourceUrls.
+#
+# verified: false — not yet checked by a person against the sources.
+#
+# Scope warning for a reviewer: ICS publishes a document list for a LOST
+# passport, and its fee schedule covers damaged passports too, but none of the
+# pages consulted published a document list for a DAMAGED passport. That gap is
+# stated in the record rather than filled in by assuming the lost-passport list
+# applies.
+
+slug: lost-or-damaged-passport
+category: travel
+
+title:
+  en: "Replace a lost or damaged Ethiopian passport"
+  am: "የጠፋ ወይም የተበላሸ የኢትዮጵያ ፓስፖርት መተካት"
+
+summary:
+  en: >-
+    Getting a replacement after a passport is lost, stolen, or damaged. For a
+    lost passport ICS requires a police report from the area where it went
+    missing.
+  am: >-
+    ፓስፖርት ከጠፋ፣ ከተሰረቀ ወይም ከተበላሸ በኋላ ምትክ ማግኘት። ለጠፋ ፓስፖርት ICS
+    ከጠፋበት አካባቢ የፖሊስ ማስረጃ ይጠይቃል።
+
+aliases:
+  en:
+    - lost passport
+    - stolen passport
+    - damaged passport
+    - I lost my passport
+    - replace passport
+    - passport replacement
+  am:
+    - የጠፋ ፓስፖርት
+    - የተበላሸ ፓስፖርት
+    - ፓስፖርት ጠፋብኝ
+    - ፓስፖርት መተካት
+
+eligibility:
+  - en: >-
+      ICS does not process these applications by power of attorney. You must
+      appear in person for the photo or for any extra information.
+    am: >-
+      ICS እነዚህን ማመልከቻዎች በውክልና አያስተናግድም። ለፎቶ ወይም ለተጨማሪ መረጃ በአካል
+      መቅረብ አለብዎት።
+
+documents:
+  - name:
+      en: "Police report from the area where the passport was lost"
+      am: "ፓስፖርቱ ከጠፋበት አካባቢ የፖሊስ ማስረጃ"
+    notes:
+      en: >-
+        Required for a lost passport. Keep it with you: if ICS later asks for a
+        photo or more information, it asks you to bring the police report and
+        your appointment confirmation.
+      am: >-
+        ለጠፋ ፓስፖርት ያስፈልጋል። ይዘውት ይቆዩ፦ ICS በኋላ ፎቶ ወይም ተጨማሪ መረጃ ከጠየቀ
+        የፖሊስ ማስረጃውንና የቀጠሮ ወረቀትዎን ይዘው እንዲመጡ ይጠይቃል።
+    required: true
+
+  - name:
+      en: "Renewed Kebele ID"
+      am: "የታደሰ የቀበሌ መታወቂያ"
+    required: true
+
+  - name:
+      en: "Details of the lost passport"
+      am: "የጠፋው ፓስፖርት መረጃ"
+    notes:
+      en: >-
+        The passport number, issue date, and expiry date. If you do not have
+        them, ICS says you can get them by visiting your nearest immigration
+        office in person.
+      am: >-
+        የፓስፖርት ቁጥሩ፣ የተሰጠበት ቀን እና የሚያልቅበት ቀን። እነዚህ ከሌሉዎት ICS
+        በአቅራቢያዎ ወደሚገኝ ኢሚግሬሽን ቢሮ በአካል በመሄድ ማግኘት እንደሚችሉ ይገልጻል።
+    required: true
+
+  - name:
+      en: "Printed appointment confirmation"
+      am: "የታተመ የቀጠሮ ወረቀት"
+    required: true
+
+fees:
+  - label:
+      en: "Lost passport, normal service"
+      am: "የጠፋ ፓስፖርት፣ መደበኛ አገልግሎት"
+    amount:
+      kind: fixed
+      value: 13000
+      currency: ETB
+    notes:
+      en: >-
+        Published by ICS under Council of Ministers Regulation 550/2024, which
+        notes that lost-passport fees are higher because of the extra
+        verification involved.
+      am: >-
+        በሚኒስትሮች ምክር ቤት ደንብ ቁጥር 550/2024 መሠረት በICS የታተመ፤ ተጨማሪ
+        ማጣራት ስለሚያስፈልግ የጠፋ ፓስፖርት ክፍያ ከፍ ያለ መሆኑን ይገልጻል።
+
+  - label:
+      en: "Damaged passport that is still valid, normal service"
+      am: "ጊዜው ያላለፈበት የተበላሸ ፓስፖርት፣ መደበኛ አገልግሎት"
+    amount:
+      kind: fixed
+      value: 13000
+      currency: ETB
+
+  - label:
+      en: "Urgent service (2 days), lost or damaged"
+      am: "አስቸኳይ አገልግሎት (2 ቀን)፣ የጠፋ ወይም የተበላሸ"
+    amount:
+      kind: fixed
+      value: 33000
+      currency: ETB
+
+  - label:
+      en: "Urgent service (5 days), lost or damaged"
+      am: "አስቸኳይ አገልግሎት (5 ቀን)፣ የጠፋ ወይም የተበላሸ"
+    amount:
+      kind: fixed
+      value: 28000
+      currency: ETB
+
+  - label:
+      en: "Replacement that also corrects your details"
+      am: "ከመረጃ እርማት ጋር የሚደረግ ምትክ"
+    amount:
+      kind: fixed
+      value: 20500
+      currency: ETB
+    notes:
+      en: >-
+        Applies to a lost or damaged passport when details change at the same
+        time. Urgent versions are 40,500 ETB for 2 days and 35,500 ETB for
+        5 days.
+      am: >-
+        መረጃ በተመሳሳይ ጊዜ ሲቀየር ለጠፋ ወይም ለተበላሸ ፓስፖርት ተፈጻሚ ይሆናል።
+        የአስቸኳይ አማራጮች ለ2 ቀን 40,500 ብር እና ለ5 ቀን 35,500 ብር ናቸው።
+
+offices:
+  - name:
+      en: "The immigration office where you applied"
+      am: "ያመለከቱበት ኢሚግሬሽን ቢሮ"
+    address:
+      en: >-
+        ICS hands the replacement over at the office you chose during online
+        registration.
+      am: >-
+        ICS ምትኩን በኦንላይን ምዝገባ ወቅት በመረጡት ቢሮ ያስረክባል።
+    phone: "8133"
+    website: "https://ics.gov.et/"
+
+  - name:
+      en: "Urgent applications: main office, Gotera"
+      am: "አስቸኳይ ማመልከቻዎች፦ ዋና ቢሮ፣ ጎተራ"
+    address:
+      en: >-
+        Applicants using the urgent e-Passport portal are served at the ICS
+        main office in Gotera on the appointment date, bringing a Fayda ID and
+        the printed application.
+      am: >-
+        የአስቸኳይ ኢ-ፓስፖርት ፖርታልን የሚጠቀሙ አመልካቾች በቀጠሮ ቀናቸው የፋይዳ
+        መታወቂያና የታተመውን ማመልከቻ ይዘው ጎተራ በሚገኘው የICS ዋና ቢሮ ይስተናገዳሉ።
+
+steps:
+  - title:
+      en: "Report the loss to the police"
+      am: "ስለጠፋው ለፖሊስ ያሳውቁ"
+    detail:
+      en: >-
+        Get a report from the police in the area where the passport was lost.
+        This is the document that distinguishes a replacement from a renewal.
+      am: >-
+        ፓስፖርቱ ከጠፋበት አካባቢ ካለው ፖሊስ ማስረጃ ያግኙ። ምትክን ከእድሳት የሚለየው
+        ይህ ሰነድ ነው።
+
+  - title:
+      en: "Gather your documents and register online"
+      am: "ሰነዶችዎን አሟልተው በኦንላይን ይመዝገቡ"
+    detail:
+      en: >-
+        Register at www.ethiopianpassportservices.gov.et. Everything you upload
+        must be clear and legible.
+      am: >-
+        በwww.ethiopianpassportservices.gov.et ይመዝገቡ። የሚጭኑት ሁሉ በግልጽ
+        የሚታይና የሚነበብ መሆን አለበት።
+
+  - title:
+      en: "Pay within 3 hours"
+      am: "በ3 ሰዓት ውስጥ ክፍያ ይፈጽሙ"
+
+  - title:
+      en: "Print your appointment confirmation"
+      am: "የቀጠሮ ወረቀትዎን ያትሙ"
+
+  - title:
+      en: "Collect the passport on your delivery date"
+      am: "በመረከቢያ ቀንዎ ፓስፖርቱን ይቀበሉ"
+    detail:
+      en: >-
+        ICS sends the delivery date by SMS from 7876. Go in person to the
+        office where you applied.
+      am: >-
+        ICS የመረከቢያ ቀኑን ከ7876 በአጭር መልዕክት ይልካል። ያመለከቱበት ቢሮ በአካል
+        ይሂዱ።
+
+processingTime:
+  en: >-
+    ICS offers a normal service plus urgent 2-day and 5-day options. No
+    calendar time is published for the normal service.
+  am: >-
+    ICS መደበኛ አገልግሎትን እንዲሁም የ2 ቀን እና የ5 ቀን አስቸኳይ አማራጮችን ይሰጣል።
+    ለመደበኛው አገልግሎት የተወሰነ ጊዜ አልታተመም።
+
+commonMistakes:
+  - en: >-
+      Getting the police report from a station other than the area where the
+      passport was lost.
+    am: >-
+      የፖሊስ ማስረጃውን ፓስፖርቱ ከጠፋበት አካባቢ ውጪ ካለ ጣቢያ ማምጣት።
+  - en: >-
+      Leaving the police report at home. ICS asks for it again if it calls you
+      back for a photo or more information.
+    am: >-
+      የፖሊስ ማስረጃውን ቤት መተው። ICS ለፎቶ ወይም ለተጨማሪ መረጃ ሲጠራዎት እንደገና
+      ይጠይቀዋል።
+  - en: "Sending someone else with a power of attorney, which ICS does not accept."
+    am: "ICS የማይቀበለውን ውክልና ሰጥቶ ሌላ ሰው መላክ።"
+
+followUp:
+  - en: >-
+      If you do not know your old passport number, ICS says your nearest
+      immigration office can retrieve it for you in person.
+    am: >-
+      የቀድሞ ፓስፖርትዎን ቁጥር የማያውቁ ከሆነ በአቅራቢያዎ ያለው ኢሚግሬሽን ቢሮ በአካል
+      ቀርበው እንዲያገኙት ሊረዳዎት እንደሚችል ICS ይገልጻል።
+  - en: >-
+      For a damaged rather than lost passport, confirm the document list with
+      ICS on 8133 first: the fee is published but the required documents are
+      not stated on the pages this record was built from.
+    am: >-
+      ፓስፖርቱ የተበላሸ እንጂ ያልጠፋ ከሆነ መጀመሪያ የሰነድ ዝርዝሩን ከICS በ8133
+      ያረጋግጡ፦ ክፍያው ታትሟል፤ ሆኖም ይህ መዝገብ ከተዘጋጀባቸው ገጾች ላይ የሚያስፈልጉት
+      ሰነዶች አልተገለጹም።
+
+verification:
+  verified: false
+  lastVerified: "2026-07-25"
+  sourceUrls:
+    - "https://ics.gov.et/information/how-to-obtain-a-replacement-passport-lost-passport/"
+    - "https://ics.gov.et/information/for-urgent-passport-applicants/"
+    - "https://ics.gov.et/information/immigration-and-citizenship-service-fees-revised-by-council-of-ministers-regulation-550-2024/"
+  note:
+    en: >-
+      Compiled from official ICS pages but not yet checked by a person. The
+      document list above is the one ICS publishes for a LOST passport. ICS
+      publishes fees for damaged passports but no document list was found for
+      that case, so a reviewer should obtain one before this record is marked
+      verified.
+    am: >-
+      ከኦፊሴላዊ የICS ገጾች የተዘጋጀ ቢሆንም እስካሁን በሰው አልተረጋገጠም። ከላይ ያለው
+      የሰነድ ዝርዝር ICS ለጠፋ ፓስፖርት ያተመው ነው። ICS ለተበላሹ ፓስፖርቶች ክፍያ
+      ቢያትምም ለዚያ ጉዳይ የሰነድ ዝርዝር አልተገኘም፤ ስለዚህ ይህ መዝገብ እንደተረጋገጠ
+      ከመመዝገቡ በፊት ገምጋሚ ማግኘት አለበት።

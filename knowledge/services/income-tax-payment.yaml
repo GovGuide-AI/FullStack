@@ -1,0 +1,320 @@
+# Declaring and paying business income tax
+#
+# Sources: the MoFED tax compliance guide, which sets out the taxpayer
+# categories, schedules, declaration deadlines and filing routes under Federal
+# Income Tax Proclamation 979/2016 and Tax Administration Proclamation 983/2016.
+# Listed under verification.sourceUrls.
+#
+# This record covers the deadlines and the mechanics of filing. It does not
+# compute anyone's tax. Rates depend on schedule, category and income, and
+# putting a number here that a citizen might act on is exactly the kind of fact
+# this project refuses to generate.
+
+slug: income-tax-payment
+category: tax
+
+title:
+  en: "Declare and pay income tax"
+  am: "የገቢ ግብር ማስታወቅና መክፈል"
+
+summary:
+  en: >-
+    Filing your annual tax declaration and paying what is due. Which deadline
+    applies to you depends on your taxpayer category, and the category depends
+    on your annual gross income.
+  am: >-
+    ዓመታዊ የግብር ማስታወቂያዎን ማስገባትና የሚገባውን መክፈል። የትኛው የጊዜ ገደብ
+    እንደሚመለከትዎ በግብር ከፋይ ምድብዎ ይወሰናል፤ ምድቡም በዓመታዊ አጠቃላይ
+    ገቢዎ ላይ የተመሠረተ ነው።
+
+aliases:
+  en:
+    - pay income tax
+    - income tax
+    - file my taxes
+    - tax declaration
+    - annual tax return
+    - when is my tax due
+    - business income tax
+    - eTax filing
+    - tax deadline
+  am:
+    - የገቢ ግብር መክፈል
+    - ግብር መክፈል
+    - የግብር ማስታወቂያ
+    - ዓመታዊ የግብር ማስታወቂያ
+    - የግብር ጊዜ ገደብ
+    - የንግድ ገቢ ግብር
+
+eligibility:
+  - en: >-
+      Anyone earning taxable income. The MoFED guide states the obligation to
+      pay applies even to a person without a TIN or a business licence.
+    am: >-
+      ግብር የሚከፈልበት ገቢ የሚያገኝ ማንኛውም ሰው። የገንዘብ ሚኒስቴር መመሪያ የመክፈል
+      ግዴታው ቲንም ሆነ የንግድ ፈቃድ ለሌለው ሰውም ተፈጻሚ እንደሚሆን ይገልጻል።
+  - en: >-
+      Category A is a body, or any other person with annual gross income of ETB
+      1,000,000 or more. The declaration is due within four months of the end of
+      the fiscal year.
+    am: >-
+      ምድብ ሀ ማለት ድርጅት፣ ወይም ዓመታዊ አጠቃላይ ገቢው ብር 1,000,000 እና
+      ከዚያ በላይ የሆነ ማንኛውም ሌላ ሰው ነው። ማስታወቂያው የበጀት ዓመቱ
+      ካበቃ በአራት ወራት ውስጥ መቅረብ አለበት።
+  - en: >-
+      Category B is a person other than a body with annual gross income of ETB
+      500,000 or more but less than ETB 1,000,000. Two months.
+    am: >-
+      ምድብ ለ ማለት ድርጅት ያልሆነና ዓመታዊ አጠቃላይ ገቢው ብር 500,000 እና
+      ከዚያ በላይ ግን ከብር 1,000,000 በታች የሆነ ሰው ነው። ሁለት ወር።
+  - en: >-
+      Category C is a person other than a body with annual gross income of less
+      than ETB 500,000. One month.
+    am: >-
+      ምድብ ሐ ማለት ድርጅት ያልሆነና ዓመታዊ አጠቃላይ ገቢው ከብር 500,000 በታች
+      የሆነ ሰው ነው። አንድ ወር።
+
+documents:
+  - name:
+      en: "Your TIN"
+      am: "ቲንዎ"
+    notes:
+      en: >-
+        The taxpayer shall indicate their TIN on all tax-related documents, and
+        the authority may not recognise documents presented without it.
+      am: >-
+        ግብር ከፋዩ ቲኑን በሁሉም ከግብር ጋር በተያያዙ ሰነዶች ላይ ማስፈር አለበት፤
+        ባለሥልጣኑም ያለሱ የቀረቡ ሰነዶችን ላይቀበል ይችላል።
+    required: true
+
+  - name:
+      en: "The periodic or annual tax declaration, with its supporting schedules"
+      am: "ወቅታዊ ወይም ዓመታዊ የግብር ማስታወቂያ ከደጋፊ ሠንጠረዦቹ ጋር"
+    required: true
+
+  - name:
+      en: "Supporting documents: supplier invoices, payroll, and the sales summary from the sales register machine"
+      am: "ደጋፊ ሰነዶች፦ የአቅራቢ ደረሰኞች፣ የደመወዝ መዝገብና ከሽያጭ መመዝገቢያ ማሽን የተገኘ የሽያጭ ማጠቃለያ"
+    notes:
+      en: >-
+        Listed by the MoFED guide for manual filing, where tax officers review
+        the declaration against these documents before entering the data.
+      am: >-
+        በገንዘብ ሚኒስቴር መመሪያ ለእጅ ማስገቢያ ተዘርዝሯል፤ የግብር ኃላፊዎች መረጃውን
+        ከማስገባታቸው በፊት ማስታወቂያውን ከእነዚህ ሰነዶች ጋር ያመሳክራሉ።
+    required: true
+
+  - name:
+      en: "Transfer advice from your bank for the amount payable"
+      am: "ለሚከፈለው መጠን ከባንክዎ የተሰጠ የዝውውር ማስረጃ"
+    notes:
+      en: >-
+        Under eFiling you complete a Domestic Electronic Payment Instruction,
+        take it to your bank, then bring the bank's advice of transfer to the
+        tax centre to obtain a cash receipt.
+      am: >-
+        በኢ-ፋይሊንግ የአገር ውስጥ የኤሌክትሮኒክ ክፍያ መመሪያ ሞልተው ወደ ባንክዎ
+        ይወስዳሉ፤ ከዚያም የባንኩን የዝውውር ማስረጃ ወደ ግብር ማዕከሉ ይዘው ሄደው
+        የገንዘብ ደረሰኝ ይቀበላሉ።
+    required: true
+
+  - name:
+      en: "Financial statements and a tax computation, for a body"
+      am: "ለድርጅት የሒሳብ መግለጫዎችና የግብር ስሌት"
+    required: false
+
+offices:
+  - name:
+      en: "Your tax centre — the branch where you are registered"
+      am: "የግብር ማዕከልዎ — የተመዘገቡበት ቅርንጫፍ"
+    address:
+      en: >-
+        The MoFED guide states taxpayers are registered at the branch nearest to
+        their principal place of business and submit their periodic and annual
+        declarations to that branch. It also handles audits and objections.
+      am: >-
+        የገንዘብ ሚኒስቴር መመሪያ ግብር ከፋዮች ለዋና የሥራ ቦታቸው ቅርብ በሆነው
+        ቅርንጫፍ እንደሚመዘገቡና ወቅታዊና ዓመታዊ ማስታወቂያዎቻቸውንም ወደዚያው
+        እንደሚያስገቡ ይገልጻል። ቅርንጫፉ ኦዲትንና አቤቱታዎችንም ያስተናግዳል።
+    website: "https://mor.gov.et/"
+  - name:
+      en: "eTax portal"
+      am: "የኢታክስ ፖርታል"
+    address:
+      en: >-
+        The Ministry of Revenue's online filing and payment portal. Check
+        whether your tax centre has enabled it for you before relying on it.
+      am: >-
+        የገቢዎች ሚኒስቴር የኦንላይን ማስገቢያና ክፍያ ፖርታል። ከመተማመንዎ በፊት
+        የግብር ማዕከልዎ ለእርስዎ አግብቶት እንደሆነ ያረጋግጡ።
+    website: "https://etax.mor.gov.et/"
+
+steps:
+  - title:
+      en: "Work out your category"
+      am: "ምድብዎን ይለዩ"
+    detail:
+      en: >-
+        Category A, B or C, from your annual gross income and whether you are a
+        body. This determines your deadline, so it is the first thing to settle.
+      am: >-
+        ከዓመታዊ አጠቃላይ ገቢዎና ድርጅት መሆንዎ ወይም አለመሆንዎ በመነሳት ምድብ ሀ፣
+        ለ ወይም ሐ። ይህ የጊዜ ገደብዎን ስለሚወስን መጀመሪያ ሊለይ የሚገባው ነው።
+
+  - title:
+      en: "Prepare the declaration and its supporting schedules"
+      am: "ማስታወቂያውንና ደጋፊ ሠንጠረዦቹን ያዘጋጁ"
+    detail:
+      en: >-
+        For a body, the return is accompanied by a tax computation and financial
+        statements. Withholding tax already paid at source is deducted in
+        determining what you owe.
+      am: >-
+        ለድርጅት ማስታወቂያው ከግብር ስሌትና ከሒሳብ መግለጫዎች ጋር ይቀርባል።
+        የሚገባዎትን ሲወሰን አስቀድሞ በምንጭ የተቀነሰ ተቀናሽ ግብር ይታሰባል።
+
+  - title:
+      en: "File, online or manually"
+      am: "በኦንላይን ወይም በእጅ ያስገቡ"
+    detail:
+      en: >-
+        With eFiling you upload the declaration and supporting detail and
+        receive a confirmation with a document number and the amount payable.
+        With manual filing you take everything to the tax centre and officers
+        review it against the supporting documents before issuing a document
+        number.
+      am: >-
+        በኢ-ፋይሊንግ ማስታወቂያውንና ደጋፊ መረጃውን ጭነው የሰነድ ቁጥርና የሚከፈለውን
+        መጠን የያዘ ማረጋገጫ ይቀበላሉ። በእጅ ማስገባት ደግሞ ሁሉንም ወደ ግብር
+        ማዕከሉ ይወስዳሉ፤ ኃላፊዎችም የሰነድ ቁጥር ከመስጠታቸው በፊት ከደጋፊ ሰነዶቹ
+        ጋር ያመሳክራሉ።
+
+  - title:
+      en: "Pay through your bank and collect the receipt"
+      am: "በባንክዎ በኩል ከፍለው ደረሰኙን ይረከቡ"
+    detail:
+      en: >-
+        Complete the Domestic Electronic Payment Instruction, take it to your
+        bank, then present the bank's advice of transfer to the collectors at
+        the tax centre for a cash receipt.
+      am: >-
+        የአገር ውስጥ የኤሌክትሮኒክ ክፍያ መመሪያውን ሞልተው ወደ ባንክዎ ይውሰዱ፤
+        ከዚያም የባንኩን የዝውውር ማስረጃ በግብር ማዕከሉ ላሉ ሰብሳቢዎች አቅርበው
+        የገንዘብ ደረሰኝ ይቀበሉ።
+
+  - title:
+      en: "Meet the deadline for your category"
+      am: "የምድብዎን የጊዜ ገደብ ያክብሩ"
+    detail:
+      en: >-
+        Business income tax for Category A, B and C is due within four, two and
+        one months respectively of the end of the fiscal year. The Ethiopian
+        fiscal year runs 8 July to 7 July.
+      am: >-
+        የምድብ ሀ፣ ለ እና ሐ የንግድ ገቢ ግብር የበጀት ዓመቱ ካበቃ በቅደም ተከተል
+        በአራት፣ በሁለትና በአንድ ወር ውስጥ መከፈል አለበት። የኢትዮጵያ በጀት ዓመት
+        ከሐምሌ 1 እስከ ሰኔ 30 ይቆያል።
+
+processingTime:
+  en: >-
+    Deadlines rather than a processing time. Category A pays within four months
+    of the end of the fiscal year, Category B within two, Category C within one.
+    A Schedule C taxpayer may also pay an instalment on the last day of the
+    month following the end of the sixth month of the year.
+  am: >-
+    የሚፈጅ ጊዜ ሳይሆን የጊዜ ገደቦች። ምድብ ሀ የበጀት ዓመቱ ካበቃ በአራት ወር፣
+    ምድብ ለ በሁለት ወር፣ ምድብ ሐ በአንድ ወር ውስጥ ይከፍላሉ። የመርሐ ግብር ሐ
+    ግብር ከፋይ የዓመቱ ስድስተኛ ወር ካበቃ በኋላ ባለው ወር የመጨረሻ ቀን ክፍያ
+    በከፊል ሊፈጽም ይችላል።
+
+commonMistakes:
+  - en: >-
+      Using the wrong deadline because the category was misjudged. Four, two and
+      one months are very different windows, and the category turns on annual
+      gross income and on whether you are a body.
+    am: >-
+      ምድቡ በተሳሳተ መንገድ በመወሰኑ የተሳሳተ የጊዜ ገደብ መጠቀም። አራት፣ ሁለትና
+      አንድ ወር በጣም የተለያዩ ጊዜያት ናቸው፤ ምድቡም በዓመታዊ አጠቃላይ ገቢና
+      ድርጅት በመሆን አለመሆን ላይ ይወሰናል።
+  - en: >-
+      Assuming no TIN means no obligation. Tax is owed on taxable income
+      regardless.
+    am: >-
+      ቲን አለመኖር ግዴታ አለመኖር እንደሆነ ማሰብ። ግብር በሚከፈልበት ገቢ ላይ
+      ያለምንም ሁኔታ ይገባል።
+  - en: >-
+      Turning up without the bank's transfer advice. The cash receipt at the tax
+      centre depends on it.
+    am: >-
+      የባንኩን የዝውውር ማስረጃ ሳይዙ መቅረብ። በግብር ማዕከሉ የሚሰጠው የገንዘብ
+      ደረሰኝ በእሱ ላይ የተመሠረተ ነው።
+  - en: >-
+      Assuming the federal rules describe your regional revenue bureau. Regional
+      bureaux administer their own revenues and their portals and practice
+      differ.
+    am: >-
+      የፌዴራሉ ሕጎች የክልልዎን የገቢዎች ቢሮ እንደሚገልጹ ማሰብ። የክልል ቢሮዎች
+      የራሳቸውን ገቢ ያስተዳድራሉ፤ ፖርታሎቻቸውና አሠራራቸውም ይለያያል።
+
+followUp:
+  - en: >-
+      Late payment attracts interest, and the Tax Administration Proclamation
+      treats unpaid tax as a debt owed to the government.
+    am: >-
+      የዘገየ ክፍያ ወለድ ያስከትላል፤ የግብር አስተዳደር አዋጅም ያልተከፈለ ግብርን
+      ለመንግሥት እንደሚገባ ዕዳ ይቆጥረዋል።
+  - en: >-
+      Keep your records. The retention period is the longer of the period in the
+      Commercial Code, which is ten years for company books, or five years from
+      the date the declaration was filed.
+    am: >-
+      መዛግብትዎን ይያዙ። የመያዣው ጊዜ በንግድ ሕጉ ከተቀመጠው ጊዜ፣ ለኩባንያ
+      መዛግብት አሥር ዓመት ከሆነው፣ ወይም ማስታወቂያው ከቀረበበት ቀን ጀምሮ ካሉት
+      አምስት ዓመታት ውስጥ ረዘም ያለው ነው።
+  - en: >-
+      A Schedule C taxpayer importing goods for commercial use makes an advance
+      payment of 3% of the CIF value, settled later through the refund
+      procedures if it exceeds what is owed.
+    am: >-
+      ለንግድ ሥራ ዕቃ የሚያስገባ የመርሐ ግብር ሐ ግብር ከፋይ ከCIF ዋጋ 3 በመቶ
+      የቅድሚያ ክፍያ ይፈጽማል፤ ከሚገባው በላይ ከሆነም በኋላ በተመላሽ ሥርዓቱ
+      ይስተካከላል።
+  - en: >-
+      You can ask the Ministry of Revenue to audit and issue a tax clearance at
+      any time, which you will need for a trade licence renewal.
+    am: >-
+      በማንኛውም ጊዜ ገቢዎች ሚኒስቴር ኦዲት አድርጎ የግብር ማጣሪያ እንዲሰጥዎ
+      መጠየቅ ይችላሉ፤ ይህም ለንግድ ፈቃድ ዕድሳት ያስፈልግዎታል።
+
+verification:
+  verified: false
+  lastVerified: "2026-07-25"
+  sourceUrls:
+    - "https://www.mofed.gov.et/media/filer_public/86/fb/86fb37d6-8405-45ad-b439-560b3e818d45/tax_compliance_guide_for_foreign_investors_in_ethiopia.pdf"
+    - "https://etax.mor.gov.et/"
+    - "https://mor.gov.et/"
+  note:
+    en: >-
+      Every figure here comes from the MoFED tax compliance guide, and the
+      guide's age is the main risk. It states that ePayment is not operational
+      and that eFiling is only available at the large and medium taxpayers'
+      offices — yet etax.mor.gov.et is live today, so that passage is out of
+      date and the filing routes described may understate what is now possible.
+      The Category A/B/C thresholds of ETB 1,000,000 and ETB 500,000 likewise
+      need checking against the current law, since later proclamations have
+      moved related thresholds. No tax rates are given in this record at all:
+      they vary by schedule, category and income, and a citizen acting on a rate
+      quoted here could get it badly wrong. A reviewer should confirm the
+      deadlines and thresholds against the Ministry of Revenue directly.
+    am: >-
+      እዚህ ያለው እያንዳንዱ ቁጥር ከገንዘብ ሚኒስቴር የግብር መመሪያ የተወሰደ ሲሆን
+      የመመሪያው ዕድሜ ዋናው ስጋት ነው። መመሪያው የኤሌክትሮኒክ ክፍያ ሥራ ላይ
+      እንዳልዋለና ኢ-ፋይሊንግ በትልልቅና በመካከለኛ ግብር ከፋዮች ጽሕፈት ቤቶች ብቻ
+      እንደሚገኝ ይናገራል፤ ሆኖም etax.mor.gov.et ዛሬ በሥራ ላይ ነው። ስለዚህ ያ
+      ክፍል ጊዜው ያለፈበት ሲሆን የተገለጹት የማስገቢያ መንገዶችም አሁን ካለው
+      ዕድል ያነሱ ሊሆኑ ይችላሉ። የምድብ ሀ/ለ/ሐ ገደቦች ብር 1,000,000 እና ብር
+      500,000 እንዲሁ ከወቅታዊው ሕግ ጋር መጣራት አለባቸው፤ ተከታይ አዋጆች
+      ተያያዥ ገደቦችን ስለቀየሩ። በዚህ መዝገብ ውስጥ የግብር ምጣኔ ጨርሶ
+      አልተጠቀሰም፤ በመርሐ ግብር፣ በምድብና በገቢ ስለሚለያዩ እዚህ በተጠቀሰ ምጣኔ
+      ተመርኩዞ የሚሠራ ዜጋ ክፉኛ ሊሳሳት ይችላል። ገምጋሚው የጊዜ ገደቦቹንና
+      ገደቦቹን ከገቢዎች ሚኒስቴር ጋር በቀጥታ ማረጋገጥ አለበት።

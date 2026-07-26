@@ -1,0 +1,108 @@
+# TEMPLATE RECORD — NOT REAL GOVERNMENT GUIDANCE
+#
+# This file exists so the schema, loader, router, and UI have something to run
+# against. Every value below is placeholder text that says so out loud. No real
+# Ethiopian government service, fee, office, or processing time is described
+# here, because none had been verified against an official source at the time
+# this record was written.
+#
+# To add a real service: copy this file, rename it to <slug>.yaml, replace every
+# field with information taken from an official source, list those sources under
+# verification.sourceUrls, and only then set verification.verified to true.
+#
+# The Amharic strings below are placeholder copy and should be reviewed by a
+# native speaker before any real record ships.
+
+slug: example-service-template
+category: other
+
+title:
+  en: "Example service (template — not real guidance)"
+  am: "የአብነት አገልግሎት (ናሙና — ትክክለኛ መመሪያ አይደለም)"
+
+summary:
+  en: >-
+    A sample record that demonstrates the shape of the knowledge base. It
+    contains no real government information and should not be followed.
+  am: >-
+    የእውቀት መሠረቱን አወቃቀር የሚያሳይ የናሙና መዝገብ ነው። ትክክለኛ የመንግሥት መረጃ አልያዘም፤
+    ስለዚህ አይከተሉት።
+
+aliases:
+  en:
+    - example
+    - template
+    - sample service
+  am:
+    - ናሙና
+    - አብነት
+
+eligibility:
+  - en: "Placeholder eligibility rule — replace with a sourced requirement."
+    am: "የናሙና የብቁነት መስፈርት — ምንጭ ባለው መስፈርት ይተኩ።"
+
+documents:
+  - name:
+      en: "Placeholder document — replace with a real, sourced requirement"
+      am: "የናሙና ሰነድ — በትክክለኛ፣ ምንጭ ባለው መስፈርት ይተኩ"
+    notes:
+      en: "Notes explain edge cases, such as when a copy is accepted instead of an original."
+      am: "ማስታወሻዎች እንደ ቅጂ በዋናው ፋንታ ተቀባይነት ማግኘቱን የመሳሰሉ ልዩ ሁኔታዎችን ያብራራሉ።"
+    required: true
+    copies: 1
+
+fees:
+  # Deliberately declared as variable rather than inventing a figure. A fee is
+  # the single most damaging field to get wrong.
+  - label:
+      en: "Placeholder fee — no real amount is published in this template"
+      am: "የናሙና ክፍያ — በዚህ ናሙና ውስጥ ትክክለኛ መጠን አልተመዘገበም"
+    amount:
+      kind: variable
+      description:
+        en: "Not specified. A real amount must come from a cited official source."
+        am: "አልተገለጸም። ትክክለኛ መጠን ከተጠቀሰ ኦፊሴላዊ ምንጭ መምጣት አለበት።"
+
+offices:
+  - name:
+      en: "Placeholder office"
+      am: "የናሙና ቢሮ"
+    address:
+      en: "No real address is recorded in this template."
+      am: "በዚህ ናሙና ውስጥ ትክክለኛ አድራሻ አልተመዘገበም።"
+
+steps:
+  - title:
+      en: "Placeholder first step"
+      am: "የናሙና የመጀመሪያ ደረጃ"
+    detail:
+      en: "Describe what the applicant actually does, in the order they do it."
+      am: "አመልካቹ በሚያደርገው ቅደም ተከተል የሚፈጽመውን ተግባር ይግለጹ።"
+  - title:
+      en: "Placeholder second step"
+      am: "የናሙና ሁለተኛ ደረጃ"
+  - title:
+      en: "Placeholder final step"
+      am: "የናሙና የመጨረሻ ደረጃ"
+
+processingTime:
+  en: "Not specified in this template."
+  am: "በዚህ ናሙና ውስጥ አልተገለጸም።"
+
+commonMistakes:
+  - en: "Treating this template as real guidance."
+    am: "ይህን ናሙና እንደ ትክክለኛ መመሪያ መውሰድ።"
+
+followUp:
+  - en: "Replace this file with a verified service record before launch."
+    am: "ከመጀመሩ በፊት ይህን ፋይል በተረጋገጠ የአገልግሎት መዝገብ ይተኩ።"
+
+verification:
+  verified: false
+  lastVerified: "2026-07-25"
+  # Intentionally empty. Citing a source for fabricated content would be worse
+  # than citing nothing at all.
+  sourceUrls: []
+  note:
+    en: "Template content. Never verified, because there is nothing real to verify."
+    am: "የናሙና ይዘት። ትክክለኛ ነገር ስለሌለ ፈጽሞ አልተረጋገጠም።"
