@@ -77,6 +77,20 @@ say so in `verification.note` — an acknowledged gap is a usable answer, an
 invented one is not. Where they disagree, record the disagreement rather than
 picking a side.
 
+### A suggestion is not a match
+
+The router returns `candidates` alongside its decision: the catalog entries
+nearest the question, enum-constrained to real slugs exactly as `serviceSlug`
+is. They surface as choices under a clarifying question, or as related links
+under "not covered".
+
+They are an offer to go and read a record, never an answer. Do not feed a
+candidate to the explainer, do not render a checklist from one, and do not
+relax the rule that `serviceSlug` requires plain coverage on the grounds that a
+near miss can now be shown. An empty candidate list is a correct answer and
+must stay reachable — a far-fetched suggestion wastes a trip just as a wrong
+match does.
+
 ### Community reports are not facts
 
 The `reviews` table holds what citizens say happened to them. It is useful, and it

@@ -23,6 +23,14 @@ function getProvider(): OpenRouterProvider {
  * Model roles are read from the environment on every call rather than captured
  * at import time, so swapping a model is a restart, not a redeploy — and no
  * model ID is ever written into the source.
+ *
+ * The router deliberately carries no reasoning or provider-routing settings.
+ * That is a measured decision, not an omission — see the note on ROUTER_TIMEOUT
+ * in `services/guidance.service.ts` for what was tried and why none of it is
+ * here. In short: `reasoning: { effort: 'none' }` is silently ignored by
+ * nemotron and is a hard 400 on `openai/gpt-oss-20b:free`, which is one of only
+ * four models this env var can legally hold, so setting it would break the app
+ * on a routine model swap.
  */
 export function getRouterModel(): LanguageModel {
   return getProvider().chat(getEnv().OPENROUTER_ROUTER_MODEL);

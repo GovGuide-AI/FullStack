@@ -10,7 +10,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { VerificationBanner } from '@/components/service/verification-banner';
 import { Link } from '@/i18n/navigation';
-import { MAX_QUESTION_LENGTH, type AskResponse } from '@/lib/ask/contract';
+import {
+  MAX_QUESTION_LENGTH,
+  type AskResponse,
+  type ServiceSuggestion,
+} from '@/lib/ask/contract';
 
 export function AskResult({
   result,
@@ -31,6 +35,9 @@ export function AskResult({
         <AlertTitle>{t('notCovered.title')}</AlertTitle>
         <AlertDescription className="space-y-3">
           <p>{t('notCovered.body')}</p>
+          {result.suggestions.length > 0 ? (
+            <SuggestionList label={t('notCovered.nearby')} suggestions={result.suggestions} />
+          ) : null}
           <Link href="/services" className="underline underline-offset-4">
             {t('notCovered.browse')}
           </Link>
@@ -46,6 +53,9 @@ export function AskResult({
         <AlertTitle>{t('clarify.title')}</AlertTitle>
         <AlertDescription className="space-y-3">
           <p className="text-foreground">{result.question}</p>
+          {result.options.length > 0 ? (
+            <SuggestionList label={t('clarify.options')} suggestions={result.options} />
+          ) : null}
           {onClarify ? (
             <ClarifyReply onSubmit={onClarify} isLoading={isLoading} />
           ) : (
@@ -106,6 +116,44 @@ export function AskResult({
         <AnswerFeedback serviceSlug={service.slug} />
       </CardContent>
     </Card>
+  );
+}
+
+/**
+ * Near misses, as links to the record rather than another routing pass.
+ *
+ * Tapping one is instant and deterministic. Sending the choice back through the
+ * model would cost another 20-40s and re-open the very ambiguity the user has
+ * just settled, so the chips bypass it entirely.
+ */
+function SuggestionList({
+  label,
+  suggestions,
+}: {
+  label: string;
+  suggestions: readonly ServiceSuggestion[];
+}) {
+  const categories = useTranslations('categories');
+
+  return (
+    <div className="space-y-2">
+      <p>{label}</p>
+      <ul className="flex flex-wrap gap-2">
+        {suggestions.map((suggestion) => (
+          <li key={suggestion.slug}>
+            <Link
+              href={`/services/${suggestion.slug}`}
+              className="inline-flex items-center gap-2 rounded-full border bg-background px-3 py-1.5 text-sm text-foreground transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            >
+              <span>{suggestion.title}</span>
+              <span className="text-xs text-muted-foreground">
+                {categories(suggestion.category)}
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

@@ -1,7 +1,8 @@
-import { Landmark } from 'lucide-react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { LocaleSwitcher } from '@/components/locale-switcher';
 import { Link } from '@/i18n/navigation';
+import logo from '@/public/logo.png';
 
 export function SiteHeader() {
   const t = useTranslations();
@@ -17,7 +18,9 @@ export function SiteHeader() {
       <header className="border-b">
         <div className="mx-auto flex h-14 w-full max-w-3xl items-center gap-4 px-4">
           <Link href="/" className="flex items-center gap-2 rounded-sm font-medium">
-            <Landmark aria-hidden="true" className="size-5" />
+            {/* Decorative: the app name sits beside it as real text, so a label
+                here would only make a screen reader say it twice. */}
+            <Image src={logo} alt="" aria-hidden="true" className="h-7 w-auto" priority />
             <span>{t('app.name')}</span>
           </Link>
           <nav className="ms-auto flex items-center gap-1" aria-label={t('nav.mainLabel')}>

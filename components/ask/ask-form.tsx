@@ -5,6 +5,8 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useId, useRef, useState } from 'react';
 import { AskResult } from '@/components/ask/ask-result';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
 import { Textarea } from '@/components/ui/textarea';
 import {
   MAX_QUESTION_LENGTH,
@@ -161,7 +163,7 @@ export function AskForm() {
 
       {/* Announced politely so a screen reader hears the answer arrive. */}
       <div aria-live="polite" aria-busy={isLoading}>
-        {isLoading ? <AskPending /> : null}
+        {isLoading ? <AskPendingSkeleton /> : null}
         {status === 'done' && result ? (
           <AskResult result={result} onClarify={handleClarify} isLoading={isLoading} />
         ) : null}
@@ -170,12 +172,32 @@ export function AskForm() {
   );
 }
 
-function AskPending() {
+/**
+ * Stands in for the answer card while the model runs.
+ *
+ * Shaped like the real result rather than being a generic block, because the
+ * wait can run to tens of seconds and a placeholder that matches what arrives
+ * stops the page jumping when it does. The submit button is the only spinner:
+ * two of them saying the same thing read as a bug.
+ */
+function AskPendingSkeleton() {
   const t = useTranslations('ask');
+
   return (
-    <p className="flex items-center gap-2 text-sm text-muted-foreground">
-      <Loader2 aria-hidden="true" className="size-4 animate-spin" />
-      {t('submitting')}
-    </p>
+    <Card>
+      <CardHeader className="space-y-2">
+        <Skeleton className="h-3 w-24" />
+        <Skeleton className="h-6 w-2/3" />
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <div aria-hidden="true" className="space-y-2">
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-11/12" />
+          <Skeleton className="h-4 w-4/5" />
+        </div>
+        {/* The bars announce nothing, so the state is spoken here instead. */}
+        <p className="sr-only">{t('submitting')}</p>
+      </CardContent>
+    </Card>
   );
 }

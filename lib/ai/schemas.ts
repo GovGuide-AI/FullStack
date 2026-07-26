@@ -11,6 +11,13 @@ import { z } from 'zod';
 export const NO_MATCH = '__none__';
 export const NEEDS_CLARIFICATION = '__clarify__';
 
+/**
+ * Three is a deliberate ceiling. A near miss is only useful if the reader can
+ * scan the options at a glance; a longer list is a search result, which is what
+ * the services catalog already is.
+ */
+export const MAX_CANDIDATES = 3;
+
 export type RouterDecision = z.infer<ReturnType<typeof buildRouterSchema>>;
 
 /**
@@ -21,6 +28,11 @@ export type RouterDecision = z.infer<ReturnType<typeof buildRouterSchema>>;
 export function buildRouterSchema(slugs: readonly string[]) {
   // Sentinels lead so the tuple is provably non-empty for `z.enum`.
   const options: [string, ...string[]] = [NO_MATCH, NEEDS_CLARIFICATION, ...slugs];
+  // Candidates name real services only, so the sentinels are excluded. The
+  // fallback keeps the tuple non-empty for `z.enum` when the catalog is empty;
+  // `askGuidance` returns before routing in that case, so it is never used.
+  const realSlugs: [string, ...string[]] =
+    slugs.length > 0 ? ([...slugs] as [string, ...string[]]) : [NO_MATCH];
 
   return z.object({
     serviceSlug: z
@@ -32,6 +44,12 @@ export function buildRouterSchema(slugs: readonly string[]) {
       .string()
       .describe(
         `A single short question to ask the user. Required when serviceSlug is "${NEEDS_CLARIFICATION}", otherwise an empty string.`,
+      ),
+    candidates: z
+      .array(z.enum(realSlugs))
+      .max(MAX_CANDIDATES)
+      .describe(
+        `Up to ${MAX_CANDIDATES} catalog slugs closest to the question, nearest first. Empty when nothing in the catalog is in the same area.`,
       ),
   });
 }

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import type { Citation } from '@/lib/knowledge/citations';
+import type { ServiceCategory } from '@/lib/knowledge/schema';
 import type { ServiceView } from '@/lib/knowledge/view';
 import { LOCALES } from '@/lib/locales';
 
@@ -30,6 +31,19 @@ export const askRequestSchema = z.object({
 export type AskRequest = z.infer<typeof askRequestSchema>;
 
 /**
+ * A covered service the router judged close to the question without matching it.
+ *
+ * Carries only what a link needs. Deliberately not a `ServiceView`: a suggestion
+ * is an offer to go and read a record, not a partial answer, and serializing
+ * fields the user has not asked for invites showing them.
+ */
+export interface ServiceSuggestion {
+  readonly slug: string;
+  readonly title: string;
+  readonly category: ServiceCategory;
+}
+
+/**
  * The three outcomes a question can have. Modelled as a discriminated union so
  * the UI cannot forget to handle one, and so "we don't know" is a first-class
  * result rather than an error or an empty answer.
@@ -47,9 +61,16 @@ export type AskResponse =
   | {
       readonly kind: 'clarify';
       readonly question: string;
+      /** Services the answer is most likely to be one of. May be empty. */
+      readonly options: readonly ServiceSuggestion[];
     }
   | {
       readonly kind: 'not-covered';
+      /**
+       * Nearby services, or empty when the question was nowhere near the
+       * catalog. Empty is the honest result and must stay possible.
+       */
+      readonly suggestions: readonly ServiceSuggestion[];
     };
 
 export type AskErrorCode = 'invalid-request' | 'rate-limited' | 'unavailable';

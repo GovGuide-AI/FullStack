@@ -33,11 +33,13 @@
     "notCovered": {
       "title": "Not covered yet",
       "body": "This service is not in the knowledge base, so there is nothing verified to show you. Rather than guess, we would rather tell you nothing.",
+      "nearby": "Not what you asked for, but close by:",
       "browse": "Browse the services that are covered"
     },
     "clarify": {
       "title": "One more thing",
       "hint": "Answer this and we can find the right service.",
+      "options": "If one of these is what you need, open it directly:",
       "replyLabel": "Your answer",
       "replyPlaceholder": "Type your answer",
       "replySubmit": "Continue"

@@ -8,8 +8,9 @@ import {
   explanationSchema,
   NEEDS_CLARIFICATION,
   NO_MATCH,
+  type RouterDecision,
 } from '@/lib/ai/schemas';
-import type { AskResponse, Clarification } from '@/lib/ask/contract';
+import type { AskResponse, Clarification, ServiceSuggestion } from '@/lib/ask/contract';
 import { getEnv } from '@/lib/env';
 import { getCatalogSlugs, renderCatalogForPrompt } from '@/lib/knowledge/catalog';
 import { listCitations, partitionCitations } from '@/lib/knowledge/citations';
@@ -30,10 +31,28 @@ const EXPLAIN_CACHE_TTL_SECONDS = 60 * 60 * 24 * 7;
  * gives each attempt its own window and leaves room for a genuine retry.
  *
  * The step budgets are sized against measured latency rather than guessed.
- * Routing on a free-tier reasoning model takes 10-12s, so 20s per attempt is
- * roughly 70% headroom; anything slower is a stall worth abandoning.
+ * Routing spends 14-57s on the free tier, and the spread is queue latency, not
+ * question difficulty: throughput measured 8-23 tokens/second for the same 300-
+ * 500 token response. 45s catches the bulk of that distribution and abandons
+ * the outliers rather than making someone watch a skeleton for a minute; the
+ * route cache means a question only pays this once.
+ *
+ * Every provider-side lever was measured and none of them helps, so please do
+ * not re-run this experiment:
+ *
+ * - `reasoning: { effort: 'none' }` is accepted and then ignored — 276-889
+ *   reasoning tokens still came back. `openai/gpt-oss-20b:free` rejects it with
+ *   "Reasoning is mandatory for this endpoint and cannot be disabled".
+ * - `reasoning: { max_tokens: n }` is honoured as a ceiling near 512 but ignored
+ *   at 128, and the tighter cap started costing decisions.
+ * - `provider: { sort: 'throughput' }` made it worse, at 8 tokens/second.
+ * - Every free model advertising `structured_outputs` is a reasoning model, and
+ *   the fast one (`gpt-oss-20b`, 4-6s) cannot emit output this schema parses.
+ *
+ * What would actually fix it is a paid model, or not calling the model at all
+ * for questions a deterministic alias match already settles.
  */
-const ROUTER_TIMEOUT = { stepMs: 20_000, totalMs: 45_000 } as const;
+const ROUTER_TIMEOUT = { stepMs: 45_000, totalMs: 90_000 } as const;
 const ANSWER_TIMEOUT = { stepMs: 30_000, totalMs: 50_000 } as const;
 
 export interface GuidanceRequest {
@@ -48,18 +67,20 @@ export async function askGuidance(request: GuidanceRequest): Promise<AskResponse
 
   // Nothing to match against. Skip the model entirely.
   if (slugs.length === 0) {
-    return { kind: 'not-covered' };
+    return { kind: 'not-covered', suggestions: [] };
   }
 
   const decision = await routeQuestion(request, slugs);
+  const suggestions = resolveSuggestions(decision.candidates, request.locale);
 
   // Only one round of clarification is offered. If the model still cannot place
   // the question after the user has already answered once, saying so is kinder
-  // than asking again and leaving them in a loop with no way out.
+  // than asking again and leaving them in a loop with no way out. The near
+  // misses still go out, so the user has somewhere to go either way.
   if (decision.serviceSlug === NEEDS_CLARIFICATION && decision.clarifyingQuestion.trim()) {
     return request.clarification
-      ? { kind: 'not-covered' }
-      : { kind: 'clarify', question: decision.clarifyingQuestion.trim() };
+      ? { kind: 'not-covered', suggestions }
+      : { kind: 'clarify', question: decision.clarifyingQuestion.trim(), options: suggestions };
   }
 
   // Anything that is not a real slug — including a clarification with no
@@ -67,7 +88,7 @@ export async function askGuidance(request: GuidanceRequest): Promise<AskResponse
   // never called, so a miss costs one request instead of two.
   const service = getKnowledgeBase().bySlug.get(decision.serviceSlug);
   if (!service) {
-    return { kind: 'not-covered' };
+    return { kind: 'not-covered', suggestions };
   }
 
   const view = toServiceView(service, request.locale);
@@ -115,10 +136,35 @@ export async function askGuidance(request: GuidanceRequest): Promise<AskResponse
   };
 }
 
+/**
+ * Turns the router's candidate slugs into something linkable.
+ *
+ * Slugs that no longer resolve are dropped rather than treated as an error: a
+ * cached routing result outlives a knowledge base edit that removes a record,
+ * and a missing suggestion is a smaller loss than a broken link.
+ */
+function resolveSuggestions(
+  candidates: readonly string[],
+  locale: Locale,
+): readonly ServiceSuggestion[] {
+  const { bySlug } = getKnowledgeBase();
+  const seen = new Set<string>();
+
+  return candidates.flatMap((slug) => {
+    if (seen.has(slug)) return [];
+    seen.add(slug);
+
+    const service = bySlug.get(slug);
+    if (!service) return [];
+
+    return [{ slug: service.slug, title: service.title[locale], category: service.category }];
+  });
+}
+
 async function routeQuestion(
   request: GuidanceRequest,
   slugs: readonly string[],
-): Promise<{ serviceSlug: string; clarifyingQuestion: string }> {
+): Promise<RouterDecision> {
   const env = getEnv();
   const model = env.OPENROUTER_ROUTER_MODEL;
   const cacheKey = buildCacheKey([
@@ -133,8 +179,9 @@ async function routeQuestion(
   ]);
 
   const cached = await readCachedPayload(cacheKey);
-  if (isRouterPayload(cached)) {
-    return cached;
+  const cachedDecision = toRouterDecision(cached);
+  if (cachedDecision) {
+    return cachedDecision;
   }
 
   const { system, prompt } = buildRouterPrompt({
@@ -144,7 +191,7 @@ async function routeQuestion(
     clarification: request.clarification,
   });
 
-  let decision: { serviceSlug: string; clarifyingQuestion: string };
+  let decision: RouterDecision;
   try {
     const { output } = await generateText({
       model: getRouterModel(),
@@ -222,15 +269,29 @@ async function explainService(input: {
   }
 }
 
-function isRouterPayload(
-  value: unknown,
-): value is { serviceSlug: string; clarifyingQuestion: string } {
-  return (
-    typeof value === 'object' &&
-    value !== null &&
-    typeof (value as Record<string, unknown>).serviceSlug === 'string' &&
-    typeof (value as Record<string, unknown>).clarifyingQuestion === 'string'
-  );
+/**
+ * Reads a cached routing result, or `null` if the payload is not one.
+ *
+ * `candidates` is filled in when absent instead of rejecting the entry, so the
+ * day this field shipped did not throw away a day's worth of cached routes.
+ */
+function toRouterDecision(value: unknown): RouterDecision | null {
+  if (typeof value !== 'object' || value === null) return null;
+  const record = value as Record<string, unknown>;
+
+  if (typeof record.serviceSlug !== 'string' || typeof record.clarifyingQuestion !== 'string') {
+    return null;
+  }
+
+  const candidates = Array.isArray(record.candidates)
+    ? record.candidates.filter((item): item is string => typeof item === 'string')
+    : [];
+
+  return {
+    serviceSlug: record.serviceSlug,
+    clarifyingQuestion: record.clarifyingQuestion,
+    candidates,
+  };
 }
 
 function isExplanationPayload(

@@ -1,7 +1,13 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { NEEDS_CLARIFICATION, NO_MATCH } from '@/lib/ai/schemas';
+import {
+  buildRouterSchema,
+  MAX_CANDIDATES,
+  NEEDS_CLARIFICATION,
+  NO_MATCH,
+} from '@/lib/ai/schemas';
 
 const generateText = vi.hoisted(() => vi.fn());
+const readCachedPayload = vi.hoisted(() => vi.fn());
 
 vi.mock('ai', async (importOriginal) => ({
   ...(await importOriginal<typeof import('ai')>()),
@@ -26,18 +32,18 @@ vi.mock('@/lib/ai/provider', () => ({
 
 // Keeps the suite independent of whether a database happens to be configured.
 vi.mock('@/repositories/ai-cache.repository', () => ({
-  readCachedPayload: vi.fn().mockResolvedValue(null),
+  readCachedPayload,
   writeCachedPayload: vi.fn().mockResolvedValue(true),
 }));
 
 const { askGuidance } = await import('@/services/guidance.service');
 const { AiUnavailableError } = await import('@/lib/ai/errors');
 
-/** The one service in the seeded knowledge base. */
+/** The template record, which is unverified and so exercises suppression. */
 const SLUG = 'example-service-template';
 
-function routerReturns(serviceSlug: string, clarifyingQuestion = '') {
-  generateText.mockResolvedValueOnce({ output: { serviceSlug, clarifyingQuestion } });
+function routerReturns(serviceSlug: string, clarifyingQuestion = '', candidates: string[] = []) {
+  generateText.mockResolvedValueOnce({ output: { serviceSlug, clarifyingQuestion, candidates } });
 }
 
 function explainerReturns(explanation: string, citations: string[]) {
@@ -47,6 +53,7 @@ function explainerReturns(explanation: string, citations: string[]) {
 describe('askGuidance', () => {
   beforeEach(() => {
     generateText.mockReset();
+    readCachedPayload.mockReset().mockResolvedValue(null);
   });
 
   it('returns not-covered without ever calling the answer model', async () => {
@@ -54,7 +61,7 @@ describe('askGuidance', () => {
 
     const result = await askGuidance({ question: 'how do I adopt a dragon', locale: 'en' });
 
-    expect(result).toEqual({ kind: 'not-covered' });
+    expect(result).toEqual({ kind: 'not-covered', suggestions: [] });
     // The single call is the router. Spending a second model call to apologise
     // for not knowing something would be pure waste.
     expect(generateText).toHaveBeenCalledTimes(1);
@@ -68,6 +75,7 @@ describe('askGuidance', () => {
     expect(result).toEqual({
       kind: 'clarify',
       question: 'Do you mean a new licence or a renewal?',
+      options: [],
     });
     expect(generateText).toHaveBeenCalledTimes(1);
   });
@@ -88,7 +96,8 @@ describe('askGuidance', () => {
     // to the first and the user is asked the same thing again.
     const routerArgs = generateText.mock.calls[0]?.[0];
     expect(routerArgs.prompt).toContain('a brand new one');
-    expect(routerArgs.system).toContain('Do not ask another');
+    // The second pass must be told it cannot ask again, or the user loops.
+    expect(routerArgs.system).toContain('already answered one clarifying question');
   });
 
   it('never asks a second clarifying question', async () => {
@@ -102,7 +111,7 @@ describe('askGuidance', () => {
 
     // Asking again would be a loop with no exit, so an unresolved second pass
     // is reported honestly instead.
-    expect(result).toEqual({ kind: 'not-covered' });
+    expect(result).toEqual({ kind: 'not-covered', suggestions: [] });
     expect(generateText).toHaveBeenCalledTimes(1);
   });
 
@@ -111,7 +120,7 @@ describe('askGuidance', () => {
 
     const result = await askGuidance({ question: 'something vague', locale: 'en' });
 
-    expect(result).toEqual({ kind: 'not-covered' });
+    expect(result).toEqual({ kind: 'not-covered', suggestions: [] });
     expect(generateText).toHaveBeenCalledTimes(1);
   });
 
@@ -219,5 +228,132 @@ describe('askGuidance', () => {
     expect(result.service.verified).toBe(false);
     expect(result.service.fees).toBeNull();
     expect(result.service.offices).toBeNull();
+  });
+});
+
+describe('buildRouterSchema candidates', () => {
+  const schema = buildRouterSchema(['new-passport', 'passport-renewal']);
+  const base = { serviceSlug: NO_MATCH, clarifyingQuestion: '' };
+
+  it('accepts real slugs', () => {
+    expect(schema.safeParse({ ...base, candidates: ['new-passport'] }).success).toBe(true);
+  });
+
+  it('accepts an empty list, which is how a plain refusal is expressed', () => {
+    expect(schema.safeParse({ ...base, candidates: [] }).success).toBe(true);
+  });
+
+  it('rejects a slug that is not in the catalog', () => {
+    // The enum is the guard: a model cannot suggest a service that does not exist.
+    expect(schema.safeParse({ ...base, candidates: ['invented-service'] }).success).toBe(false);
+  });
+
+  it('rejects the sentinels', () => {
+    expect(schema.safeParse({ ...base, candidates: [NEEDS_CLARIFICATION] }).success).toBe(false);
+  });
+
+  it('caps the list', () => {
+    const tooMany = Array.from({ length: MAX_CANDIDATES + 1 }, () => 'new-passport');
+    expect(schema.safeParse({ ...base, candidates: tooMany }).success).toBe(false);
+  });
+});
+
+describe('askGuidance near misses', () => {
+  beforeEach(() => {
+    generateText.mockReset();
+    readCachedPayload.mockReset().mockResolvedValue(null);
+  });
+
+  it('offers the nearest records when nothing plainly matches', async () => {
+    routerReturns(NO_MATCH, '', ['fayda-lost-number', 'fayda-update-details']);
+
+    const result = await askGuidance({ question: 'how do I enrol for Fayda', locale: 'en' });
+
+    expect(result.kind).toBe('not-covered');
+    if (result.kind !== 'not-covered') return;
+
+    // A dead end with two obviously related records sitting right there was the
+    // whole reason this exists.
+    expect(result.suggestions.map((s) => s.slug)).toEqual([
+      'fayda-lost-number',
+      'fayda-update-details',
+    ]);
+    expect(result.suggestions[0]?.category).toBe('identity');
+  });
+
+  it('attaches the near misses to a clarifying question as options', async () => {
+    routerReturns(NEEDS_CLARIFICATION, 'Which Fayda problem do you have?', ['fayda-lost-number']);
+
+    const result = await askGuidance({ question: 'fayda id', locale: 'en' });
+
+    expect(result.kind).toBe('clarify');
+    if (result.kind !== 'clarify') return;
+    expect(result.options.map((o) => o.slug)).toEqual(['fayda-lost-number']);
+  });
+
+  it('carries the near misses through an unresolved second pass', async () => {
+    routerReturns(NEEDS_CLARIFICATION, 'Still not sure which one?', ['fayda-update-details']);
+
+    const result = await askGuidance({
+      question: 'fayda',
+      locale: 'en',
+      clarification: { question: 'Lost or wrong details?', answer: 'neither' },
+    });
+
+    expect(result.kind).toBe('not-covered');
+    if (result.kind !== 'not-covered') return;
+    expect(result.suggestions.map((s) => s.slug)).toEqual(['fayda-update-details']);
+  });
+
+  it('titles suggestions in the requested locale', async () => {
+    routerReturns(NO_MATCH, '', ['fayda-lost-number']);
+
+    const result = await askGuidance({ question: 'ፋይዳ', locale: 'am' });
+
+    expect(result.kind).toBe('not-covered');
+    if (result.kind !== 'not-covered') return;
+
+    const title = result.suggestions[0]?.title ?? '';
+    expect(title).not.toBe('');
+    // Amharic is written in Ethiopic; an English title here means the locale was
+    // dropped somewhere between the router and the response.
+    expect(title).toMatch(/[\u1200-\u137F]/);
+  });
+
+  it('drops candidates that no longer resolve', async () => {
+    // A cached route can outlive the record it names. The rest of the list is
+    // still useful, so a stale slug is skipped rather than failing the response.
+    readCachedPayload.mockResolvedValue({
+      serviceSlug: NO_MATCH,
+      clarifyingQuestion: '',
+      candidates: ['fayda-lost-number', 'a-record-we-deleted', 'fayda-lost-number'],
+    });
+
+    const result = await askGuidance({ question: 'fayda', locale: 'en' });
+
+    expect(result.kind).toBe('not-covered');
+    if (result.kind !== 'not-covered') return;
+    expect(result.suggestions.map((s) => s.slug)).toEqual(['fayda-lost-number']);
+    expect(generateText).not.toHaveBeenCalled();
+  });
+
+  it('reuses a cached route written before candidates existed', async () => {
+    readCachedPayload.mockResolvedValue({ serviceSlug: NO_MATCH, clarifyingQuestion: '' });
+
+    const result = await askGuidance({ question: 'how do I adopt a dragon', locale: 'en' });
+
+    // Rejecting these would throw away a day of cached routing for no gain.
+    expect(result).toEqual({ kind: 'not-covered', suggestions: [] });
+    expect(generateText).not.toHaveBeenCalled();
+  });
+
+  it('re-routes when a cached payload is not a routing result at all', async () => {
+    readCachedPayload.mockResolvedValue({ something: 'else' });
+    routerReturns(NO_MATCH);
+
+    const result = await askGuidance({ question: 'anything', locale: 'en' });
+
+    expect(result).toEqual({ kind: 'not-covered', suggestions: [] });
+    expect(generateText).toHaveBeenCalledTimes(1);
   });
 });

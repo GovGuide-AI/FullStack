@@ -23,7 +23,8 @@ Four structural constraints, none of which depend on the model cooperating:
 1. **Routing is a closed set.** The router model's structured output is typed as
    `z.enum([...slugs])` built from the YAML catalog at runtime. It is not possible for
    the model to name a service that does not exist — the schema rejects the response
-   before the application sees it.
+   before the application sees it. The same enum constrains the near misses it
+   suggests, so a suggestion cannot be invented either.
 2. **Facts are never generated.** Documents, fees, offices, and steps are rendered
    straight from the YAML record by React components. The model's prose is displayed
    *beside* those facts, never in place of them.
@@ -48,14 +49,21 @@ flowchart TD
     Route --> Validate[Zod validates question and locale]
     Validate --> Limit[Per-session rate limit]
     Limit --> Router["Router model: enum of real slugs"]
-    Router -->|NO_MATCH| NotCovered[Not covered yet, no answer-model call]
-    Router -->|NEEDS_CLARIFICATION| Clarify[Clarifying question]
+    Router -->|NO_MATCH| NotCovered[Not covered yet, plus any near misses]
+    Router -->|NEEDS_CLARIFICATION| Clarify[Clarifying question, plus near misses as choices]
     Router -->|slug| Load[Load YAML record from cache]
     Load --> Explain["Explainer model sees only that record"]
     Explain --> Check[Validate citations against the record]
     Check -->|ungrounded| Degrade[Show verified fields only]
     Check -->|grounded| Render[Checklist from YAML + cited prose]
 ```
+
+Neither non-answer is a dead end. The router also names the catalog entries closest to
+the question, drawn from the same enum, and those appear as tappable choices under the
+clarifying question or as related links under "not covered". Tapping one opens the record
+directly rather than re-running the router: the user has just resolved the ambiguity
+themselves, so handing their choice back to the model would only reintroduce the guess.
+When nothing in the catalog is near, the list is empty and the refusal stands alone.
 
 Both model calls are cached in Postgres. The cache key includes the question, locale, and
 model id, plus a hash of the catalog for routing and a hash of the record for
@@ -295,9 +303,21 @@ Stated plainly, because pretending otherwise would undercut the point of the pro
 - **The explanation is not streamed.** Streaming would mean showing prose before its
   citations could be validated, which would break the central guarantee. Correctness won
   over perceived latency.
-- **Routing quality is untested at scale.** A question that maps to no slug returns "not
-  covered", which is honest but unhelpful when the service actually exists under wording
-  the router did not recognise.
+- **Routing on the free tier is slow, and no setting fixes it.** A routing call measures
+  14-57s against a 45s budget, so a slow one overruns and the user is told the service is
+  unavailable rather than given a guess. The spread is queue latency rather than question
+  difficulty: throughput measured 8-23 tokens/second for the same 300-500 token response.
+  Every free model advertising structured outputs is a reasoning model, and capping the
+  reasoning or sorting providers by throughput were both measured and made no difference —
+  the comment on `ROUTER_TIMEOUT` records the numbers. A paid router model, or skipping the
+  model entirely for questions a deterministic alias match already settles, are the two
+  things that would actually help.
+- **The router still sometimes stretches a loose match**, more often in Amharic than in
+  English: "I want to close my registered company" reaches the company *registration*
+  record. Near misses now surface as suggestions instead of a bare refusal, which helps
+  when the router is unsure, but not when it is confidently wrong. Fixing that needs a
+  stronger model or embedding retrieval rather than another prompt rule — the wording has
+  been through several rounds already.
 - **No accounts, so no cross-device continuity.** Clearing cookies loses saved checklists.
 
 ## Possible next steps
@@ -311,6 +331,13 @@ Stated plainly, because pretending otherwise would undercut the point of the pro
   beside each fact rather than one banner for the whole page.
 - Embedding-based retrieval alongside the enum router, to catch phrasings the classifier
   misses while keeping the closed-set guarantee.
+- A deterministic fast path in front of the router, matching a question against the titles
+  and `aliases` already in every record and skipping the model when one is an unambiguous
+  hit. This is the only latency fix available without paying for a model: "I lost my
+  passport" would answer instantly instead of waiting 20 seconds for a classifier to reach
+  the conclusion the alias list already contains. The `lib/retrieval/` BM25 code written for
+  the ingest pipeline is reusable here. It has to stay conservative — anything short of an
+  unambiguous match must fall through to the model rather than guess.
 - An admin review workflow for flipping `verified` to true, with the reviewer and date
   recorded in the record.
 - Feedback-driven gap analysis: the `feedback` and `messages` tables already capture what

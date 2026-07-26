@@ -13,7 +13,7 @@ vi.mock('@/repositories/message.repository', () => ({ recordExchange }));
 
 const { POST } = await import('@/app/api/ask/route');
 
-const NOT_COVERED: AskResponse = { kind: 'not-covered' };
+const NOT_COVERED: AskResponse = { kind: 'not-covered', suggestions: [] };
 
 /**
  * Rate limiting is keyed by session, so every test that does not care about it
